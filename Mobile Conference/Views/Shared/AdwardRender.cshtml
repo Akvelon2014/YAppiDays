@@ -1,0 +1,8 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.AwardModel
+
+@Html.AvatarForAdward(Model.PictureModel)
+<h3>@(Model.Title??" ")</h3>
+<span>@(Model.Subtitle??" ")</span>
+<br/>
+<span class="subtitle">@(Model.PostTitle??" ")</span>

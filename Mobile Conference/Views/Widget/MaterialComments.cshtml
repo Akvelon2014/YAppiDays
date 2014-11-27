@@ -1,0 +1,31 @@
+﻿@using MobileConference.GlobalData
+@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.MaterialModel
+<p>
+    @Model.MaterialCountPrettyTitle
+    @Html.ActionLink((!ViewBag.IsShowing)?Model.ShowMaterialMessage:GlobalValuesAndStrings.CloseCommentsTitle, 
+        "MaterialComments","Widget", new{materialId = Model.Id, IsShowing = !ViewBag.IsShowing}, new{@class="showComments"})
+</p>
+@if (ViewBag.IsShowing)
+{
+    <div class="paginationWrapper">
+        @Html.Action("ShowMaterialComments","Widget",new{materialId = Model.Id,page = (int)ViewBag.page})
+    </div>
+    <div class="bottomBorder grid_9"></div>
+    <div class="grid_8">
+        <div class="grid_1">
+            @Html.AvatarForUser(ProfileModel.Current.Id)
+        </div>
+        <div class ="grid_6">
+            @using (Html.BeginForm("AddMaterialComment", "Widget", FormMethod.Post, new{@class = "withAjax"}))
+            {
+                @Html.TextArea("Message", new {rows="6", cols="60"})
+                @Html.Hidden("materialId",(int)ViewBag.materialId)
+                <br/>
+                <input type="submit" value="Комментировать" class="customButton grey mediumSizeButton"/>
+            }
+        </div>
+    </div>    
+}
+

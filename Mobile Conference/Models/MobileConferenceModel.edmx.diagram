@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07b46d273cc6404b9101b38da6dff6b5" Name="Diagram1">
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Award" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.City" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Comment" Width="1.5" PointX="11.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.CommentType" Width="1.5" PointX="9" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Company" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.EventProfile" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.EventType" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.ExpertForEvent" Width="1.5" PointX="8.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.GroupIdea" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Idea" Width="1.5" PointX="10.5" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Material" Width="1.5" PointX="8.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Mentor" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.News" Width="1.5" PointX="5.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Option" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.PictureAssign" Width="1.5" PointX="6" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.PictureAssignType" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.PictureStore" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Platform" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.RealizedPlatform" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Region" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Skill" Width="1.5" PointX="3.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Sponsor" Width="1.5" PointX="5.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.StatusRealizedPlatform" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.StatusStudent" Width="1.5" PointX="10.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.Student" Width="1.5" PointX="8.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.StudentGroup" Width="1.5" PointX="12.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.UserProfile" Width="1.5" PointX="6" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.UserRestoreInfo" Width="1.5" PointX="8.25" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.webpages_Membership" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.webpages_OAuthMembership" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileConferenceDBModel.webpages_Roles" Width="1.5" PointX="3.75" PointY="29.5" IsExpanded="true" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Award_To_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Comments_Sender" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Comments_TypeComments" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Company_Pictures" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Sponsor_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_EventProfile_Parent" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_EventProfile_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_EventProfile_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_ExpertForEvent_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Idea_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_News_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_ExpertForEvent_Expert" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_ExpertForEvent_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Idea_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Idea_Avatar" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Idea_Mentor" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_RealizedPlatform_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_StudentGroup_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Material_Plaform" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Mentor_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_PictureAssign_PictureStore" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_PictureAssign_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_PictureAssign_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_UserProfile_Avatar" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_RealizedPlatform_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_RealizedPlatform_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Sponsor_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_StudentGroup_StudentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_Student_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_StudentGroup_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_UserProfile_WishedRole" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.FK_UserRestoreInfo_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.CitiesInRegion" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.GroupIdeaForEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.MaterialForEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.PlatformForEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.RegionInEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.SkillToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileConferenceDBModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

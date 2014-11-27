@@ -1,0 +1,38 @@
+﻿@using MobileConference.Helper
+@model ICollection<MobileConference.Models.ExternalLogin>
+
+@if (Model.Count > 0)
+{
+    @Html.FloatTitle("Зарегистрированные учетные записи", true)
+    <div class="container_12">
+        <div class="push_1 grid_9">
+            <table>
+                <tbody>
+                    @foreach (MobileConference.Models.ExternalLogin externalLogin in Model)
+                    {
+                        <tr>
+                            <td>@Html.GetSocialIconByProvider(externalLogin.ProviderDisplayName, externalLogin.ProviderUserId)</td>
+                            <td>
+                                @if (ViewBag.ShowRemoveButton)
+                                {
+                                    using (Html.BeginForm("Disassociate", "Account"))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("provider", externalLogin.Provider)
+                                        @Html.Hidden("providerUserId", externalLogin.ProviderUserId)
+                                        <input type="submit" value="Удалить" title="Удалить учетную запись @externalLogin.ProviderDisplayName из моего аккаунта" class="grey customButton smallSizeButton"/>
+                                    }
+                                }
+                                else
+                                {
+                                    @: &nbsp;
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+}

@@ -1,0 +1,25 @@
+﻿@using MobileConference.Helper
+@using PagedList.Mvc
+@model PagedList.IPagedList<MobileConference.Models.IdeasModel>
+
+@if (Model != null && Model.Count>0)
+{
+    Html.ClearGridClass();
+    <div class="container_12 topContainer">    
+        @foreach (var idea in Model)
+        {
+            <div class="@Html.GridClass(3)">
+                @Html.Partial("RenderIdea", idea.GetIdeaWithPlatform())
+            </div>
+        }
+    </div>
+    <div class="container_12 topContainer">    
+        @Html.Pager(Model, page => Url.Action("MentorsIdeas", new {page}))
+    </div>
+}
+else
+{
+    <div class="container_12 topContainer">
+        Проектов нет.
+    </div>
+}

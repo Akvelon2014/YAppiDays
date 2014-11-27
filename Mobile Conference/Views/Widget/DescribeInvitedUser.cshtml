@@ -1,0 +1,84 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+
+<div class="borderBottomBlock">
+    <a href="@Url.Action("UserDescription","Home",new {login = Model.Login})" class="withoutDecoration">
+        @Html.AvatarForUser(Model.Id, true)            
+    </a>
+</div>
+
+<a href="@Url.Action("UserDescription","Home",new {login = Model.Login})" class="withoutDecoration">
+    @if (Model.LastName.IsNullOrEmpty() && Model.FirstName.IsNullOrEmpty())
+    {
+        <h2>
+            @Model.Login
+        </h2>
+        <h3> </h3>
+    }
+    else
+    {
+
+        <h2>
+            @Model.LastName
+        </h2>
+        <h3>
+            @Model.FirstName
+            @if (!string.IsNullOrEmpty(Model.SecondName))
+            {
+                @Model.SecondName
+            }
+        </h3>
+    }
+</a>
+
+@if (ViewBag.status == "member")
+{
+    <p class="right">в проекте</p>
+}
+else
+{
+    if (ViewBag.status == "invited")
+    {
+        <p class="right">приглашенный</p>
+       
+    }
+    else
+    {
+        using (Html.BeginForm("InvitedUser", "Ideas", FormMethod.Post, new { @class = "externalUpdate", id = "invitedUsers" }))
+        {
+            @Html.Hidden("page", (int) ViewBag.page)
+            @Html.Hidden("ideaId", (int) ViewBag.idea)
+            @Html.Hidden("search", (string) ViewBag.search)
+            @Html.Hidden("fromRequest", (bool) ViewBag.fromRequest)
+            @Html.Hidden("userLogin", Model.Login)
+            if (ViewBag.status == "wished")
+            {
+                <input type="submit" value="Добавить" class="customButton grey right smallSizeButton"/>
+            }
+            else
+            {
+                <input type="submit" value="Пригласить" class="customButton grey right smallSizeButton"/>
+            }
+        }
+    }
+    if (ViewBag.status == "invited" || ViewBag.status == "wished")
+    {
+        using (Html.BeginForm("DeclineUserFromWished", "Ideas", FormMethod.Post, new { @class = "externalUpdate", id = "invitedUsers" }))
+        {
+            @Html.Hidden("page", (int) ViewBag.page)
+            @Html.Hidden("ideaId", (int) ViewBag.idea)
+            @Html.Hidden("search", (string) ViewBag.search)
+            @Html.Hidden("fromRequest", (bool) ViewBag.fromRequest)
+            @Html.Hidden("userLogin", Model.Login)
+            if (ViewBag.status == "invited")
+            {
+                <input type="submit" value="Отменить" class="customButton grey smallSizeButton"/>
+            }
+            else
+            {
+                <input type="submit" value="Отклонить" class="customButton grey smallSizeButton"/>
+            }
+        }
+    }
+}

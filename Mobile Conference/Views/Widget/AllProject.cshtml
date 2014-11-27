@@ -1,0 +1,38 @@
+﻿@using MobileConference.Models
+@using MobileConference.Helper
+@model PagedList.IPagedList<Idea>
+
+
+    @{ Html.ClearGridClass(); }
+    <div class="container_12 brickBlocks">
+        @if ((int) ViewBag.emptyProject > 0)
+        {
+             <div class="@Html.GridClass(3) emptyProject" id="blankForNewProject">
+                 @Html.ActionLink("Создать проект", "CreateNew", "Ideas") 
+            </div>
+        }
+        @if (!Model.Any() && (int)ViewBag.emptyProject<1)
+        {
+            <div class="grid_4">
+                <div>Извините, по вашему запросу еще нет проектов</div>
+            </div>
+        }
+        else
+        {
+            foreach (var idea in Model.ToModel())
+            {
+                <div class=" @Html.GridClass(3)">
+                    @Html.Partial("RenderIdea", idea.GetIdeaWithPlatform((int?) ViewBag.platformId))
+                </div>
+            }
+        }
+    </div>
+
+<div class="container_12">
+    <div class="grid_6">
+        @Html.Pager(Model,page=>Url.Action("AllProject",new
+        {
+            page, platformId = (int?)ViewBag.platformId, search = (string)ViewBag.search,  groupIdeaId = (int?)ViewBag.groupIdeaId
+        }))        
+    </div>
+</div>

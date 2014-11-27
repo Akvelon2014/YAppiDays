@@ -1,0 +1,30 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Восстановление пользователя";
+}
+<div class="container_12">
+    @if (Model == "")
+    {
+        <p>
+            @((string)ViewBag.message)
+            Для восстановления укажите адрес электронной почты. Вам придет письмо с ссылкой на восстановление
+        </p>
+        using (@Html.BeginForm("SendRestoreMessage", "Account", FormMethod.Post))
+        {
+            @Html.Label("email", "Ваша электронная почта")
+            <br/>
+            @Html.TextBox("email")
+            <br/>
+            <input type="submit" value="Отправить письмо" class="grey customButton mediumSizeButton"/>
+        }
+    }
+    else
+    {
+        <p>@Model, ваша учетная запись восстановлена!</p>
+        <p>
+            Пожалуйста проверьте вашу почту @ViewBag.email и 
+            @Html.ActionLink("зайдите на сайт","Login","Account")
+        </p>
+    }
+</div>

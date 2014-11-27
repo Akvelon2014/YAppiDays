@@ -1,0 +1,29 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model CommentModel
+@{
+    ViewBag.Title = "Чат";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/PictureDialog")
+    @Scripts.Render("~/bundles/Chat")
+    <script type="text/javascript" src="../../Scripts/modernIE_likeOld.js"></script>
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_7 prefix_1 titleName">
+            <span>Чат</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @Html.ActionLink("вернуться", "MainPage", "Ideas", new { ideaId = (int)ViewBag.ideaId }, null)
+        </div>
+    </div>
+</div>
+<div class="ajaxHere">
+    @Html.Action("ChatMessageSender", "Widget", new { ideaId = (int)ViewBag.ideaId, page = (int)ViewBag.page })
+</div>
+
+<div class="empty_100"></div>
+ 

@@ -1,0 +1,28 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Выбор компании";
+}
+
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_3 alpha titleName">
+            <span>Выбор компании</span>
+        </div>
+        <div class="grid_8">
+            @using (@Html.BeginForm("SelectCompanyPartial", "Widget", FormMethod.Post,
+                new { @class = "externalUpdate", id = "companiesblock" }))
+            {
+                @Html.TextBox("search","",new {@class="submitWithDelay"})
+            }
+        </div>
+        <div class="grid_1">
+            @Html.ActionLink("вернуться","ChangeProfile","Admin", new{login=(string)ViewBag.login}, null)
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer brickBlocks paginationWrapper companiesblock">
+    @Html.Action("SelectCompanyPartial","Widget", new{page = (int)ViewBag.page, search = (string)ViewBag.search
+    , login = (string)ViewBag.login})
+</div>
+<div class="empty_100"></div>

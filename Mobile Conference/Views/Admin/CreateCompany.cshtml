@@ -1,0 +1,41 @@
+﻿@model MobileConference.Models.CompanyModel
+@{
+    ViewBag.Title = "Создание компании";
+}
+
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_6  titleName">
+            <span>Создание компании</span>
+        </div>
+        <div class="grid_5">
+            @Html.ActionLink("к списку компаний","ManageCompany","Admin", null,new{@class="right"})
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer">
+    <div class="grid_4 push_4">
+        @using (Html.BeginForm("CreateCompany", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Name)</td>
+                    <td>@Html.TextBoxFor(m => m.Name)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Site)</td>
+                    <td>@Html.TextBoxFor(m => m.Site)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Rank)</td>
+                    <td>@Html.TextBoxFor(m => m.Rank)</td>
+                </tr>
+            </table>
+            <input type="submit" value="Сохранить" class="customButton orange mediumSizeButton"/>
+        }
+    
+    </div>
+</div>

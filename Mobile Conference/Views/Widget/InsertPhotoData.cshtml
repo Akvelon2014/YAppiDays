@@ -1,0 +1,5 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.PictureNameModel
+
+@Html.DrawPicture(Model,true,"photo")
+@Html.Hidden("store",(string)ViewBag.image)

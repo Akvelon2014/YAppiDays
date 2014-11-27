@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f856185-399a-468d-bae8-b29ad6025e36" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50040/Services/YAppiAdminService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="YAppiAdminService.wsdl" MetadataType="Wsdl" ID="051df995-47e1-454f-a3ff-051646cd951d" SourceId="1" SourceUrl="http://localhost:50040/Services/YAppiAdminService.svc?wsdl" />
+    <MetadataFile FileName="YAppiAdminService.disco" MetadataType="Disco" ID="f695d6d9-3753-4ebd-9f7d-0e954b920ea7" SourceId="1" SourceUrl="http://localhost:50040/Services/YAppiAdminService.svc?disco" />
+    <MetadataFile FileName="YAppiAdminService.xsd" MetadataType="Schema" ID="826bfd1d-353e-47b0-9325-2786c1325988" SourceId="1" SourceUrl="http://localhost:50040/Services/YAppiAdminService.svc?xsd=xsd1" />
+    <MetadataFile FileName="YAppiAdminService1.xsd" MetadataType="Schema" ID="e710412e-aba0-496a-853c-1cbba2fc1e43" SourceId="1" SourceUrl="http://localhost:50040/Services/YAppiAdminService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,22 @@
+﻿@model MobileConference.Models.ProfileModel
+
+@{
+    ViewBag.Title = "Редактирование навыков";
+}
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_6  titleName">
+            <span>Навыки</span>
+        </div>
+        <div class="grid_5">
+            @Html.ActionLink("к профилю","ChangeProfile","Account", null,new{@class="right"})
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer ajaxHere skillChange">
+    @Html.Action("ChangeSkillsPartial")   
+</div>
+
+<div class="empty_100"></div>
+

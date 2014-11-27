@@ -1,0 +1,230 @@
+﻿.dialogUser {
+    height: 80%;
+    width: 80%;
+    margin: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.dialogUser p {
+    margin: 0;
+    padding: 0;
+}
+
+.dialogUser .content {
+    border: 1px solid #111;
+    background: #eee;
+    padding: 20px;
+}
+
+.closeDialogLink:hover {
+    cursor: pointer;
+}
+
+.user {
+    border: 1px solid #111;
+    padding: 10px;
+    margin: 3px;
+}
+
+
+.blockWithLabel{
+    position: relative;
+    height: 130px;
+}
+
+.blockWithLabel .blockLink {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+}
+
+.blockWithLabel .blockLabel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    margin: auto;
+    height: 20px;
+    background: #CCC;
+    color: #FFF;
+    display: inline-block;
+    text-align: center;
+}
+
+.blockWithLabel:hover .blockLink {
+    visibility: visible;
+}
+
+/*
+    Work with create and change materials    
+*/
+
+#createMaterial textarea{
+    width: 370px;
+    height: 350px;
+    max-width:  370px;
+    max-height: 400px;
+}
+
+#materialPreview {
+    border: solid 1px #999;
+    padding: 5px;
+    margin-top: 25px;
+}
+
+.linkWrapper{
+    position: relative;
+}
+
+#createMaterial #addLink {
+    top: 0;
+    left: 337px;
+    width: 130px;
+    padding: 5px 10px;
+    display: inline-block;
+    position: absolute;
+}
+
+#closeAddLink {
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#linkDialog p {
+    margin: 5px;
+    padding: 0;
+}
+
+#linkDialog #linkText, #linkDialog #linkCaption {
+    margin: 10px 10px;
+}
+
+#linkDialog .customCheckbox {
+    margin-left: 10px;    
+}
+
+#linkDialog #addLinkButton {
+    margin-top: 10px;    
+}
+
+#closeAddLink span {
+    float: right;
+}
+
+#closeAddLink span:hover {
+    cursor: pointer;
+}
+
+.userInternal {
+    position: relative;
+}
+
+.userInternal:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "internal";
+    color: #FFF;
+    background: #cccccc;
+    border: 1px solid #999;
+    padding: 2px 5px;
+}
+
+/*
+    News
+*/
+
+.newsMainBlock {
+    border-bottom: 1px solid #CCC;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.newsDate {
+    font-size: 12px;
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 10px;
+}
+
+.newsRoles p{
+    margin: 0;
+    padding: 0;
+    color: #999;
+}
+
+.newsTitle a {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    text-decoration: none;
+}
+
+.newsTitle h3 {
+    text-decoration: underline;
+    display: inline-block;
+    position: relative;
+}
+
+.newsTitle h3:hover {
+    text-decoration: none;
+}
+
+h3.deletedNews:after {
+    content: "удалена";
+    position: absolute;
+    right: -60px;
+    top: -10px;
+    color: #999;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+/* 
+    link to today
+*/
+
+div.linkToToday {
+    width: 0;
+    height: 0;
+    position: relative;
+    display: inline-block;
+}
+
+div.linkToToday:hover {
+    cursor: pointer;
+}
+
+div.linkToToday:hover + label:after {
+    display: inline-block;
+}
+
+input:hover + div.linkToToday:after, div.linkToToday:hover:after {
+    display: inline-block;
+}
+
+div.linkToToday:after {
+    content: "c";
+    position: absolute;
+    left: -45px;
+    top: -17px;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    display: none;
+    text-align: center;
+    line-height: 18px;
+    color: #CCC;
+    font-size: 20px;
+    z-index: 10;
+}
+
+div.linkToToday:hover:after {
+    color: #999;
+}

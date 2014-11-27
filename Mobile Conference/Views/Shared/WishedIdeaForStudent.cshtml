@@ -1,0 +1,18 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model int
+@{
+    ViewBag.Title = "Заявка на вступление в проект";
+}
+@Html.FloatTitle("Заявка в проект")
+<div class="container_12">
+    <p>Вы подали заявку на вступление в проект</p>
+    <div class="grid_3 hoverForShowHideLink placeholderForShowHideLink">
+        @Html.Partial("RenderIdea", IdeasModel.GetById(Model).GetIdeaWithPlatform())
+        <div class="right showHideLink">
+            @Html.ActionLink("Отменить", "UnjoinIdea", "Ideas", new {ideaId = IdeasModel.GetById(Model).Id}, new {@class="customButton grey"})                    
+        </div>
+    </div>
+</div>
+<div class="empty_100"></div>
+

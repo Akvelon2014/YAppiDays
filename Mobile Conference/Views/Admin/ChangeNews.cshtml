@@ -1,0 +1,84 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.NewsProxy
+@{
+    ViewBag.Title = "Изменение новости";
+}
+@if (Model == null)
+{
+    <div class="fullBlock">
+        <div class="container_12 titleFloat">
+            <div class="grid_10 alpha  titleName">
+                <span>Неизвестная новость</span>
+            </div>
+            <div class="grid_2 omega">
+                @Html.ActionLink("к списку новостей", "ManageNews", "Admin", null, new {@class = "right"})
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="fullBlock">
+        <div class="container_12 titleFloat">
+            <div class="grid_10 alpha  titleName">
+                @Html.TruncatedTitle("span", Model.Title, 60)
+            </div>
+            <div class="grid_2 omega">
+                @Html.ActionLink("к списку новостей", "ManageNews", "Admin", null, new {@class = "right"})
+            </div>
+        </div>
+    </div>
+    <div class="container_12">
+        @using (Html.BeginForm("ChangeNews", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.Hidden("newsId", (int)ViewBag.newsId)
+            <div class="grid_12 alpha omega">
+                <div class="grid_8 alpha">
+                    <table>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                            <td>@Html.TextBoxFor(m => m.Title)</td>
+                        </tr>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.DateFrom)</td>
+                            <td>@Html.TextBoxFor(m => m.DateFrom, new {@class = "dateTime", autocomplete="off"})</td>
+                        </tr>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.DateTo)</td>
+                            <td>@Html.TextBoxFor(m => m.DateTo, new {@class = "dateTime", autocomplete="off"})</td>
+                        </tr>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.Message)</td>
+                            <td>@Html.TextAreaFor(m => m.Message, new {rows = "8", cols = "60"})</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="grid_4 omega">
+                    <p>Для кого новость:</p>
+                    @Html.CheckBoxFor(m => m.IncludeAdmin)
+                    @Html.LabelFor(m => m.IncludeAdmin)
+                    <br/>   
+                    @Html.CheckBoxFor(m => m.IncludeExpert)
+                    @Html.LabelFor(m => m.IncludeExpert)
+                    <br/>  
+                    @Html.CheckBoxFor(m => m.IncludeMentor)
+                    @Html.LabelFor(m => m.IncludeMentor)
+                    <br/>  
+                    @Html.CheckBoxFor(m => m.IncludeStudent)
+                    @Html.LabelFor(m => m.IncludeStudent)
+                    <br/>
+                    @Html.CheckBoxFor(m => m.IncludeSponsor)
+                    @Html.LabelFor(m => m.IncludeSponsor)
+                    <br/>
+                    @Html.CheckBoxFor(m => m.IncludeInfoPartner)
+                    @Html.LabelFor(m => m.IncludeInfoPartner)
+                    <br/> 
+                </div>
+            </div>
+            <input type="submit" value="Сохранить" class="customButton orange mediumSizeButton"/>
+        }
+    </div>
+}
+<div class="empty_100"></div>

@@ -1,0 +1,31 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<UserProfile>
+
+@if (Model != null && Model.Count > 0)
+{
+    Html.ClearGridClass();
+    foreach (UserProfile user in Model)
+    {
+        <div class="@Html.GridClass(3) borderBlock">
+            @Html.Action("DescribeInvitedUser", "Widget", new
+       {
+           idea = (IdeasModel)ViewBag.idea,
+           user = user.ToModel(),
+           ViewBag.page,
+           ViewBag.search
+
+       })
+        </div>
+    }
+    <div class="grid_6 suffix_6">
+        @Html.Pager(Model, page => Url.Action("UsersForInviting", new
+   {
+       page,
+       search = (string)ViewBag.search,
+       ideaId = ((IdeasModel)ViewBag.idea).Id
+   }))
+    </div>
+}

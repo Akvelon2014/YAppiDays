@@ -1,0 +1,17 @@
+﻿@using MobileConference.GlobalData
+@if (ViewBag.childrenCount > 0)
+{
+    <p>
+        @Html.ActionLink((!ViewBag.isShowing) ? "расписание (" + ((int)ViewBag.childrenCount)+")" : GlobalValuesAndStrings.CloseCommentsTitle,
+            "ShowEventForStagePartial", "Widget", new
+            {
+                stageId = (int) ViewBag.stageId, isShowing = !ViewBag.isShowing, childrenCount = (int) ViewBag.childrenCount
+            }, new {@class = "showComments"})
+    </p>
+    if (ViewBag.isShowing)
+    {
+        <div class="paginationWrapper">
+            @Html.Action("EventForStagePartial", "Widget", new {stageId = (int) ViewBag.stageId, page = (int) ViewBag.page})
+        </div>
+    }
+}

@@ -1,0 +1,55 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MaterialModel
+@{
+    ViewBag.Title = "Просмотр материала";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/CommentsShow")
+}
+
+@if (Model == null || Model.DescriptionId==null)
+{
+    @Html.FloatTitle("Материал не найден")
+    <div class="container_12">
+        <p>Возможно материал был перемещен или удален</p>
+    </div>
+}
+else
+{
+    <div class="fullBlock titleFloat">
+        <div class="container_12">
+            <div class="grid_12 titleName">
+                @if (Model.Title.Length > 55)
+                {
+                    <span title="@Model.Title">
+                        @Html.Truncate(Model.Title, 55)
+                    </span>
+                }
+                else
+                {
+                    <span>@Model.Title</span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container_12 topContainer">
+        <div class="grid_12 bottomBorder">
+            <div class="grid_3 ideaImage alpha">
+                @Html.AvatarForMaterial(Model.Id)            
+            </div>
+            <div class=" grid_9 omega">
+                <pre class="eventDesc">
+                    @Html.Raw(Model.GetDescription())
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="container_12">
+        <div class=" grid_11 push_1 commentWrapper ajaxHere">
+            @Html.Action("MaterialComments", "Widget", new {materialId = Model.Id})
+        </div>
+    </div>
+}
+<div class="empty_100"></div>

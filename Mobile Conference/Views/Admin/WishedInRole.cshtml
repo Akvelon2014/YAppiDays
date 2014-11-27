@@ -1,0 +1,16 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<UserProfile>
+
+@{
+    ViewBag.Title = "Желающие стать - " + ((RoleName)ViewBag.Role).GetInRussian();
+    Html.ClearGridClass();
+}
+@Html.FloatTitle("Желающие стать - " + ((RoleName)ViewBag.Role).GetInRussian())
+
+<div class="container_12 topContainer brickBlocks paginationWrapper" id="usersblock">
+    @Html.Action("WishedInRolePartial", new{page = (int)ViewBag.page, role = (RoleName)ViewBag.Role})
+</div>
+<div class="empty_100"></div>

@@ -1,0 +1,27 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+
+@Html.UnregisterUserRenderTips(
+    new Tip("Добро пожаловать на сайт YAppiDays<BR>Следите за последними новостями <a href='http://vk.com/yappiDays' target='_blanket'>в группе</a>","logo-header")
+        {Type = TipType.Top, Width = 300, OffsetX = -42, TriangleOffset = 144},
+    new Tip("Прими участие и выиграй один из призов","awards")
+        {Type = TipType.Top, Width = 300, OffsetX = 330, OffsetY = -60, TriangleOffset = 144},
+    new Tip("Для этого лишь нужно зарегистрироваться и создать свой проект","welcome-box")
+        {Type = TipType.Right, Width = 180, OffsetX = -80, TriangleOffset = 10})
+
+@Html.RenderTips(StudentTips.Intro,
+    new Tip("Вы успешно вошли на сайт!<BR>(щелкая по подсказкам, вы закрываете их и можете увидеть другие)"
+        ,"logo-header"){Type = TipType.Top, Width = 300, OffsetX = -42, TriangleOffset = 144},
+    new Tip("Нажмите здесь и выберете 'Мой проект'. Вы сможете перейти к проекту, " +
+            "присоединиться к существующему или создать новый","welcome-box")
+        {Type = TipType.Right, Width = 180, OffsetX = -80, TriangleOffset = 10}
+)
+
+@Html.RenderTips(AdminTips.Intro,
+    new Tip("Вы вошли как администратор!<BR>(щелкая по подсказкам, вы можете посмотреть краткий экскурс по администрированию)"
+        ,"logo-header"){Type = TipType.Top, Width = 300, OffsetX = -42, TriangleOffset = 144},
+    new Tip("Щелкните здесь и выберите меню 'Администрирование'. В меню выберете пункт События","welcome-box")
+        {Type = TipType.Right, Width = 180, OffsetX = -80, TriangleOffset = 10})
+
+@Html.RenderNews()

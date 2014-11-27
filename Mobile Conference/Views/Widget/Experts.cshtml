@@ -1,0 +1,46 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@model PagedList.IPagedList<UserProfile>
+<div class="container_12 brickBlocks" id="usersblock">
+    @if (Model != null && Model.Any())
+    {
+        Html.ClearGridClass();
+        foreach (var user in Model.ToModel())
+        {
+            <div class="@Html.GridClass(3) borderBlock">
+                <div class="borderBottomBlock">
+                    <a href="@Url.Action("UserDescription", "Home", new {login = user.Login})" class="withoutDecoration">
+                        @Html.AvatarForUser(user.Id, true)            
+                    </a>
+                </div>
+                <a href="@Url.Action("UserDescription", "Home", new {login = user.Login})">
+                    <h2>
+                        @user.LastName
+                    </h2>
+                    <h3>
+                        @user.FirstName
+                        @if (!string.IsNullOrEmpty(user.SecondName))
+                        {
+                            <span>@user.SecondName</span>
+                        }
+                    </h3>
+                </a>
+                @if (user.Role == RoleName.Expert && user.PlatformForExpertId != null)
+                {
+                    <p class="platform">@PlatformModel.ForPlatform((int) user.PlatformForExpertId).Title</p>
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <p>Экспертов пока нет.</p>
+    }
+</div>
+<div class="container_12">
+    <div class="grid_6">
+        @Html.Pager(Model, page => Url.Action("Experts", new { page }))        
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<News>
+@{
+    ViewBag.Title = "Новости";
+}
+
+<section>
+    @if (!Model.Any())
+    {
+        <p>Новостей по вашему запросу пока нет</p>
+    }
+
+    else
+    {
+        <h2>Новости</h2>
+        foreach (var news in Model.ToModel())
+        {
+            <div>
+                <p class="right">@news.CreatedDate</p>                
+                <h5>
+                    @Html.ActionLink(news.Title, "DescibeItemNews", "Home", new { id = news.Id }, null)
+                </h5>
+            </div>
+            <br/>
+        }
+         @Html.PagedListPager(Model, page => Url.Action("ManageNews", "Admin", new
+    {
+        page,
+        withDeleted = (bool)ViewBag.withDeleted,
+        dateFrom = (DateTime)ViewBag.dateFrom,
+        dateTo = (DateTime)ViewBag.datTo
+    }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+    }
+</section>

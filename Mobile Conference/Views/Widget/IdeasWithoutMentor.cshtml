@@ -1,0 +1,27 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Idea>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="container_12">
+        <p>В данный момент все проекты нашли своего ментора</p>
+    </div>
+}
+else
+{
+    Html.ClearGridClass();
+    <div class="container_12 brickBlocks topContainer">
+        @foreach (var idea in Model.ToModel())
+        {
+            <div class=" @Html.GridClass(3)">
+                @Html.Partial("RenderIdeaForMentor", idea.GetIdeaWithPlatform((int?)ViewBag.platformId))
+            </div>
+        }
+    </div>
+    <div class="container_12">
+        @Html.Pager(Model, page => Url.Action("IdeasWithoutMentor", new { page }))
+    </div>
+}

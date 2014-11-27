@@ -1,0 +1,124 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model EventModel
+
+@{
+    ViewBag.Title = "Редактирование события: "+Model.Title;
+}
+@if (Model.ParentId == null)
+{
+    @Html.Partial("TipsForGlobalEventProfile")    
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_8 alpha titleName">
+            <span>Профиль</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @Html.ActionLink("вернуться","EventPage","Admin",new {eventId=Model.Id},null)
+        </div>
+    </div>
+</div>
+
+<div class="ajaxHere">
+    @Html.Action("ChangeEventAvatar", new {eventId = Model.Id})
+</div>
+
+<div class="container_12 topContainer">
+    @using (Html.BeginForm("ChangeEvent", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        @Html.Hidden("Id", Model.Id)
+        <div id="generalEventData"></div>
+        @Html.FloatTitle("Общие сведения",true, true)
+        <div class="grid_7 ">
+            <table>
+                <tr>
+                    <td>Уровень:</td>
+                    <td>@Html.GetTitleNameOfEventLevel(Model.Level)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                    @if (Model.ParentId == null)
+                    {
+                        <td>
+                            @Html.TextBoxFor(m => m.Title, new{maxlength="50"})
+                            <div data-note="Название будет на главной странице"></div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>@Html.TextBoxFor(m => m.Title)</td>
+                    } 
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.EventType)</td>
+                    <td>@Html.TypeEventList(Model == null ? null : Model.EventType,htmlAttribute: new{ @class="grey"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.DateFrom)</td>
+                    <td>@Html.TextBoxFor(m => m.DateFrom, new {@class = "calendar", autocomplete = "off"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.DateTo)</td>
+                    <td>@Html.TextBoxFor(m => m.DateTo, new {@class = "calendar", autocomplete = "off"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Description)</td>
+                    @if (Model.ParentId == null)
+                    {
+                        <td>
+                            @Html.TextAreaFor(m => m.Description, new {rows = "6", cols = "40"})
+                            <div data-note="Описание будет на главной странице"></div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>@Html.TextAreaFor(m => m.Description, new {rows = "6", cols = "40", maxlength="400"})</td>                        
+                    }
+                </tr>
+            </table>
+            <input type="submit" value="Сохранить" id="saveButton" class="orange customButton mediumSizeButton"/>
+        </div>
+        if ((int?) ViewBag.parentId != null)
+         {
+             <div class="grid_4 push_1 omega">
+                 <h2>Родительское событие</h2>
+                 <div class="projectWraper">
+                     @Html.AvatarForEvent((int) ViewBag.parentId)
+                     <p>@(((EventModel) ViewBag.parent).DateFrom) - @(((EventModel) ViewBag.parent).DateTo)</p>
+                     <p>
+                         Уровень: @(Html.GetTitleNameOfEventLevel(((EventModel) ViewBag.parent).Level))
+             
+                     </p>
+                 </div>
+                 <div class="topContainer brickBlocks">
+                     @Html.ActionLink("Перейти", "EventPage", "Admin", new {eventId = (int) ViewBag.parentId},
+                         new {@class = "mediumSizeButton customButton grey"})    
+                 </div>
+             </div>
+         }
+    }
+</div>
+
+@if (Model.ParentId == null)
+{
+    <div class="container_12">
+        <div class="ajaxHere topContainer grid_4 alpha" id ="regionsBlock">
+            @Html.Action("RegionInEventPartial", new {eventId = Model.Id})
+        </div>
+
+        <div class="ajaxHere topContainer grid_4" id ="platformsBlock">
+            <div id="platformBlockTop"></div>
+            @Html.Action("PlatformInEventPartial", new {eventId = Model.Id})
+        </div>
+
+        <div class="ajaxHere topContainer grid_4 omega" id ="ideaGroupBlock">
+            @Html.Action("IdeaGroupInEventPartial", new {eventId = Model.Id})
+        </div>
+    </div>
+}
+<div class="empty_100"></div>
+

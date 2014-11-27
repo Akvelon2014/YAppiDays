@@ -1,0 +1,81 @@
+﻿@using MobileConference.Enums
+@using MobileConference.GlobalData
+@using MobileConference.Helper
+@using MobileConference.Models
+@model MaterialModel
+
+@{
+    ViewBag.Title = "Профиль материалов";
+}
+@section scripts
+{
+    @Styles.Render("~/Content/Admin")
+    @Scripts.Render("~/bundles/AdminScript")
+}
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_6  titleName">
+            <span>Профиль материала</span>
+        </div>
+        <div class="grid_5">
+            @Html.ActionLink("к списку материалов","ManageMaterial","Admin", null,new{@class="right"})
+        </div>
+    </div>
+</div>
+
+<div class="ajaxHere">
+    @Html.Action("ChangeMaterialAvatar", new{materialId = Model.Id})
+</div>
+
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.FloatTitle("Общие сведения",true, true)
+     <div class="container_12 topContainer"  id="createMaterial">
+         <div class="grid_6 alpha">
+             @Html.Hidden("Id", Model.Id)             
+             <table>
+                 <tr>
+                     <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                     <td>@Html.TextBoxFor(m => m.Title)</td>
+                 </tr>
+                 <tr>
+                     <td class="requiredField">@Html.LabelFor(m => m.PlatformId)</td>
+                     <td>@Html.PlatformList(name: "PlatformId", platform: Model.PlatformId, htmlAttribute: new {@class="grey"})</td>
+                 </tr>
+                 @if (Model.Link == GlobalValuesAndStrings.ExternalMaterialLink)
+                 {
+                     <tr>
+                         <td class="requiredField">@Html.Label("Текст")</td>
+                         <td>
+                             @Html.TextAreaFor(m=>m.Text, new {@class="materialArea"})
+                             @Html.Hidden("Link","external")
+                         </td>
+                     </tr>
+                 }
+                 else
+                 {
+                     <tr>
+                         <td class="requiredField">@Html.LabelFor(m => m.Link)</td>
+                         <td>@Html.TextBoxFor(m => m.Link)</td>
+                     </tr>
+                 }
+             </table>
+              
+             <div class="topContainer linkWrapper">
+                 <input type="submit" value="Сохранить" class="orange customButton mediumSizeButton"/>
+                 @if (Model.Link == GlobalValuesAndStrings.ExternalMaterialLink)
+                 {
+                     <a id="addLink" class="grey customButton">добавить ссылку</a>
+                 }
+             </div>
+         </div>
+         <div class="grid_6 omega">
+             <p>Предпросмотр</p>
+             <pre class="eventDesc" id="materialPreview"></pre>
+         </div>
+     </div>
+ }
+<div class="empty_100"></div>

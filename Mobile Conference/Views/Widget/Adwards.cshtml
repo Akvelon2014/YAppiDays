@@ -1,0 +1,48 @@
+﻿@using MobileConference.Helper
+@model List<MobileConference.Models.AwardModel>
+
+@if (Model.Count == 1)
+{
+    <div class="grid_4 prefix_4 alpha">
+        @Html.Partial("AdwardRender",Model[0])
+    </div>
+}
+
+@if (Model.Count == 2)
+{
+    <div class="grid_3 prefix_3 alpha">
+        @Html.Partial("AdwardRender",Model[0])
+    </div>
+    <div class="grid_3 suffix_2 omega">
+        @Html.Partial("AdwardRender",Model[1])
+    </div>
+}
+
+@if (Model.Count == 3)
+{
+    <div class="grid_4 alpha">
+        @Html.Partial("AdwardRender",Model[0])
+    </div>
+    <div class="grid_4">
+        @Html.Partial("AdwardRender",Model[1])
+    </div>
+    <div class="grid_4 omega">
+        @Html.Partial("AdwardRender",Model[2])
+    </div>
+}
+
+@if (Model.Count >= 4)
+{
+    <div class="grid_3 alpha">
+        @Html.Partial("AdwardRender",Model[0])
+    </div>
+    <div class="grid_3">
+        @Html.Partial("AdwardRender",Model[1])
+    </div>
+    <div class="grid_3">
+        @Html.Partial("AdwardRender",Model[2])
+    </div>
+    <div class="grid_3 omega">
+        @Html.Partial("AdwardRender",Model[3])
+    </div>
+}

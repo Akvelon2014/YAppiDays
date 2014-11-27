@@ -1,0 +1,61 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.RegisterExternalLoginModel
+@{
+    ViewBag.Title = "Регистрация через "+(string)ViewBag.ProviderDisplayName;
+}
+@Html.FloatTitle("Регистрация через "+(string)ViewBag.ProviderDisplayName)
+<div class ="container_12">
+    <div class="grid_6 alpha">
+        @using (Html.BeginForm("ConfirmExternalLogin", "Account", new {ViewBag.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+           
+            if (Model.PictureLink!=null)
+            {
+                <h3>
+                    @Html.ImageLabel("Пожалуйста выделите область для сохранения", "pictureLink")  
+                </h3>
+                @Html.SimpleImageSize("pictureLink",true,(ImageSizeParams)ViewBag.size)
+                @Html.ImageLoader("userLoader", "pictureLink", Model.PictureLink, StandardRatioType.UserRatio, justResizer:true)
+            }
+            <p>
+                Вы успешно вошли через <strong>@ViewBag.ProviderDisplayName</strong>.
+                Введите логин, который будет использоваться на YAppiDays и заполните некоторые данные о себе
+            </p>
+            
+            @Html.ValidationSummary()            
+            <table>
+                <tr class="requiredField">
+                    <td><label>Логин</label></td>
+                    <td>@Html.TextBox("login","")</td>
+                </tr>
+                <tr class="requiredField">
+                    <td><label>Электронная почта</label></td>
+                    <td>@Html.TextBox("email","")</td>
+                </tr>
+                <tr class="requiredField">
+                    <td><label>Имя</label></td>
+                    <td>@Html.TextBoxFor(t=>t.FirstName)</td>
+                </tr>
+                <tr class="requiredField">
+                    <td><label>Фамилия</label></td>
+                    <td>@Html.TextBoxFor(t=>t.LastName)</td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.ExternalLoginData)
+            <input type="submit" value="Войти" class="customButton orange mediumSizeButton"/>
+        }
+    </div>
+    <div class="grid_4 prefix_2 omega">
+        <h3>
+            @Html.ImageLabel("Вы можете посмотреть, как будет выглядеть ваша фотография на сайте", "pictureLink")                
+        </h3>
+        @Html.ImagePreview("preview", "pictureLink", StandardRatioType.UserRatio)
+    </div>
+</div>
+<div class="empty_100"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

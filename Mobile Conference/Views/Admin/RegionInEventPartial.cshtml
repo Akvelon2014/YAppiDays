@@ -1,0 +1,52 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.EventModel
+
+<div class="fullBlock titleFloat">
+    <div class="grid_4 titleName">
+        <span class="subTitle">Регионы</span>
+    </div>
+</div>
+<div class="topContainer updatingDropDown">
+    <div class="bottomBorder">
+       @if (Model.Regions.Count() < (int)ViewBag.regionCount)
+        {
+            using (Html.BeginForm("ManageRegionForEvent", "Admin", FormMethod.Get, new {data_update = "regionsBlock"}))
+            {
+                @Html.RegionList(forEvent: Model.Id, exceptEvent: true, name: "regionId", htmlAttribute: new {@class = "grey"})
+                @Html.Hidden("eventId", Model.Id)
+            }
+        }
+        else
+        {
+            <p style="margin: 0;padding:3px 3px 2px 3px;">Все регионы добавлены</p>
+        }
+    </div>
+    @if (Model!=null && Model.Regions.Any())
+    {
+        <table>
+            @foreach (int region in Model.Regions)
+            {
+                <tr>
+                    <td>@EventModel.GetTitleForRegion(region)</td>  
+                    <td>                 
+                        @using (Html.BeginForm("ManageRegionForEvent", "Admin", FormMethod.Get, new {@class = "withAjax"}))
+                        {
+                            @Html.Hidden("eventId", Model.Id)
+                            @Html.Hidden("regionId", region)
+                            @Html.Hidden("delete", true)
+                            <input type="submit" value="Удалить" class="grey customButton smallSizeButton"/>
+                        }
+                    </td> 
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div>
+            <span>Регионов не добавлено.</span>
+        </div>
+    }
+</div>
+

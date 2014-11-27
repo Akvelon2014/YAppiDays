@@ -1,0 +1,39 @@
+﻿@model MobileConference.Models.ProfileModel
+ 
+<div class="grid_6 ">
+    @if (Model != null && Model.SkillNames.Any())
+    {
+        <table>
+            @foreach (var skill in Model.SkillNames)
+            {
+                <tr>
+                    <td>@skill</td>
+                    <td>
+                        @using (Html.BeginForm("RemoveSkill", "Account", FormMethod.Post, new {@class = "withAjax"}))
+                        {
+                            @Html.Hidden("skillName", skill)
+                            <input type="submit" value="Удалить" class="customButton grey smallSizeButton"/>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p></p>
+    }
+</div>
+
+@using (Html.BeginForm("AddSkill", "Account", FormMethod.Post, new {@class = "externalUpdate", id = "skillChange"}))
+{
+    <div class="grid_4 prefix_1">
+        @Html.ValidationSummary()
+        @Html.TextBox("skillName", "", new
+        {
+            @class = "autocomplete", autocomplete = "off",
+            tag = @Url.Action("GetSkills", "Widget")
+        })
+        <input type="submit" value="Добавить" class="customButton orange mediumSizeButton"/>
+    </div>
+}

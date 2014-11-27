@@ -1,0 +1,23 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@{
+    ViewBag.Title = "События";
+}
+
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_2 alpha titleName">
+            <span>События</span>
+        </div>
+        <div class="grid_10 omega">
+            @using (@Html.BeginForm("RecentEvents", "Widget", FormMethod.Post, new { data_update = "events" }))
+            {
+                @Html.EventCategoriesList()
+            }
+        </div>
+    </div>
+</div>
+<div class="paginationWrapper" id="events">
+    @Html.Action("RecentEvents","Widget",new {categoriesEvent = EventListType.Next, page = (int)ViewBag.page})
+</div>
+<div class="empty_100"></div>

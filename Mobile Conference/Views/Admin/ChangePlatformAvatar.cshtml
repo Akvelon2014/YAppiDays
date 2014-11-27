@@ -1,0 +1,21 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.PlatformModel
+
+<script> ClearImageArea();</script>
+<div class="container_12">
+    <div class="grid_9 alpha">
+        <div class="topContainer center">
+            @using (Html.BeginForm("ChangePlatformAvatar", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="platformId" value ="@Model.Id"/>
+                 @Html.LoaderBlock("picture",Html.AvatarFileNameForPlatform(Model.Id), StandardRatioType.IdeaRatio,
+                   Url.Action("ChangePlatformAvatar",new {platformId = Model.Id})) 
+            }
+        </div>
+    </div>
+    <div class="grid_3 omega">
+        @Html.PreviewBlock("picture",StandardRatioType.IdeaRatio)
+    </div>
+</div>

@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6B234D0-4DD4-4388-8CEB-4C228933E208}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileConference</RootNamespace>
+    <AssemblyName>Mobile Conference</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Auxiliary\ExternalLoginResult.cs" />
+    <Compile Include="Auxiliary\WindsorFactory.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdeasController.cs" />
+    <Compile Include="Controllers\ServiceApi.cs" />
+    <Compile Include="Controllers\WidgetController.cs" />
+    <Compile Include="CustomAttribute\DateFormatAttribute.cs" />
+    <Compile Include="Enums\AdminTips.cs" />
+    <Compile Include="Enums\EventListType.cs" />
+    <Compile Include="Enums\EventProfileCommand.cs" />
+    <Compile Include="Enums\ImagePreviewFeatures.cs" />
+    <Compile Include="Enums\ManageMessageId.cs" />
+    <Compile Include="Enums\MentorTips.cs" />
+    <Compile Include="Enums\ProfileCommands.cs" />
+    <Compile Include="Enums\RoleSet.cs" />
+    <Compile Include="Enums\StandardRatioType.cs" />
+    <Compile Include="Enums\StudentTips.cs" />
+    <Compile Include="Enums\TipType.cs" />
+    <Compile Include="Filters\ForbiddenAttribute.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\ProjectForbiddenPossibleAttribute.cs" />
+    <Compile Include="Filters\ValidInteger.cs" />
+    <Compile Include="Filters\ValidIntegerValidator.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\CommentModelType.cs" />
+    <Compile Include="GlobalData\ContextEF.cs" />
+    <Compile Include="GlobalData\CustomLogger.cs" />
+    <Compile Include="GlobalData\GlobalValuesAndStrings.cs" />
+    <Compile Include="GlobalData\OptionNames.cs" />
+    <Compile Include="Enums\PermissionType.cs" />
+    <Compile Include="Enums\PictureType.cs" />
+    <Compile Include="Enums\RoleName.cs" />
+    <Compile Include="GlobalData\ContainerDI.cs" />
+    <Compile Include="Enums\StatusByRealizedPlatform.cs" />
+    <Compile Include="Enums\StudentStatusInGroup.cs" />
+    <Compile Include="GlobalData\ServiceOperation.cs" />
+    <Compile Include="GlobalData\VKontakteAuthenticationClient.cs" />
+    <Compile Include="Helper\AdditionalExtender.cs" />
+    <Compile Include="Helper\ConverterToModel.cs" />
+    <Compile Include="Helper\CustomHtmlHelper.cs" />
+    <Compile Include="Helper\DateTimeHelper.cs" />
+    <Compile Include="Helper\QueryHelper.cs" />
+    <Compile Include="Interface\ICapchaManager.cs" />
+    <Compile Include="Interface\ICryptManager.cs" />
+    <Compile Include="Interface\ICustomLogManager.cs" />
+    <Compile Include="Interface\IDataProtectorManager.cs" />
+    <Compile Include="Managers\CustomLogManager.cs" />
+    <Compile Include="Managers\LinkManager.cs" />
+    <Compile Include="Managers\Md5CryptManager.cs" />
+    <Compile Include="Interface\IEmailManager.cs" />
+    <Compile Include="Interface\IEventRepository.cs" />
+    <Compile Include="Interface\IIdeasRepository.cs" />
+    <Compile Include="Interface\IImageManager.cs" />
+    <Compile Include="Interface\IImageRepository.cs" />
+    <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Managers\CacheManager.cs" />
+    <Compile Include="Managers\FakeEmailManager.cs" />
+    <Compile Include="Managers\ImageManager.cs" />
+    <Compile Include="Managers\Sha256CryptManager.cs" />
+    <Compile Include="Managers\SimpleCapchaManager.cs" />
+    <Compile Include="Managers\SimpleDataProtectorManager.cs" />
+    <Compile Include="Managers\SimpleEmailManager.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Award.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AwardModel.cs" />
+    <Compile Include="Models\City.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\CommentType.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CustomMenuItem.cs" />
+    <Compile Include="Models\EmailChanging.cs" />
+    <Compile Include="Models\EmailSending.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\EventModelWithOrder.cs" />
+    <Compile Include="Models\EventProfile.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventType.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExpertForEvent.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\GroupIdea.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Idea.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdeasModel.cs" />
+    <Compile Include="Models\IdeaWithPermission.cs" />
+    <Compile Include="Models\IdeaWithPlatform.cs" />
+    <Compile Include="Models\ImageSizeParams.cs" />
+    <Compile Include="Models\InternalUser.cs" />
+    <Compile Include="Models\Material.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaterialModel.cs" />
+    <Compile Include="Models\Mentor.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileConferenceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileConferenceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileConferenceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileConferenceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileConferenceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\NewsProxy.cs" />
+    <Compile Include="Models\Option.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OptionModel.cs" />
+    <Compile Include="Models\PictureAssign.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PictureAssignType.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PictureNameModel.cs" />
+    <Compile Include="Models\PictureStore.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Platform.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlatformModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\RealizedPlatform.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Skill.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sponsor.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusRealizedPlatform.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusStudent.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentGroup.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tip.cs" />
+    <Compile Include="Models\UserProfile.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRestoreInfo.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_Membership.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_OAuthMembership.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_Roles.cs">
+      <DependentUpon>MobileConferenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\IdeasRepository.cs" />
+    <Compile Include="Repository\ImageRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Services\IYAppiAdminService.cs" />
+    <Compile Include="Services\YAppiAdminService.svc.cs">
+      <DependentUpon>YAppiAdminService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MobileConferenceDB.mdf" />
+    <Content Include="App_Data\MobileConferenceDB_log.ldf">
+      <DependentUpon>MobileConferenceDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\960.css" />
+    <Content Include="Content\Admin.css" />
+    <Content Include="Content\CustomInputs.css" />
+    <Content Include="Content\CustomTips.css" />
+    <Content Include="Content\ie_style_old.css" />
+    <Content Include="Content\img\12_col.gif" />
+    <Content Include="Content\img\16_col.gif" />
+    <Content Include="Content\img\24_col.gif" />
+    <Content Include="Content\img\arkadi-volozh.png" />
+    <Content Include="Content\img\award-1.png" />
+    <Content Include="Content\img\award-2.png" />
+    <Content Include="Content\img\award-3.png" />
+    <Content Include="Content\img\award-4.png" />
+    <Content Include="Content\img\bill-gates.png" />
+    <Content Include="Content\img\border-h.gif" />
+    <Content Include="Content\img\border-v.gif" />
+    <Content Include="Content\img\dev-stuff.png" />
+    <Content Include="Content\img\imageTools.png" />
+    <Content Include="Content\img\logo-footer.png" />
+    <Content Include="Content\img\logo-header.png" />
+    <Content Include="Content\img\onotole-vasserman.png" />
+    <Content Include="Content\img\social-icons.png" />
+    <Content Include="Content\img\stage-1.png" />
+    <Content Include="Content\img\stage-2.png" />
+    <Content Include="Content\img\stage-3.png" />
+    <Content Include="Content\img\user-dummy-medium.jpg" />
+    <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\PictureDialog.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\imgareaselect.css" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.scrollbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.maginfict.css" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.scrollbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\img\tiles.png" />
+    <Content Include="log4net.config" />
+    <EntityDeploy Include="Models\MobileConferenceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MobileConferenceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MobileConferenceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MobileConferenceModel.edmx</DependentUpon>
+      <LastGenOutput>MobileConferenceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MobileConferenceModel.edmx.diagram">
+      <DependentUpon>MobileConferenceModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MobileConferenceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MobileConferenceModel.edmx</DependentUpon>
+      <LastGenOutput>MobileConferenceModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\MC.pubxml" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\AdminScript.js" />
+    <Content Include="Scripts\ChatUpdate.js" />
+    <Content Include="Scripts\CommentsShow.js" />
+    <Content Include="Scripts\CustomInputs.js" />
+    <Content Include="Scripts\CustomTips.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js.map">
+      <DependentUpon>jquery-1.7.1.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-maginfict.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
+    <Content Include="Scripts\jquery.imgareaselect.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\MainScript.js" />
+    <Content Include="Scripts\modernIE_likeOld.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\PictureDialog.js" />
+    <Content Include="Scripts\PictureScript.js" />
+    <Content Include="Scripts\scrollbar.js" />
+    <Content Include="Services\YAppiAdminService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ConfirmExternalLogin.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Widget\AccountInfo.cshtml" />
+    <Content Include="Views\Widget\HorizontalMenu.cshtml" />
+    <Content Include="Views\Widget\LeftMenu.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Ideas.cshtml" />
+    <Content Include="Views\Ideas\Index.cshtml" />
+    <Content Include="Views\Ideas\CreateNew.cshtml" />
+    <Content Include="Views\Ideas\MainPage.cshtml" />
+    <Content Include="Views\Account\ChangeProfile.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangeAvatar.cshtml" />
+    <Content Include="Views\Shared\ProfileChangeForRole.cshtml" />
+    <Content Include="Views\Admin\WishedInRole.cshtml" />
+    <Content Include="Views\Shared\WishedUser.cshtml" />
+    <Content Include="Views\Widget\DescribeIdea.cshtml" />
+    <Content Include="Views\Ideas\IdeasWithoutMentor.cshtml" />
+    <Content Include="Views\Ideas\MentorPage.cshtml" />
+    <Content Include="Views\Shared\WishedIdeaForStudent.cshtml" />
+    <Content Include="Views\Ideas\JoinIdea.cshtml" />
+    <Content Include="Views\Ideas\IdeaProfile.cshtml" />
+    <Content Include="Views\Home\UserDescription.cshtml" />
+    <Content Include="Views\Widget\ListGroupMember.cshtml" />
+    <Content Include="Views\Ideas\InvitedUser.cshtml" />
+    <Content Include="Views\Widget\DescribeInvitedUser.cshtml" />
+    <Content Include="Views\Shared\InvitingForUser.cshtml" />
+    <Content Include="Views\Ideas\Leadership.cshtml" />
+    <Content Include="Views\Ideas\Photogallery.cshtml" />
+    <Content Include="Views\Ideas\Chat.cshtml" />
+    <Content Include="Views\Ideas\RequestToJoin.cshtml" />
+    <Content Include="Views\Admin\ManageNews.cshtml" />
+    <Content Include="Views\Admin\ManageUsers.cshtml" />
+    <Content Include="Views\Admin\ManageRegionAndCities.cshtml" />
+    <Content Include="Views\Admin\ManagePlatform.cshtml" />
+    <Content Include="Views\Admin\ManageEvents.cshtml" />
+    <Content Include="Views\Widget\DescribeComment.cshtml" />
+    <Content Include="Views\Widget\ShowAllComments.cshtml" />
+    <Content Include="Views\Shared\ErrorPicture.cshtml" />
+    <Content Include="Views\Widget\InsertPhotoData.cshtml" />
+    <Content Include="Views\Admin\UserDescribe.cshtml" />
+    <Content Include="Views\Shared\UserBlockForAdmin.cshtml" />
+    <Content Include="Views\Admin\Cities.cshtml" />
+    <Content Include="Views\Admin\ManageIdeaGroup.cshtml" />
+    <Content Include="Views\Admin\CreateEvent.cshtml" />
+    <Content Include="Views\Admin\EventPage.cshtml" />
+    <Content Include="Views\Admin\ChangeEvent.cshtml" />
+    <Content Include="Views\Admin\ManageOption.cshtml" />
+    <Content Include="Views\Admin\CreateNews.cshtml" />
+    <Content Include="Views\Account\Restore.cshtml" />
+    <Content Include="Views\Account\SendRestoreMessage.cshtml" />
+    <Content Include="Views\Shared\ErrorRestore.cshtml" />
+    <Content Include="Views\Home\DescibeItemNews.cshtml" />
+    <Content Include="Views\Admin\CreatePlatform.cshtml" />
+    <Content Include="Views\Admin\ChangePlatform.cshtml" />
+    <Content Include="Views\Admin\ManageMaterial.cshtml" />
+    <Content Include="Views\Admin\CreateMaterial.cshtml" />
+    <Content Include="Views\Admin\ChangeMaterial.cshtml" />
+    <Content Include="Views\Shared\LoginPopup.cshtml" />
+    <Content Include="Views\Shared\RegisterPopup.cshtml" />
+    <Content Include="Views\Widget\RecentStage.cshtml" />
+    <Content Include="Views\Widget\ExpertList.cshtml" />
+    <Content Include="Views\Widget\RecentProject.cshtml" />
+    <Content Include="Views\Widget\RecentMaterial.cshtml" />
+    <Content Include="Views\Widget\SponsorList.cshtml" />
+    <Content Include="Views\Widget\InfoPartnerList.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\AdminPopup.cshtml" />
+    <Content Include="Views\Shared\RenderStage.cshtml" />
+    <Content Include="Views\Shared\RenderExpert.cshtml" />
+    <Content Include="Views\Shared\RenderIdea.cshtml" />
+    <Content Include="Views\Shared\RenderMaterial.cshtml" />
+    <Content Include="Views\Shared\UserManagePartial.cshtml" />
+    <Content Include="Views\Account\SelectCompany.cshtml" />
+    <Content Include="Views\Shared\SelectCompanyPartial.cshtml" />
+    <Content Include="Views\Shared\CompanyList.cshtml" />
+    <Content Include="Views\Admin\CreateCompany.cshtml" />
+    <Content Include="Views\Admin\ChangeCompany.cshtml" />
+    <Content Include="Views\Admin\ManageCompany.cshtml" />
+    <Content Include="Views\Shared\NewManagePartial.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Widget\RecentEvents.cshtml" />
+    <Content Include="Views\Home\EventDescribe.cshtml" />
+    <Content Include="Views\Home\Materials.cshtml" />
+    <Content Include="Views\Widget\MaterialsWithPlatformDescription.cshtml" />
+    <Content Include="Views\Widget\AllMaterials.cshtml" />
+    <Content Include="Views\Home\Experts.cshtml" />
+    <Content Include="Views\Shared\CommonUserInformation.cshtml" />
+    <Content Include="Views\Shared\ProfessionUserInfo.cshtml" />
+    <Content Include="Views\Widget\AllProject.cshtml" />
+    <Content Include="Views\Shared\IdeaManageBlock.cshtml" />
+    <Content Include="Views\Widget\UsersForInviting.cshtml" />
+    <Content Include="Views\Ideas\Inviting.cshtml" />
+    <Content Include="Views\Shared\FeedbackSuccedSending.cshtml" />
+    <Content Include="Views\Shared\SkillsList.cshtml" />
+    <Content Include="Views\Account\ChangeSkill.cshtml" />
+    <Content Include="Views\Ideas\OfficialReports.cshtml" />
+    <Content Include="Views\Widget\MaterialComments.cshtml" />
+    <Content Include="Views\Widget\ShowMaterialComments.cshtml" />
+    <Content Include="Views\Admin\EventPhotogallery.cshtml" />
+    <Content Include="Views\Widget\ShowPicturesForEvent.cshtml" />
+    <Content Include="Views\Shared\RenderIdeaForMentor.cshtml" />
+    <Content Include="Views\Widget\ShowIdeaPhotos.cshtml" />
+    <Content Include="Views\Widget\AddPicturePartial.cshtml" />
+    <Content Include="Views\Ideas\TechnologySection.cshtml" />
+    <Content Include="Views\Widget\ChatMessageSender.cshtml" />
+    <Content Include="Views\Widget\AddPhotoToMessageInChat.cshtml" />
+    <Content Include="Views\Admin\AddEventPicture.cshtml" />
+    <Content Include="Views\Shared\PasswordChangePopup.cshtml" />
+    <Content Include="Views\Home\NotFoundError.cshtml" />
+    <Content Include="Views\Widget\Experts.cshtml" />
+    <Content Include="Views\Widget\MentorsIdeas.cshtml" />
+    <Content Include="Views\Widget\IdeasWithoutMentor.cshtml" />
+    <Content Include="Views\Admin\CryptText.cshtml" />
+    <Content Include="Views\Admin\ManageUsersPartial.cshtml" />
+    <Content Include="Views\Admin\WishedInRolePartial.cshtml" />
+    <Content Include="Views\Admin\RegionInEventPartial.cshtml" />
+    <Content Include="Views\Admin\PlatformInEventPartial.cshtml" />
+    <Content Include="Views\Admin\IdeaGroupInEventPartial.cshtml" />
+    <Content Include="Views\Admin\ManageMaterialParial.cshtml" />
+    <Content Include="Views\Ideas\RequestToJoinPartial.cshtml" />
+    <Content Include="Views\Account\ChangeSkillsPartial.cshtml" />
+    <Content Include="Views\Ideas\ChangeAvatar.cshtml" />
+    <Content Include="Views\Admin\ManageAward.cshtml" />
+    <Content Include="Views\Admin\CreateAward.cshtml" />
+    <Content Include="Views\Admin\ChangeAward.cshtml" />
+    <Content Include="Views\Admin\ChangeAwardAvatar.cshtml" />
+    <Content Include="Views\Widget\Adwards.cshtml" />
+    <Content Include="Views\Shared\AdwardRender.cshtml" />
+    <Content Include="Views\Widget\LoadImage.cshtml" />
+    <Content Include="Views\Ideas\ChatPhotoSection.cshtml" />
+    <Content Include="Views\Home\Stages.cshtml" />
+    <Content Include="Views\Home\StagesPartial.cshtml" />
+    <Content Include="Views\Home\Awards.cshtml" />
+    <Content Include="Views\Admin\ManagePlatformPartial.cshtml" />
+    <Content Include="Views\Home\ShowVideo.cshtml" />
+    <Content Include="Views\Admin\ChangeProfile.cshtml" />
+    <Content Include="Views\Admin\ChangeAvatar.cshtml" />
+    <Content Include="Views\Admin\ChangeSkill.cshtml" />
+    <Content Include="Views\Admin\ChangeSkillsPartial.cshtml" />
+    <Content Include="Views\Admin\SelectCompany.cshtml" />
+    <Content Include="Views\Home\ShowMaterial.cshtml" />
+    <Content Include="Views\Account\SendConfirmationMessage.cshtml" />
+    <Content Include="Views\Account\ConfirmMessage.cshtml" />
+    <Content Include="Views\Shared\ConfirmationMessage.cshtml" />
+    <Content Include="Views\Shared\TipsForStartPage.cshtml" />
+    <Content Include="Views\Shared\ManageUserTips.cshtml" />
+    <Content Include="Views\Shared\TipsForCreateMaterials.cshtml" />
+    <Content Include="Views\Admin\TipsForManageEvent.cshtml" />
+    <Content Include="Views\Shared\TipsForGlobalEvent.cshtml" />
+    <Content Include="Views\Shared\TipsForGlobalEventProfile.cshtml" />
+    <Content Include="Views\Shared\TipsForNewIdea.cshtml" />
+    <Content Include="Views\Shared\TipsAfterJoinToIdea.cshtml" />
+    <Content Include="Views\Shared\TipsIdeaProfile.cshtml" />
+    <Content Include="Views\Widget\EventForStagePartial.cshtml" />
+    <Content Include="Views\Widget\ShowEventForStagePartial.cshtml" />
+    <Content Include="Views\Admin\CreateUserProfile.cshtml" />
+    <Content Include="Views\Admin\ManageEmailSending.cshtml" />
+    <Content Include="Views\Account\ChangeEmailAfterRegistration.cshtml" />
+    <Content Include="Views\Admin\ChangeNews.cshtml" />
+    <Content Include="Views\Admin\ManageEmailPartial.cshtml" />
+    <Content Include="Views\Widget\RotateImage.cshtml" />
+    <Content Include="Views\Admin\ChangeCompanyAvatar.cshtml" />
+    <Content Include="Views\Admin\ChangeEventAvatar.cshtml" />
+    <Content Include="Views\Admin\ChangeMaterialAvatar.cshtml" />
+    <Content Include="Views\Admin\ChangePlatformAvatar.cshtml" />
+    <Content Include="Views\Shared\YandexMetrika.cshtml" />
+    <Content Include="Views\Shared\SendEmailSucced.cshtml" />
+    <Content Include="Views\Home\RegistrationForbidden.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ImagesMini\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>50040</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53429/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

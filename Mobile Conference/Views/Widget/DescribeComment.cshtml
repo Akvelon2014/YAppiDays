@@ -1,0 +1,51 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model CommentModel
+
+<div class="@ViewBag.addClass grid_9 alpha omega">
+    <div class="grid_1 alpha">
+        @Html.AvatarForUser(Model.User.Id)
+    </div> 
+    <div class="grid_8 omega contentComment">
+        <div class="grid_8 alpha omega">
+            @Html.ProfileLik(Model.UserLogin,40)
+            <span class="right">
+                @Model.CreationDate.Day
+                @Model.CreationDate.CustomMonthTitle()
+            </span>
+        </div>
+        @if (ViewBag.photo != null)
+        {
+            <div class="grid_6 alpha">
+                <pre class="comment">@Model.Message </pre>
+            </div>
+            <div class="grid_2 photoGroup omega">
+                <div>
+                    <a href="@Html.UrlForPicture((PictureNameModel) ViewBag.photo)" class="withoutDecoration">
+                        @Html.DrawPicture((PictureNameModel) ViewBag.photo, false, "photo right")
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="grid_8 omega alpha">
+                <pre class="comment">@Model.Message</pre>
+            </div>
+        }
+        <div  class="removeComment">
+            @if (ViewBag.canRemove == true)
+            {
+                using (@Html.BeginForm("RemoveComment", "Widget", FormMethod.Post, new {@class = "withAjax"}))
+                {
+                    @Html.Hidden("commentType", Model.Type)
+                    @Html.Hidden("commentId",Model.Id)
+                    @Html.Hidden("linkId",Model.LinkId)
+                    @Html.Hidden("page",(int)ViewBag.page)
+                    <input type="submit" value="X" class="customButton grey" title="Удалить сообщение"/>
+                }
+            }
+        </div>
+    </div>
+</div>
+

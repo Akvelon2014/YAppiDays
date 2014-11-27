@@ -1,0 +1,22 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Заявки на вступление";
+}
+<div class="titleFloat fullBlock">
+    <div class="container_12">
+        <div class="grid_10 titleName">
+            <span>Заявки на вступление</span>
+        </div>
+        <div class="grid_2 omega">
+            @Html.ActionLink("вернуться","MainPage","Ideas",new {ideaId=(int)ViewBag.ideaId},null)              
+        </div>
+    </div>
+</div>
+<div id="usersblock" class="paginationWrapper invitedUsers">
+    @Html.Action("RequestToJoinPartial","Ideas",new {page = ViewBag.page, ideaId = ViewBag.ideaId})
+</div>
+<div class="empty_100"></div>
+

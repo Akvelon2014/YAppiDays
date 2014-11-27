@@ -1,0 +1,55 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model List<MobileConference.Models.PictureNameModel>
+<div>
+    @if (Model == null || !Model.Any())
+    {
+        <div class="container_12">
+            @if (((IdeaWithPermission) ViewBag.idea).Permission.HasFlag(PermissionType.ShowPhotos))
+            {
+                <p>Фотографий пока нет.</p>
+            }
+            else
+            {
+                <p>У вас нет прав на просмотр фотоальбома.</p>
+            }
+            <div class="pictureJustLoadingProgress @Html.GridClass(2)"></div>
+        </div>
+    }
+    else
+    {
+        Html.ClearGridClass();
+        <div class="container_12 topContainer brickBlocks">
+            <div class="photoGroup">       
+                @foreach (var picture in Model)
+                {
+                    <div class="@Html.GridClass(2) photoContainer">
+                
+                        <a href="@Html.UrlForPicture(picture)" class="withoutDecoration">
+                            @Html.DrawPicture(picture, false, "photo", null, true)
+                            <br/>
+                        </a> 
+                        <div class="photoRemove">
+                            @if (((IdeaWithPermission) ViewBag.idea).Permission.HasFlag(PermissionType.DeletePhotos))
+                            {
+                                using (@Html.BeginForm("RemoveImageFromPhototgallery", "Ideas", FormMethod.Post, new {@class = "withAjax"}))
+                                {
+                                    @Html.Hidden("ideaId", (int) ViewBag.ideaId)
+                                    @Html.Hidden("url", Html.UrlForPicture(picture))
+                                    <input type="submit" value="Удалить" class="customButton grey"/>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                <div class="pictureJustLoadingProgress @Html.GridClass(2)"></div>
+
+            </div>
+        </div>
+    }
+</div>
+@if (ViewBag.error)
+{
+    <div class="loadError"></div>
+}

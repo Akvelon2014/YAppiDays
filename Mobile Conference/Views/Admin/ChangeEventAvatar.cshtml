@@ -1,0 +1,21 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.EventModel
+
+<script> ClearImageArea();</script>
+<div class="container_12">
+    <div class="grid_9 alpha">
+        <div class="topContainer center">
+            @using (Html.BeginForm("ChangeEventAvatar", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("eventId", Model.Id)
+                 @Html.LoaderBlock("picture",Html.AvatarFileNameForEvent(Model.Id), StandardRatioType.EventRatio,
+                   Url.Action("ChangeEventAvatar",new {eventId = Model.Id})) 
+            }
+        </div>
+    </div>
+    <div class="grid_3 omega">
+        @Html.PreviewBlock("picture",StandardRatioType.EventRatio)        
+    </div>
+</div>

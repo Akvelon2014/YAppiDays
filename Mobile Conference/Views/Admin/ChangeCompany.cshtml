@@ -1,0 +1,54 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.CompanyModel
+@{
+    ViewBag.Title = "Профиль компании";
+}
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_6  titleName">
+            <span>Профиль компании</span>
+        </div>
+        <div class="grid_5">
+            @Html.ActionLink("к списку компаний","ManageCompany","Admin", null,new{@class="right"})
+        </div>
+    </div>
+</div>
+<div class="ajaxHere">
+    @Html.Action("ChangeCompanyAvatar", new{companyId = Model.Id});
+</div>
+@using (Html.BeginForm("ChangeCompany", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.Id)
+    @Html.FloatTitle("Общие сведения", true, true)
+    <div class="container_12 topContainer">
+        <div class="grid_8 omega">      
+           
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Name)</td>
+                    <td>@Html.TextBoxFor(m => m.Name)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Site)</td>
+                    <td>@Html.TextBoxFor(m => m.Site)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Rank)</td>
+                    <td>@Html.TextBoxFor(m => m.Rank)</td>
+                </tr>
+            </table>
+            <div>
+                @Html.CheckBoxFor(m => m.IsShowed)
+                @Html.LabelFor(m=>m.IsShowed)
+            </div>
+            <br/>
+            <input type="submit" value="Сохранить" class="customButton orange mediumSizeButton"/>
+    
+        </div>
+    </div>
+
+}
+<div class="empty_100"></div>

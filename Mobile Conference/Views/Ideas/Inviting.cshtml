@@ -1,0 +1,30 @@
+﻿@using MobileConference.Helper
+@using PagedList.Mvc
+@model PagedList.IPagedList <MobileConference.Models.IdeasModel>
+
+@if (Model.Any())
+{
+    Html.ClearGridClass();
+    <div class="container_12 topContainer brickBlocks">
+    
+        @foreach (var idea in Model)
+        {
+            <div class="@Html.GridClass(3) hoverForShowHideLink placeholderForShowHideLink">
+                @Html.Partial("RenderIdea", idea.GetIdeaWithPlatform())
+                <div class="right showHideLink">
+                    @Html.ActionLink("Принять", "JoinIdea", "Ideas", new {ideaId = idea.Id}, new {@class="customButton grey"})
+                </div>
+                <div class="left showHideLink">
+                    @Html.ActionLink("Отклонить", "UnjoinIdea", "Ideas", new {ideaId = idea.Id}, new {@class="customButton grey"})                    
+                </div>
+            </div>
+            
+        }
+    </div>
+    <div class="container_12 topContainer">
+        <div class="grid_11">
+            @Html.Pager(Model, page => Url.Action("Inviting", "Ideas", new {page}))
+        </div>
+
+    </div>
+}

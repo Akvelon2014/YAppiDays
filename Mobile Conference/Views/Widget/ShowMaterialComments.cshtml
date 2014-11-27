@@ -1,0 +1,22 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@model PagedList.IPagedList<Comment>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Комментариев пока нет</p>
+}
+else
+{
+    <a class="anchorHere"></a>    
+    foreach (var comment in Model.ToModel())
+    {
+        <div class="grid_9 topContainer">        
+            @Html.Action("DescribeComment","Widget", new {comment, page = (int)ViewBag.page})
+        </div>
+    }  
+    <div class="grid_8 topContainer">
+        @Html.Pager(Model,page=>Url.Action("ShowMaterialComments",new{page, materialId = (int)ViewBag.materialId }))
+    </div>
+}

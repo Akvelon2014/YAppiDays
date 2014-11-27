@@ -1,0 +1,8 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@Html.RenderTips( AdminTips.ManageEvent,
+    new Tip("Событиями в админке называется все: этапы, новости. На этой странице отображаются глобальные события. " +
+            "Только одно из них может быть текущим. Лишь подсобытия текущего события и его настройки влияют на контент сайта." +
+            "Выберете одно из глобальных событий (щелкнув по нему)"
+        ,"eventFloatTitle"){Type = TipType.Top, Width = 600, TriangleOffset = 30, OffsetY = 20})    

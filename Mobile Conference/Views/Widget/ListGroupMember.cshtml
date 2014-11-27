@@ -1,0 +1,22 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model List<ProfileModel>
+
+@if (ViewBag.mentorLogin != null)
+{
+    <h3>Ментор пректа</h3>        
+    <p>@Html.ProfileLik((string)ViewBag.mentorLogin)</p>
+}
+@if (ViewBag.leaderLogin != null)
+{
+    <h3>Капитан команды</h3>        
+    <p>@Html.ProfileLik((string)ViewBag.leaderLogin)</p>
+}
+<h3>Участники команды</h3>
+@foreach (var student in Model)
+{
+    if (ViewBag.leaderLogin == null || student.Login != (string) ViewBag.leaderLogin)
+    {
+        <p>@Html.ProfileLik(student.Login)</p>
+    }
+}

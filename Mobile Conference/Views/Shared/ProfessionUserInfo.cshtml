@@ -1,0 +1,30 @@
+﻿@using Castle.Core.Internal
+@model MobileConference.Models.ProfileModel
+@{ string addClass;}
+@{
+    addClass = Model.MemberIdeas.Any() ? "grid_6" : "grid_9";
+}
+<div class="descriptionUser @addClass">
+    <p>Профессиональные навыки</p>
+    @if (Model.SkillNames.Any())
+    {
+        @Html.Partial("SkillsList", Model)
+    }
+    else
+    {
+        <span><i>не указаны</i></span>        
+    }
+</div>
+<div class="descriptionUser @addClass">
+    <p>О себе</p>
+    <div>
+        @if (@Model.Description.IsNullOrEmpty())
+        {
+            <span><i>не указано</i></span>
+        }
+        else
+        {
+            <span><i>@Model.Description</i></span>        
+        }
+    </div>
+</div>

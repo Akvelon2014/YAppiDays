@@ -1,0 +1,40 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@{
+    ViewBag.Title = ViewBag.self? "Мои проекты" : "Ментор проектов " + ((ProfileModel)ViewBag.profile).FullName();
+} 
+
+
+@if (ViewBag.self)
+{
+    @Html.FloatTitle("Мои проекты")
+}
+else
+{
+    <div class="fullBlock titleFloat">
+        <div class="container_12">
+            <div class="grid_9 titleName">
+                @if (((ProfileModel) ViewBag.profile).FullName().Length > 43)
+                {
+                    <span title="@(((ProfileModel) ViewBag.profile).FullName())">
+                        Ментор проектов: @Html.Truncate((((ProfileModel) ViewBag.profile).FullName()),40)
+                    </span>                                        
+                }
+                else
+                {
+                    <span>Ментор проектов: @(((ProfileModel) ViewBag.profile).FullName())</span>                    
+                }
+            </div>
+            <div class="grid_2 prefix_1">
+                @Html.ActionLink("к профилю","UserDescription","Home",new {login = ((ProfileModel) ViewBag.profile).Login},null)
+            </div>
+        </div>
+    </div>
+}
+<div class="paginationWrapper">
+    @Html.Action("MentorsIdeas","Widget", new {page = ViewBag.page, profile = ViewBag.profile})
+</div>
+
+
+<div class="empty_100"></div>

@@ -1,0 +1,8 @@
+﻿@using MobileConference.Models
+@model IList<CustomMenuItem>
+@foreach (CustomMenuItem item in Model)
+{
+    @Html.ActionLink(item.Title,item.Action,item.Controller,item.Param, new {@class="itemMenu"})
+}
+
+

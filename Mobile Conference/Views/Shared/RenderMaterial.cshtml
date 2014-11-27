@@ -1,0 +1,28 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.MaterialModel
+<div class ="projectWraper">
+    <div class="ideaImage">
+        <a href="@Url.MaterialLinkOnStartPage(Model)"  class="withoutDecoration">
+            @Html.AvatarForMaterial(Model.Id)
+        </a>
+    </div>
+
+    <h3>
+        @if (Model.Title.Length > 40)
+        {
+            <a href="@Url.MaterialLinkOnStartPage(Model)" title="@Model.Title">
+                @Html.Truncate(Model.Title, 38)
+            </a>
+        }
+        else
+        {
+            <a href="@Url.MaterialLinkOnStartPage(Model)">@Model.Title</a>
+        }
+    </h3>
+    <span class="cloud right"><span>@Model.CommentCount</span></span>
+    @if (Model.Platform != null && !Model.Platform.IsDeleted)
+    {
+        @Html.TruncatedTitle("span", Model.Platform.Title, 12)
+    }
+</div>
+

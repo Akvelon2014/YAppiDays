@@ -1,0 +1,69 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model IdeaWithPermission
+@{
+    ViewBag.Title = "Проект: "+Model.Idea.Title;
+}
+<div class ="container_12" id="projectProfile">
+    <div class="grid_9">
+        <h2>@Model.Idea.Title</h2>
+        <p>@Model.Idea.Description</p>
+        <h3 class="topContainer">Технологии</h3>
+        @if (Model.Idea.NonRemovedRealizedPlatformCount>0)
+        {
+            <table>
+            
+                @foreach (var platform in Model.Idea.RealizedPlatformWithStatus
+                    .Select(k=>new {data = PlatformModel.ForPlatform(k.Key), realized = (StatusByRealizedPlatform)k.Value}))
+                {
+                    if (!platform.data.IsDeleted)
+                    {
+                        <tr>
+                            <td>
+                                @platform.data.Title
+                            </td>
+                            @if (platform.realized == StatusByRealizedPlatform.Completed)
+                            {
+                                <td>
+                                    (проект завершен)
+                                </td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        </tr>
+                    }
+                }
+            </table>
+        }
+        else
+        {
+            <div>
+                <span>
+                    <i>пока не указаны</i>
+                </span>
+            </div>
+        }
+    </div>
+    
+    <div class="grid_3">
+        <div class="imageProject">
+            @Html.AvatarForIdea(Model.Idea.Id)
+        </div>
+        @if (Model.Idea.IsDeleted)
+        {
+            <p>Проект удален</p>
+            if (User.IsInRole(RoleName.Administrator.GetName()))
+            {
+                @Html.ActionLink("Восстановить", "RestoreIdea", "Admin", new {ideaId = Model.Idea.Id}, null)
+            }
+        }
+        else
+        {
+            @Html.Partial("IdeaManageBlock", Model)        
+            @Html.Action("ListGroupMember","Widget", new {idea = Model.Idea})
+        }
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Управление технологиями";
+}
+@section scripts
+{
+    @Styles.Render("~/Content/Admin")
+}
+
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_11 alpha titleName">
+            <span>Управление технологиями</span>
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("Добавить","CreatePlatform","Admin",null,null) 
+        </div>
+    </div>
+</div>
+
+<div class="container_12 ajaxHere paginationWrapper">
+    @Html.Action("ManagePlatformPartial", new {page = (int)ViewBag.page})
+</div>
+
+<div class="empty_100"></div>

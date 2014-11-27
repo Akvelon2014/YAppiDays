@@ -1,0 +1,28 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@{
+    ViewBag.Title = "Проекты";
+}
+
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_2 alpha titleName">
+            <span>Проекты</span>
+        </div>
+        <div class="grid_10 omega">
+            @using (@Html.BeginForm("AllProject", "Widget", FormMethod.Post,
+                new { @class = "externalUpdate", id = "projectBlock", data_update = "projects" }))
+            {
+                <span>Технология </span>
+                @Html.PlatformList(forEvent:EventModel.Current.Id, defValue:"Все", name: "platformId")
+                <span>Тип проекта </span>
+                @Html.GroupIdeaList(forEvent:EventModel.Current.Id, defValue:"Все", name: "groupIdeaId") 
+                @Html.TextBox("search","",new {@class="submitWithDelay"})                
+            }             
+        </div>
+    </div>
+</div>
+
+<div id="projects" class="container_12 paginationWrapper projectBlock">
+    @Html.Action("AllProject","Widget",new{page = (int)ViewBag.page})
+</div>

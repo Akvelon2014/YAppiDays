@@ -1,0 +1,105 @@
+﻿.tip {
+    position: absolute;
+    border: 1px solid #999;
+    background: #FF9900;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    padding: 20px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -ms-opacity: 0;
+    opacity: 0;
+    display: none;
+    z-index: 10000;
+}
+
+.tip a {
+    color: #FFF;
+}
+
+.tip:hover {
+    cursor: pointer;
+}
+
+/*
+    Basis for triangle    
+*/
+.tip:after, .tip:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-style: solid;
+}
+
+.tip.topTriangle:after, .tip.bottomTriangle:after {
+    border-color: #FF9900 transparent;
+}
+
+.tip.topTriangle:before, .tip.bottomTriangle:before {
+    border-color: #FFFFFF transparent;
+    border-color: rgba(0,0,0,0.3) transparent;
+}
+
+.tip.leftTriangle:after, .tip.rightTriangle:after {
+    border-color:transparent #FF9900;
+}
+
+.tip.leftTriangle:before, .tip.rightTriangle:before {
+    border-color:transparent #FFFFFF;
+    border-color: transparent rgba(0,0,0,0.3);
+}
+
+/*Draw triangle in the top of tips*/
+.tip.topTriangle:after {
+    bottom: 100%;
+    left: 15px;
+    border-width: 0 6px 6px 6px;   
+}
+ 
+.tip.topTriangle:before {
+    bottom: 100%;
+    left: 13px;
+    border-width: 0 8px 8px 8px;
+}
+
+
+/*Draw triangle in the bottom of tips*/
+.tip.bottomTriangle:after {
+    top: 100%;
+    left: 15px;
+    border-width: 6px 6px 0 6px;    
+}
+ 
+.tip.bottomTriangle:before {
+    top: 100%;
+    left: 13px;
+    border-width: 8px 8px 0 8px;
+}
+
+/*Draw triangle in the left of tips*/
+.tip.leftTriangle:after {
+    top: 15px;
+    left: -5px;
+    border-width: 6px 6px 6px 0;
+}
+ 
+.tip.leftTriangle:before {
+    top: 13px;
+    left: -7px;
+    border-width: 8px 8px 8px 0;
+}
+
+/*Draw triangle in the right of tips*/
+.tip.rightTriangle:after {
+    top: 15px;
+    left: 100%;
+    border-width: 6px 0 6px 6px;
+}
+ 
+.tip.rightTriangle:before {
+    top: 13px;
+    left: 100%;
+    border-width: 8px 0 8px 8px;
+}

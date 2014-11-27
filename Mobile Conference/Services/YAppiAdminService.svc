@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MobileConference.Services.YAppiAdminService" CodeBehind="YAppiAdminService.svc.cs" %>

@@ -1,0 +1,61 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.RegisterModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@Html.FloatTitle("Регистрация")
+<div class="container_12 topContainer">
+    <div class="grid_8">
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Login)</td>
+                    <td>@Html.TextBoxFor(m => m.Login)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Email)</td>
+                    <td>@Html.TextBoxFor(m => m.Email)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.FirstName)</td>
+                    <td>@Html.TextBoxFor(m => m.FirstName)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.LastName)</td>
+                    <td>@Html.TextBoxFor(m => m.LastName)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Password)</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.ConfirmPassword)</td>
+                    <td>@Html.PasswordFor(m => m.ConfirmPassword)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.WishedRole)</td>
+                    <td>@Html.RoleList()</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Capcha)</td>
+                    <td>@Html.TextBoxFor(m => m.Capcha,"",new {@class="clearMe", autocomplete="off"})</td>
+                </tr>
+            </table>
+            <img alt="Captcha" src="@Url.Action("CapchaImage","Widget")" style="" />
+            <div class="buttonSet">
+                <input type="submit" value="Зарегистрироваться" class="customButton orange mediumSizeButton"/>        
+            </div> 
+            <div class="empty_100"></div>
+    
+        }
+    </div>
+</div>

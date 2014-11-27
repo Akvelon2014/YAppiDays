@@ -1,0 +1,47 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.IdeasModel
+
+@{
+    ViewBag.Title = "Регистрация проекта";
+}
+<div class="titleFloat fullBlock">
+    <div class="container_12">
+        <div class="grid_10 titleName alpha">
+            <span>Регистрация проекта</span>
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("отмена","Index","Ideas")
+        </div>
+    </div>
+</div>
+<div class="container_12">
+    <div class="grid_8">
+        @using (Html.BeginForm())
+        {
+            <div class="topContainer grid_4">
+            
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                    <table>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                            <td>@Html.TextBoxFor(m => m.Title)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(m => m.GroupIdea)</td>
+                            <td>@Html.GroupIdeaList( name: "GroupIdea", forEvent: OptionModel.Current.CurrentEventId, htmlAttribute: new {@class="grey"})</td>
+                        </tr>
+                        <tr>
+                            <td class="requiredField">@Html.LabelFor(m => m.Description)</td>
+                            <td>@Html.TextAreaFor(m => m.Description, new {rows="8", cols="80"})</td>
+                        </tr>
+                    </table>
+            </div>
+            <div class="topContainer grid_5 ">
+                <input type="submit" value="Создать" class="customButton orange mediumSizeButton"/>
+            </div>
+        }
+    </div>
+</div>
+<div class="empty_100"></div>

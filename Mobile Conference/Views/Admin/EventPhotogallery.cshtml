@@ -1,0 +1,30 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Фотографии события";
+}
+
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_6 alpha titleName">
+            <span>Фотографии</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @using (Html.BeginForm("EventPhotogalleryPatial", "Admin", FormMethod.Post,
+                new {encType = "multipart/form-data", data_to = "addPhotos"}))
+            {
+                <input type="hidden" value="@ViewBag.eventId" name="eventId"/>
+                @Html.SimpleImageLoader("picture", "добавить")
+            }
+        </div>
+        <div class="grid_2">
+            @Html.ActionLink("вернуться","EventPage","Admin",new {eventId=(int)ViewBag.eventId},null)
+        </div>
+    </div>
+</div>
+
+<div class="addPhoto clearAddBlock"></div>
+
+<div class="container_12 topContainer ajaxHere addPhotos">
+    @Html.Action("ShowPicturesForEvent","Widget", new{eventId = (int)ViewBag.eventId, withoutTitle = true})    
+</div>
+<div class="empty_100"></div>

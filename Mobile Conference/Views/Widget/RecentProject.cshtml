@@ -1,0 +1,35 @@
+﻿@model List<IdeaWithPlatform>
+@using MobileConference.Models
+@if (Model.Any())
+{
+    <div id="projects" class="container_12">
+    
+        <div class="grid_3 alpha">
+            @Html.Partial("RenderIdea", Model[0])
+        </div>
+        <div class="grid_3">
+            @if (Model.Count() > 1)
+            {
+                @Html.Partial("RenderIdea", Model[1])
+            }
+        </div>
+        <div class="grid_3">
+            @if (Model.Count() > 2)
+            {
+                @Html.Partial("RenderIdea", Model[2])
+            }
+        </div>
+        <div class="grid_3 omega">
+            @if (Model.Count() > 3)
+            {
+                @Html.Partial("RenderIdea", Model[3])
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="container_12">
+        <p>По вашему запросу проектов не найдено</p>
+    </div>
+}

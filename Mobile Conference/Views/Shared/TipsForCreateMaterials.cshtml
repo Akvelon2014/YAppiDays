@@ -1,0 +1,10 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@Html.RenderTips( AdminTips.MaterialCreate,
+    new Tip("На сайте несколько видов материалов:<BR>1) просто ссылка<BR>2) ссылка на youtube.com (просто скопируйте ссылку " +
+            "из адресной строки на видео в youtube и вставьте в поле 'Ссылка'. Видео будет показываться на сайте<BR>" +
+            "3) материал с текстом (включая html тэги). Нажмите 'в виде текста' и сможете создать такой вид " +
+            "материала (обратите внимание на кнопку 'добавить ссылку' под текстовым полем)","labelForChecker")
+        {Type = TipType.Left, Width = 400, OffsetX = 50, OffsetY = -20, TriangleOffset = 20}
+        )

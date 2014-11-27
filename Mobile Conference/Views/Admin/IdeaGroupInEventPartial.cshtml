@@ -1,0 +1,55 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.EventModel
+
+<div class="fullBlock titleFloat">
+    <div class="grid_4 titleName">
+        <span class="subTitle">Типы проектов</span>
+    </div>
+</div>
+<div class="topContainer updatingDropDown">
+    <div class="bottomBorder">
+        @if (Model.IdeaTypes.Count() < (int)ViewBag.ideaGroupCount)
+        {
+            using (Html.BeginForm("ManageIdeaGroupsForEvent", "Admin", FormMethod.Get, new {data_update = "ideaGroupBlock"}))
+            {
+                @Html.GroupIdeaList(forEvent: Model.Id, exceptEvent: true, name: "ideasGroupId", htmlAttribute: new {@class = "grey"})
+                @Html.Hidden("eventId", Model.Id)
+            }
+        }
+        else
+        {
+            <p style="margin: 0;padding:3px 3px 2px 3px;">Все типы проектов добавлены</p>
+        }
+    </div>
+
+    @if (Model.IdeaTypes.Any())
+    {
+        <table>
+            @foreach (int ideaGroup in Model.IdeaTypes)
+            {
+                <tr>
+                    <td>@EventModel.GetTitleForIdeaGroup(ideaGroup)</td>         
+                    <td>
+                        @using (Html.BeginForm("ManageIdeaGroupsForEvent", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+                        {
+                       
+                        
+                            @Html.Hidden("eventId", Model.Id)
+                            @Html.Hidden("ideasGroupId", ideaGroup)                
+                            @Html.Hidden("delete", true)  
+                            <input type="submit" value="Удалить" class="grey customButton smallSizeButton"/>
+                        }
+                    </td>  
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <div>
+            <span>Типов проектов не добавлено.</span>
+        </div>
+    }
+</div>

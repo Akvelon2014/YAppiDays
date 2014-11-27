@@ -1,0 +1,38 @@
+﻿@using MobileConference.GlobalData
+@using MobileConference.Helper
+@model MobileConference.Models.IdeasModel
+@{
+    ViewBag.Title = "Лидерство";
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_8 titleName">
+            <span>Лидерство</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @Html.ActionLink("вернуться","MainPage","Ideas",new {ideaId=Model.Id},null)
+        </div>
+    </div>
+</div>
+
+<div id="leadership" class="container_12">
+    <p>Вы являетесь капитаном команды</p>
+
+    @if (Model.MemberUsers == null || (Model.MemberUsers .Count() < GlobalValuesAndStrings.NeededCountOfMemberToChangeLeader))
+    {
+        <p>В команде нет других участников. Вы не можете передать лидерство</p>
+    }
+    else
+    {
+        <p>Вы можете передать лидерство другому участнику:</p>
+        using (Html.BeginForm("Leadership", "Ideas", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("ideaId",Model.Id)
+            @Html.MemberOfIdeaList(Model.Id, withLeader: false,htmlAttribute: new {@class="grey"})
+            <br/>
+            <input type="submit" value="Передать лидерство" class="orange customButton mediumSizeButton"/>
+        } 
+    }
+</div>
+<div class="empty_100"></div>

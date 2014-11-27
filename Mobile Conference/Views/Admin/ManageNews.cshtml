@@ -1,0 +1,41 @@
+﻿@using MobileConference.Models
+@{
+    ViewBag.Title = "Управление новостями";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/AdminScript")
+    @Styles.Render("~/Content/Admin")
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_2 alpha titleName">
+            <span>Новости</span>
+        </div>
+        <div class="grid_9">
+            @using (Html.BeginForm("ManageNewsPartial", "Admin", FormMethod.Post,
+                new {@class = "externalUpdate", id = "newsBlock", data_update = "news"}))
+            {
+                @Html.Label("dateFrom", "С ")
+                @Html.TextBox("dateFrom", "", new {@class = "calendar submitWithDelay", autocomplete = "off"})
+                <div class="linkToToday" tag="dateFrom" title="сегодня"></div>
+                <label class="clearer" tag="dateFrom" for="dateFrom" title="очистить"></label>
+                @Html.Label("dateTo", " По ")
+                @Html.TextBox("dateTo", "", new {@class = "calendar submitWithDelay", autocomplete = "off"})
+                <div class="linkToToday" tag="dateTo" title="сегодня"></div>
+                <label class="clearer" tag="dateTo" for="dateTo"  title="очистить"></label>
+                @Html.CheckBox("withDeleted", false, new {@class = "submitByChange"})
+                @Html.Label("withDeleted", "с удаленными")
+            }
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("создать","CreateNews","Admin")            
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer paginationWrapper newsBlock ajaxHere" id="news">
+    @Html.Action("ManageNewsPartial", new {ViewBag.dateFrom, ViewBag.dateTo, ViewBag.page, ViewBag.withDeleted})
+</div>
+<div class="empty_100"></div>
+

@@ -1,0 +1,43 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.FeedbackModel
+@{
+    ViewBag.Title = "Обратная связь";
+}
+
+@Html.FloatTitle("Обратная связь")
+
+<div class="container_12">
+    <div class="grid_8 alpha topContainer">
+        <p>
+            Если у вас возникли вопросы, появились предложения или вы просто хотите написать отзыв, вы можете сделать это, 
+            заполнив форму справа.
+        </p>
+        <p>
+            Внимание! все поля обязательны к заполнению, поэтому представьтесь, прежде, чем нажать
+            "Отправить": укажите ваше имя и адрес электронной почты.
+        </p>
+    </div>
+    <div class="grid_4 alpha omega topContainer">
+        <div id ="contactForm">
+            @using (Html.BeginForm("Contact", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                @Html.LabelFor(m=>m.Name)
+                <br />
+                @Html.TextBoxFor(m=>m.Name)
+                <br />
+                @Html.LabelFor(m=>m.Email)
+                <br />
+                @Html.TextBoxFor(m=>m.Email)
+                <br />
+                @Html.LabelFor(m=>m.Message)
+                <br />
+                @Html.TextAreaFor(m=>m.Message)
+                <br />
+                <input class="customButton grey mediumSizeButton" type="submit" value="Отправить"/>
+            }
+        </div>
+    </div>
+</div>
+

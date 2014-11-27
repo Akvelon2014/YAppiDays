@@ -1,0 +1,10 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.EventModelWithOrder
+<h3>@Model.Order Этап</h3>
+
+@Html.TruncatedTitle("span",Model.EventModel.Title, 28)
+
+<h5>
+    @Model.EventModel.DurationString
+</h5>
+@Html.AvatarForEvent(Model.EventModel.Id)

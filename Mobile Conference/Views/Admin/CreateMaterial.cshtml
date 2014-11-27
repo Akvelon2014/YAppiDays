@@ -1,0 +1,61 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MaterialModel
+
+@{
+    ViewBag.Title = "Добавление материала";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/AdminScript")
+    @Styles.Render("~/Content/Admin")
+}
+@Html.Partial("TipsForCreateMaterials")
+@Html.FloatTitle("Добавление материалов")
+<div class="container_12 topContainer" id="createMaterial">
+    <div class="grid_6 alpha">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                    <td>@Html.TextBoxFor(m => m.Title)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.PlatformId)</td>
+                    <td>@Html.PlatformList(name: "PlatformId", htmlAttribute: new {@class = "grey"})</td>
+                </tr>
+                <tr>
+                    <td><br /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>@Html.CheckBox("externalCheker", new {@class = "right", id = "externalChecker"})</td>
+                    <td>@Html.Label("externalCheker", "в виде текста", new {id="labelForChecker"})</td>
+                </tr>
+                <tr class="internalDiv">
+                    <td class="requiredField">@Html.LabelFor(m => m.Link)</td>
+                    <td>@Html.TextBoxFor(m => m.Link)</td>
+                </tr>
+                <tr class="externalDiv">
+                    <td class="requiredField">@Html.Label("Текст")</td>
+                    <td>
+                        @Html.TextArea("Text", new {@class="materialArea"})
+                        @Html.Hidden("Link", "external")
+                    </td>
+                </tr>
+            </table>
+            <div class="topContainer linkWrapper">
+                <input type="submit" value="Сохранить" class="customButton orange mediumSizeButton"/>
+                <a id="addLink" class="grey customButton externalDiv">добавить ссылку</a>            
+            </div>
+        }
+    </div>
+    <div class="grid_6 omega externalDiv">
+        <p>Предпросмотр</p>
+        <p id="materialPreview"></p>
+    </div>
+</div>
+<div class="empty_100"></div>

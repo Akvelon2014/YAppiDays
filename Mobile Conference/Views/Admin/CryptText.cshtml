@@ -1,0 +1,24 @@
+﻿@using MobileConference.Helper
+@model string
+
+@{
+    ViewBag.Title = "Шифрация данных";
+}
+
+@Html.FloatTitle("Шифрация данных")
+<div class="container_12 topContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.TextBox("text")
+        <input type="submit" value="Шифровать" class="orange customButton mediumSizeButton"/>
+    }
+    @if (!string.IsNullOrEmpty(Model))
+    {
+        @Html.FloatTitle("Результат предыдущей шифрации", true)
+        <div class="topContainer">
+            @Html.TextArea("code",Model, new {rows = 3, cols = 100})
+        </div>
+    }
+</div>
+<div class="empty_100"></div>

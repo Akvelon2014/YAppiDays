@@ -1,0 +1,24 @@
+﻿@using MobileConference.Models
+@using MobileConference.Helper
+@model UserProfile
+<div class="hoverForShowHideLink placeholderForShowHideLink">
+    <a href="@Url.Action("UserDescription", "Home", new { login = Model.Login })" class="withoutDecoration">
+        @Html.AvatarForUser(Model.Id, true)            
+    </a>
+</div>
+
+<a href="@Url.Action("UserDescription", "Home", new { login = Model.Login })">
+    <h2>
+        @Model.LastName
+    </h2>
+    <h3>
+        @Model.FirstName
+        @if (!string.IsNullOrEmpty(Model.SecondName))
+        {
+            <span>@Model.SecondName</span>
+        }
+    </h3>
+</a>
+@Html.ActionLink("Принять", "ResolveRole", "Admin", new { accept = true, login = Model.Login }, new { @class = "customButton grey smallSizeButton" })
+@Html.ActionLink("Отклонить", "ResolveRole", "Admin", new { accept = false, login = Model.Login }, new { @class = "customButton grey smallSizeButton right" })
+

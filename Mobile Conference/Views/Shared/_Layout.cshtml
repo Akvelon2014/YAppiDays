@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <title>@ViewBag.Title - YAppiDays</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- use of 'PT Sans' font -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <!--[if lte IE 10]>
+        <link rel="stylesheet" href="..\..\Content\ie_style_old.css" />
+    <![endif]-->
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/MainScript")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <!-- Content Wrapper -->
+    <div id="wrap">
+        <div id="main">
+            <!-- Header -->
+            <div id="header">
+                <!-- Headline -->
+                <div id="headline">
+                    <!-- 960gs 12 column container -->
+                    <div class="container_12">
+                            <div id="logo-header" class="grid_3 suffix_6 alpha">
+                                <a href="@Url.Action("Index", "Home")"  class="withoutDecoration">
+                                    <img width="220" height="65" alt="LOGO" src="~/Content/img/logo-header.png">
+                                </a>
+                            </div>
+                            <div id="signup-box" class="grid_3 omega signup">
+                                @Html.Action("AccountInfo", "Widget")
+                            </div>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div id="navigation">
+                    <!-- 960gs 12 column container -->
+                    <div class="container_12">
+                        <div id="nav">
+                            <ul>
+                                <li>
+                                    @Html.ActionLink("расписание", "Events", "Home")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("проекты", "Ideas", "Home")                                    
+                                </li>
+                                <li>
+                                    @Html.ActionLink("эксперты", "Experts", "Home")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("материалы", "Materials", "Home")                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 960gs 12 column container -->
+                    <div class="container_12" style="display: none;">
+                            <div class="grid_3 alpha">
+                                СОБЫТИЯ
+                            </div>
+                            <div class="grid_3">
+                                ПРОЕКТЫ
+                            </div>
+                            <div class="grid_3">
+                                ЭКСПЕРТЫ
+                            </div>
+                            <div class="grid_3 omega">
+                                МАТЕРИАЛЫ
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Child Page Content -->
+            <div id="content">
+                <!-- 960gs 12 column container -->
+                <div id="mainContent" class="paginationWrapper ajaxHere">
+                    <!-- Content Placeholder -->
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <div id="buffer"></div>
+    </div>
+    <div id ="accountDialog"></div>
+    <!-- Sticky Footer -->
+    <div id="footer">
+        <!-- 960gs 12 column container -->
+        <div class="container_12">
+            <div class="grid_12">
+                @*@Html.Partial("YandexMetrika")*@                
+                <div id="logo-footer" class="grid_2 suffix_1 alpha">
+                    <a href="@Url.Action("Index", "Home")"  class="withoutDecoration">
+                        <img width="140" height="41" alt="LOGO" src="~/Content/img/logo-footer.png">
+                    </a>
+                </div>
+                <div class="grid_6 footer-link">
+                    @Html.ActionLink("Полезные Материалы", "Materials", "Home")                                    
+                    @Html.ActionLink("Правила участия", "About", "Home")                                    
+                    @Html.ActionLink("Обратная связь", "Contact", "Home")                                    
+                </div>
+                <div id="social-box" class="grid_2">
+                    <div class="right">
+                        @* Code for social icons was commented. If you need to used some social network link, you can uncommented
+                        needed tags a and paste link to the href attribute*@
+                        <a href="http://vk.com/yappiDays"  class="withoutDecoration" target="_blank">
+                            <div class="social-btn vk">
+                            </div>
+                        </a>
+                        @*<a href="#"  class="withoutDecoration"  target="_blank">
+                            <div class="social-btn facebook">
+                            </div>
+                        </a>
+                        <a href="#"  class="withoutDecoration" target="_blank">
+                            <div class="social-btn twitter">
+                            </div>
+                        </a>
+                        <a href="#"  class="withoutDecoration" target="_blank">
+                            <div class="social-btn google-plus">
+                            </div>
+                        </a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@using MobileConference.Helper
+@model List<MobileConference.Models.PictureNameModel>
+<script>UpdatePictureBlocks()</script>
+<div>
+    @if (Model != null && Model.Any())
+    {
+        Html.ClearGridClass();
+        if (!ViewBag.withoutTitle)
+        {
+            @Html.FloatTitle("Фотоотчет", true)
+        }
+        <div class="photoGroup topContainer">
+            @foreach (var photo in Model)
+            {
+                if (Html.IsUrlValid(photo))
+                {
+                    <div class="@Html.GridClass(2) photoContainer">
+                        <a href="@Html.UrlForPicture(photo)" class="withoutDecoration">
+                            @Html.DrawPicture(photo, false, "photo", null, true)
+                            <br/>
+                        </a>
+                        @if ((bool) ViewBag.isAdmin)
+                        {
+                            <div class="photoRemove">
+                                @using (@Html.BeginForm("RemoveImageFromPhototgallery", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+                                {
+                                    @Html.Hidden("eventId", (int) ViewBag.eventId)
+                                    @Html.Hidden("url", Html.UrlForPicture(photo))
+                                    <input type="submit" value="Удалить" class="customButton grey"/>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            <div class="pictureJustLoadingProgress @Html.GridClass(2)"></div>
+        </div>
+    }
+</div>

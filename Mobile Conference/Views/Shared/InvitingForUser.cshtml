@@ -1,0 +1,44 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model ProfileModel
+@{
+    ViewBag.Title = "Приглашения";
+}
+
+
+    @if (Model.MemberIdeas.Any())
+    {
+        @Html.FloatTitle("Ваш проект")                
+        <div class="container_12 topContainer">
+            <div class="grid_3 alpha">
+                @Html.Partial("RenderIdea", Model.MemberIdeas.First().GetIdeaWithPlatform())
+            </div>
+            <div class="grid_8 omega prefix_1">
+                <p>Вы получили приглашения вступить в проекты, но вы уже являетесь участником проекта. Вы можете
+                    остаться в текущем проекте или покинуть его и вступить в новый.
+                </p>
+            </div>
+        </div>
+    }
+    else if (Model.WishedIdeas.Any())
+    {
+        @Html.FloatTitle("Ваша заявка", true)                
+        <div class="container_12 topContainer">
+            <div class="grid_3 alpha">
+                @Html.Partial("RenderIdea", Model.WishedIdeas.First().GetIdeaWithPlatform())
+            </div>
+            <div class="grid_8 omega prefix_1">
+                <p>Вы получили приглашения вступить в прокты, но вы уже подали заявку на участие в проекте. Вы можете оставить заявку
+                    или отказаться от нее и вступить в новый проект.
+                </p>
+            </div>
+        </div>
+    }
+
+    @Html.FloatTitle("Ваши приглашения",Model.MemberIdeas.Any() || Model.WishedIdeas.Any())
+
+
+<div class="paginationWrapper">
+    @Html.Action("Inviting","Ideas")
+</div>
+<div class="empty_100"></div>

@@ -1,0 +1,58 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model IdeasModel
+@{
+    ViewBag.Title = "Профиль идеи";
+}
+@Html.Partial("TipsIdeaProfile")
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_8 alpha titleName">
+            <span>Профиль идеи</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @Html.ActionLink("вернуться","MainPage","Ideas",new {ideaId=Model.Id},null)
+        </div>
+    </div>
+</div>
+      
+<div class="ajaxHere">
+    @Html.Action("ChangeAvatar");
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.FloatTitle("Общие настройки", true, true)    
+    <div class="container_12">
+        <div id="generalSetting"></div>
+        <div class="grid_5 alpha">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.Hidden("Id", Model.Id)
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                    <td>@Html.TextBoxFor(m => m.Title)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.GroupIdea)</td>
+                    <td>@Html.GroupIdeaList(groupIdeas: Model.GroupIdea, forEvent: OptionModel.Current.CurrentEventId, name: "GroupIdea", htmlAttribute: new {@class = "grey"})</td>
+                </tr>
+            </table>
+            <br/>
+        
+        </div>
+    </div>
+    @Html.FloatTitle("Описание", true, true)   
+    <div class="container_12">     
+        @Html.TextAreaFor(m => m.Description, new {rows = "12", cols = "100"})
+        <br/>
+        <input type="submit" value="Сохранить" class="customButton mediumSizeButton orange" id="saveButton"/>
+    </div>
+}
+
+<div class="topContainer ajaxHere" id ="techonologySection">
+    @Html.Action("TechnologySection",new{ideaId = Model.Id})
+</div>
+<div class="empty_100"></div>

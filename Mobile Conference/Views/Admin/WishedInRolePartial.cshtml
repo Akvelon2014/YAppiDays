@@ -1,0 +1,22 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<UserProfile>
+
+@if (Model.Count > 0)
+{
+    foreach (var user in Model)
+    {
+        <div class="@Html.GridClass(3) expertImage">
+            @Html.Partial("WishedUser", user)
+        </div>
+    }
+    <div class="grid_12">
+        @Html.Pager(Model, page => Url.Action("WishedInRolePartial", new { page, role = (RoleName)ViewBag.Role }))
+    </div>
+}
+else
+{
+    <p>Желающих пока нет</p>
+}

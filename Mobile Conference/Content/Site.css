@@ -1,0 +1,1665 @@
+﻿/*** COLOR PALETTE
+
+#666666 - Dark Gray (font color)
+#FF9900 - Orange (accent color)
+#E68A00 - Dark Orange (accent color)
+
+***/
+
+/*-------- Common Styles --------*/
+html, body {
+    height: 100%;
+    -moz-min-width: 1050px;
+    -ms-min-width: 1050px;
+    -o-min-width: 1050px;
+    -webkit-min-width: 1050px;
+    min-width: 1050px;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    background-color: #FFF; /* page background color */
+}
+
+
+html, body, input, textarea, .dialogUser *, .dialogUser input, pre {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.dialogUser input {
+    color: #ffffff;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    margin: auto;
+}
+
+.shift_right {
+    margin-left: 20px;
+}
+
+.fullBlock {
+    background: #F2F2F2;
+    width: 100%;
+}
+
+.topContainer {
+    margin-top: 30px;
+}
+
+.bottomBorder{
+    margin-bottom: 30px;   
+    padding-bottom: 30px;
+    border-bottom: 1px #CCC solid;
+}
+
+/*
+    used to show div as set of tile    
+*/
+.brickBlocks .grid_4, .brickBlocks .grid_3, .brickBlocks .grid_2, .brickBlocks .grid_1{
+    margin-bottom: 20px;
+}
+
+
+.borderBlock {
+    border: 1px #CCC solid;
+}
+
+.borderBottomBlock {
+    border-bottom: 1px #CCC solid;
+}
+
+
+/*------- Title float ---------*/
+
+.titleFloat {
+    height: 50px;
+    line-height: 50px; 
+}
+
+
+.titleFloat > span {
+    font-weight: 400;
+}
+
+.titleFloat .linkToAll {
+    text-align: right;
+}
+
+.titleFloat .titleName span{
+    color: #E68B00;
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.titleFloat .titleName span.subTitle {
+    font-size: 20px;
+}
+
+.titleFloat .customDropDownList {
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+/***
+    Sticky Footer
+    see http://www.zakharov.ms/footer/
+ ***/
+
+#wrap {
+   min-height: 100%;
+   margin-bottom: -120px; /* negative value of footer height */
+}
+
+#buffer {
+    height: 120px; /* footer height */
+}
+
+#footer {
+   height: 120px; /* footer height */
+} 
+
+.empty_100 {
+    width: 100%;
+    height: 100px;    
+}
+
+/*-------- Hyperlinks --------*/
+a {
+    color: #e68a00;
+    text-decoration: underline;
+    outline: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.orangeSqure {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    background-color: #e68a00;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#LearnMore {
+    line-height: 40px;
+    position: relative;
+}
+
+#LearnMore:hover *{
+    background-color: #e68a00;
+}
+#LearnMore span{
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 20px;
+}
+
+#LearnMore .customButton {
+    left: 60px;
+    width: 120px;
+}
+
+#LearnMore .orangeSqure {
+    background-image: url(../Content/img/plus_tile.jpg)
+}
+
+/*
+    Image style for script    
+*/
+.imageLabel {
+    display: none;
+}
+
+a.imageLabel {
+    display: none;
+}
+
+.imagePreview {
+    position: relative;
+    overflow: hidden;
+ }
+
+    .imagePreview img
+    {
+        display:none;
+    }
+
+.userImage {
+    width: 220px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.miniUserImage {
+    width: 58px;
+    height: 53px;
+    position: relative;
+    overflow: hidden;
+}
+
+.miniUserImage div {
+    top: -13px;
+    left: 0;
+    height: 80px;
+    width: 58px;
+    position: absolute;
+}
+
+
+.circle .userImage {
+    top: -19px;
+    left: 0;
+    height: 188px;
+    width: 150px;
+    position: absolute;
+}
+
+.ideaImage {
+    width: 220px;
+    height: 130px;
+    overflow: hidden;
+}
+
+.miniIdeaImage {
+    width: 100px;
+    height: 53px;
+    overflow: hidden;
+}
+
+.imagePreview img {
+    position: relative;
+}
+
+.companyImage {
+    width: 140px;
+    height: 83px;
+    overflow: hidden;
+}
+
+.eventImage, .eventImage div{
+    width: 300px;
+    height: 178px;
+    overflow: hidden;
+}
+
+.photo {
+    height: 145px;
+    width: 145px;
+    overflow: hidden;
+    border: 1px solid #CCC;
+}
+.photo *, .photoContainer {
+    width: 145px;
+    height: 145px;
+}
+
+.photoContainer {
+    position: relative;
+}
+
+.photoContainer:hover .photoRemove {
+    display: inline-block;  
+}
+
+.photoRemove {
+    position: absolute;
+    bottom: -3px;
+    right: -8px;
+    opacity: 0.8;
+    display: none;
+}
+
+.photoRemove .customButton {
+    padding: 1px 6px;    
+}
+
+.pictureJustLoading {
+    display: none;
+}
+
+/*-------- Paragraphs --------*/
+p {
+    overflow: hidden;
+    padding: 10px 0;
+    text-align: left;
+}
+
+
+/*--------Comment-------------*/
+
+.comment {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-line;
+    overflow: hidden;
+    width: auto;
+}
+
+.contentComment {
+    position: relative;
+}
+
+.contentComment .removeComment {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    height: 40px;
+    width: 120%;
+    display: none;
+}
+
+.contentComment .removeComment input[type='submit'] {
+    float: right;
+    margin-right: 90px;
+    margin-top: 15px;  
+}
+
+.contentComment:hover .removeComment {
+    display: inline-block;
+}
+
+.contentComment:hover:after {
+    content: ' ';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    display: block;
+}
+
+/*-------- Heads --------*/
+h1 {
+    color: #E68B00;
+    font-size: 35px;
+}
+
+h2, .dialogUser h2 {
+    color: #E68B00;
+    font-size: 22px;
+}
+
+h3 {
+    color: #E68B00;
+    font-size: 15px;
+}
+
+/*-------- 960gs Grid (Debug Lines) --------*/
+
+/*#content .container_12,
+#content .container_16,
+#content .container_24 {
+    background-color: #fff; 
+    background-repeat: repeat-y;
+}
+
+#content .container_12 {
+    background-image: url(../Content/img/12_col.gif);
+}
+
+#content .container_16 {
+    background-image: url(../Content/img/16_col.gif);
+}
+
+#content .container_24 {
+    background-image: url(../Content/img/24_col.gif);
+}*/
+
+
+/*-------- Header --------*/
+#header {
+    padding-top: 30px;
+}
+
+#headline {
+    padding-bottom: 15px;
+}
+
+/*-------- Navigation --------*/
+#navigation {
+    background-color: #666666;
+    height: 50px;
+    text-align: center;
+}
+ 
+#nav ul {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+#nav ul li {
+  margin: 0 10px;
+  position: relative;
+  float: left;
+  text-align: center;
+  height: 50px; /* same as height of navigation div */
+  line-height: 50px; /* same as height of navigation div */
+  width: 220px; /* three cell width size in 960gs */
+  /* background-color: red; */
+}
+
+#nav ul li a {  
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+    font-weight: 700;
+    color: #ffffff;
+}
+ 
+#nav ul li a:hover { 
+  color: #FF9900; 
+}
+
+/*-------- Sign-Up Box --------*/
+#signup-box {
+    background-color: #FF9900;
+    height: 55px;
+    text-align: left;
+    color: #fff;
+    font-weight: 400;
+}
+
+#signup-box:hover {
+    background-color: #E68B00;
+}
+
+#welcome-box p {
+    width: 100%;
+    padding: 0;
+    margin: 4px 0;
+    text-align: left;
+    border: none;   
+}
+
+#welcome-box p.username {
+    margin-top: 8px;
+    margin-bottom: -6px;  
+}
+
+#profile-img {
+    width: 58px;
+    height: 53px;
+    background-image: url(../Content/img/user-dummy-medium.jpg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    border: 1px #CCC solid;
+    margin: 0 -2px;
+}
+
+#profile-img img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#welcome-box {
+    display: table;
+    text-align: left;
+    height: 55px;
+}
+
+#welcome-msg {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.accountButtonSet {
+    height: 30px;
+}
+
+#closeSelectFile, #closeFormatDialog {
+    width: 100%;
+    margin-bottom: -20px;
+    margin-top: -10px;
+}
+
+#closeSelectFile span, #closeFormatDialog span {
+    float: right;
+}
+
+#closeSelectFile span:hover, #closeFormatDialog:hover {
+    cursor: pointer;
+}
+
+/*-------- Welcome --------*/
+#welcome {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#welcome p {
+    text-align: left;
+    font-weight: 400;
+}
+
+#welcome img {
+    vertical-align: bottom;
+}
+
+.commonDescription {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*-------- Awards --------*/
+#awards {
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.awardImage {
+    width: 119px;
+    height: 119px;
+    margin: auto; 
+}
+
+#awards h3 {
+    margin-top: 25px;
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+#awards span {
+    font-size: 18px;
+    font-weight: 700;
+}
+#awards span.subtitle {
+    font-weight: 400;
+}
+
+a.withoutDecoration span {
+    color: #666;
+}
+
+a.withoutDecoration h5 {
+    color: #e68a00;
+}
+
+/*-------- Stages --------*/
+#stages {
+    background-color: #F2F2F2;
+    padding-top: 30px;
+    min-height: 200px;
+    text-align: center;
+
+}
+
+.phase h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.phase span{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.phase h5{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.phase p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+/*-------- Projects, Events and Materials--------*/
+
+#projects, #materials {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    min-height: 245px;
+}
+
+.projectWraper {
+    padding-bottom: 20px;
+    border: 1px solid #CCC;
+    height: 210px;
+    overflow: hidden;
+}
+
+.projectWraper .ideaImage {
+    position: relative;
+}
+
+.projectWraper img {
+    border-bottom: 1px solid #CCC;
+}
+
+.projectWraper .ideaImage .mentorLabel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    margin: 0;
+}
+
+.projectWraper a {
+    text-decoration: underline;
+}
+
+.projectWraper a:hover {
+    text-decoration: none;
+}
+
+.projectWraper h3, .projectWraper span{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.projectWraper span a {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.projectWraper span {
+    font-weight: 400;
+    color: #999;
+}
+
+.projectWraper h3 {
+    overflow: hidden;
+    height: 40px;    
+}
+
+.projectWraper p {
+    margin: 0;
+    padding: 0;
+}
+
+.emptyProject {
+    height: 230px;
+    border: 1px dashed #CCC;
+}
+
+.emptyProject a {
+    font-size: 30pt;
+    text-align: center;
+    margin-top: 70px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.eventWraper {
+    padding-bottom: 20px;
+    border: 1px solid #CCC;
+    height: 230px;
+    overflow: hidden;
+}
+
+.eventWraper p, .eventWraper h3 {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+/*-------- Experts --------*/
+#experts {
+    background-color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    height: 560px;
+    width: 100%;
+}
+
+#experts *{
+    font-weight: 400;
+}
+
+#experts p {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+#experts h2 {
+    margin-bottom: 45px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+#experts h3 {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+.expertsName {
+    height: 80px;
+    width: auto;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.expertsPlaceholder {
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+#experts2 {
+    display: none;
+    -ms-opacity: 0;
+    opacity: 0;
+}
+
+/*
+    User Block    
+*/
+#usersblock {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#usersblock .grid_3 {
+    height: 393px;
+}
+
+#usersblock .expertImage {
+    height: 393px;
+    border: #cccccc solid 1px;
+}
+
+#usersblock .expertImage p.platform{
+    color: #cccccc;
+    margin: 10px 15px;
+    font-size: 15px;
+}
+
+#usersblock .expertImage > div{
+    overflow: hidden;
+    border-bottom: #cccccc solid 1px;
+}
+
+#usersblock .expertImage div * {
+    -moz-min-width: 100%;
+    -ms-min-width: 100%;
+    -o-min-width: 100%;
+    -webkit-min-width: 100%;
+    min-width: 100%;
+    max-width: 260px;
+}
+
+#usersblock h3 {
+    margin: 5px 20px 5px 20px;
+    overflow: hidden;
+    height: 20px;
+}
+
+#usersblock h2 {
+    margin: 20px 20px 5px 20px;
+    overflow: hidden;
+    height: 22px;
+}
+
+#usersblock p {
+    margin: 0;
+    padding: 0 5px;
+    overflow: hidden;
+    height: 22px;
+}
+
+#leadership input[type='submit'] {
+    margin-top: 5px;
+}
+/*-------- Circular Image --------*/
+.circle {
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+    position: relative;
+}
+
+
+.circleBorder {
+    border: #CCC solid 3px;
+}
+
+
+.circleBorder:hover {
+    border-color: #999;
+    cursor: pointer;
+}
+
+/*--------Companies and Sponsors Blocks----*/
+.companyBlock {
+    margin-bottom: 40px;
+}
+
+.companyBlock .grid_2 {
+    height: 80px;
+    margin-top: 30px;
+}
+
+.companyBlock .grid2 img{
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.company {
+    height: 140px;
+    border: 1px #CCC solid;
+    overflow: hidden;
+    position: relative;
+}
+
+.company a{
+    margin-left: 10px;
+}
+
+.company a img {
+    margin-top: -20px;
+}
+
+.company div {
+    height: 90px;
+}
+
+.companyRank {
+    position: absolute;
+    right: -1px;
+    top:-1px;
+    height: 20px !important;
+    padding: 2px 5px;
+    border: 1px solid #999;
+    background: #CCC;
+}
+
+#sponsors > div {
+    margin-bottom: 40px;
+}
+
+#sponsors .titleName span {
+    margin-left: 15px;
+}
+
+
+
+/*-------- Footer --------*/
+#footer {
+    background: #666666;
+}
+
+#footer a {
+    color: #B6B6B6;
+    font-weight: 400;
+}
+
+#footer .social-btn {
+    background-color: #9A9A9A;
+}
+
+.social-btn {
+    padding: 0;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-image: url(../Content/img/social-icons.png);
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 6px;
+}
+
+.social-btn.vk {
+    background-position: left;
+    background-color: #2B587A
+}
+
+.social-btn:hover {
+    cursor: pointer;
+}
+
+
+#footer .social-btn.vk:hover {
+   background-color: #2B587A
+}
+
+.social-btn.facebook {
+    background-position: -25px center;
+    background-color: #3B5998;
+}
+
+#footer .social-btn.facebook:hover {
+   background-color: #3B5998
+}
+
+.social-btn.twitter {
+    background-position: -50px center;
+}
+
+#footer .social-btn.twitter:hover {
+   background-color: #00ACED
+}
+
+.social-btn.google-plus {
+    background-position: right;
+}
+
+#footer .social-btn.google-plus:hover {
+   background-color: #D14836
+}
+
+#logo-footer {
+    padding-top: 40px;
+    padding-bottom: 25px;
+}
+
+#footer .footer-link {
+    padding-top: 50px;
+    text-align: left;
+}
+
+#footer .footer-link  a {
+    margin-right: 20px;    
+}
+
+#social-box {
+    padding-top: 49px;
+}
+
+/*
+    Forms
+*/
+
+hgroup.title{
+    margin-left:10px;
+}
+
+.buttonSet {
+    margin: 20px 0 10px;
+}
+
+.clearer:hover {
+    cursor: pointer;
+}
+
+#chatSenderBlock textarea {
+    margin: 0px;
+    max-width: 450px;
+    height: 135px;
+    margin-bottom: 10px;
+}
+
+.profileForm tr td:first-child{
+    width: 130px;
+}
+
+
+/*
+    Loader icon
+*/
+.loaderIcon {
+    margin: auto;
+    margin-left: 25px;
+}
+
+.miniLoader {
+    background: url(../Content/img/loader.gif);
+    background-position: 50% 50%;
+    height: 100px;
+    width: 400px;
+}
+/*
+    Events    
+*/
+#events {
+    margin-top: 20px;   
+    margin-bottom: 60px;   
+}
+
+
+#events h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.largeFigures, .phase span.largeFigures{
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#events .grid_1 {
+    text-align: center;
+}
+
+#events .grid_11 * {
+    text-align: left;
+}
+
+#events .grid_11 p {
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+#eventDescription {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#eventDescription #title{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 27px;
+    margin-top: 25px;
+}
+
+#eventDescription #date {
+    font-size: 28px;
+    margin-top: 10px;
+    background-color: #CCC;
+    padding: 10px;
+    text-align: center;
+}
+
+#eventDescription #date_mini {
+    font-size: 18px;
+    margin-top: 10px;
+    background-color: #CCC;
+    padding: 5px 10px;
+    width: 180px;
+}
+
+#eventDescription #date_mini #date_from {
+    width: 200px;
+    display: inline-block;
+}
+#eventDescription #date_mini #date_to {
+    float: right;
+}
+
+
+#eventDescription #description {
+    margin-top: 20px;
+}
+
+#eventDescription #description .eventImage {
+    margin-top: 16px;
+}
+
+pre.eventDesc {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-line;
+    overflow: hidden;
+}
+
+pre.eventDesc.top {
+    padding-top: 11px;
+
+}
+
+#eventBasicBlock p{
+    padding: 2px;
+}
+
+.eventForStage .grid_1 {
+    text-align: center;
+}
+
+.eventForStage span {
+    font-size: 14px;
+}
+
+.eventForStage h2 {
+    margin: 10px;
+}
+
+.eventForStage p {
+    margin: 10px;
+    padding: 0;
+}
+
+.commentWrapper .eventForStage:last-child {
+    border: none;
+}
+/*
+    Dialog
+*/
+#accountDialog *{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #666666;
+}
+
+#accountDialog .customButton {
+    color: #FFF;  
+}
+
+.titleDialog {
+    margin: -3px -10px 20px -10px;
+    padding: 0 10px 0 20px;
+    height: 30px;
+    line-height: 30px;
+    background: #CCC;   
+}
+
+.closeAccountDialog {
+    display: block;
+    float: right;
+    font-weight: lighter;
+}
+
+.closeAccountDialog:hover {
+    cursor: pointer;
+}
+
+#pictureDialog img {
+    margin-right: 10px;
+}
+
+/*
+    Admin menu
+*/
+.adminMenu a {
+    margin-bottom: 5px;
+}
+
+
+#userName {
+    width: 100%;
+    padding: 30px 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.descriptionUser {
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+
+.descriptionUser p {
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.descriptionUser span {
+    margin-top: 5px;
+    text-align: left;
+}
+
+/*
+    Project Profile    
+*/
+#projectProfile {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#projectProfile p{
+    text-align: left;
+    margin: 0;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    width: 100%;
+    overflow: hidden;
+    white-space: pre-line;
+}
+
+#projectProfile h2{
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    line-height: 30px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+#projectProfile .imageProject ~ p {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+
+}
+
+#projectProfile .imageProject ~ h3 {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    color: #666;
+}
+
+#projectProfile .imageProject {
+    min-height: 120px;
+    max-height: 250px;
+    height: auto;
+}
+
+/*
+    Chat
+*/
+
+#chatBlock .photo {
+    margin-top: 17px;
+}
+
+.addPhotoToChat {
+    width: 145px;
+    height: 145px;
+    line-height: 145px;
+    border: 1px dashed #999;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin-left: 20px;
+}
+
+/*
+    Contact    
+*/
+
+#contactForm {
+    background-color: #f2f2f2;
+    margin: 10px 0 50px 0;
+    border: 1px solid #666;
+    padding: 20px;
+}
+
+#contactForm input[type="text"], #contactForm textarea {
+    width: 240px;
+}
+
+#contactForm textarea {
+    height: 145px;
+    max-height: 145px;
+    max-width: 240px;
+}
+
+#contactForm input[type="submit"] {
+    margin-left: 52px;
+    margin-top: 20px;
+}
+
+/*
+    Skill block    
+*/
+
+.skillBlock {
+    padding-left: 10px;
+}
+
+.skillBlock span {
+    margin-right: 25px;
+    margin-top: 20px;
+    border: 1px solid #666;
+    padding: 0 10px 1px 7px;
+    font-size: 16px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    background: #FFF;
+    display: inline-block;
+    float: left;
+}
+
+.skillBlock span:after, .skillBlock span:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-style: solid;
+    border-color: #FFFFFF transparent;
+
+}
+
+.skillBlock span:after {
+    border-color: transparent #fff ;
+    top: 0;
+    left: -10px;
+    border-width: 11px 11px 11px 0;
+}
+
+.skillBlock span:before {
+    border-color: transparent #666 ;
+    top: 0;
+    left: -11px;
+    border-width: 11px 11px 11px 0;
+}
+
+.cloud {
+    padding: 0 5px;
+    margin: 0 0 10px 0 !important;
+    display: inline-block;
+    line-height: 11px;
+}
+ .cloud span {
+    color: #f2f2f2;
+    padding: 0 7px;
+    font-size: 10px;
+    display: inline-block;
+    border: #999 solid 1px;
+    background-color: #999;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    height: 12px;
+    vertical-align: text-bottom;
+    position: relative;
+}
+
+.cloud span:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 25%;
+    border: 0;
+    border-top: 7px #999 solid;
+    border-right: 7px transparent solid;
+
+}
+
+
+/*-----News----------------*/
+#news-feed {
+    padding-top: 0;
+}
+
+#news-feed * {
+    margin-left: 12px;
+}
+
+#news-feed h2 {
+    margin-top: 0;
+    text-align: left;    
+}
+
+.itemNews p{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+.itemNews span{
+    font-size: 12px;
+}
+.itemNews{
+    border-bottom: #e5e5e5 solid 1px;
+    padding: 10px;
+    padding-bottom: 12px;
+}
+
+.itemNews:last-child {
+    border: none;
+}
+
+input:hover + label.clearer:after, input:hover + div+ label.clearer:after {
+    display: inline-block;
+}
+
+label.clearer {
+    position: relative;
+    width: 0;
+    height: 0;
+    display: inline-block;
+}
+
+label.clearer:after {
+    content: "x";
+    position: absolute;
+    left: -32px;
+    top: -17px;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    display: none;
+    text-align: center;
+    line-height: 18px;
+    color: #CCC;
+    font-size: 20px;
+    z-index: 10;
+}
+
+label.clearer:hover:after {
+    color: #999;
+}
+/*Validation*/
+.validation-summary-errors {
+    border: 1px #F00 solid;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: auto;
+    padding: 10px 0px 5px 5px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 5px;
+}
+
+.validation-summary-errors:before {
+    content: 'Замечания';
+    border: 1px #F00 solid;
+    width: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    right: -1px;
+    background-color: #F00;
+    color: #FFF;
+    -ms-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+    padding: 3px 15px;
+}
+
+.validation-summary-errors ul{
+    list-style: circle;
+    padding-left: 20px;
+    margin-top: 25px;
+}
+
+.validation-summary-errors ul li{
+    width: auto;
+    font-style: italic;
+}
+
+.requiredField label{
+    position: relative;
+}
+
+.requiredField label:before {
+    content: '*';
+    position: absolute;
+    display: inline-block;
+    left: -10px;
+    top: 0;
+}
+
+/*
+    About and Contact
+*/
+
+#about p {
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+/*
+    ShowHidden link    
+*/
+.placeholderForShowHideLink {
+    position: relative;
+}
+
+.hoverForShowHideLink:hover .showHideLink {
+    visibility: visible;
+}
+
+.showHideLink {
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+}
+
+.showHideLink.right {
+    right: 0;
+}
+
+.showHideLink.left {
+    left: 0;
+}
+
+/*auxiliary*/
+.platformsBlock {
+    position: relative;
+}
+
+.platformsBlock #platformBlockTop {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+}
+
+/*
+    AnchorHere and AnchorParent    
+*/
+
+.anchorParent {
+    position: relative;
+}
+
+.anchorHere {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*
+    Note for textbox etc
+*/
+div[data-note] {
+    display: none;
+    width: 0;
+    height: 0;
+    vertical-align: top;
+    position: relative;    
+}
+
+div[data-note]:after {
+    content: attr(data-note);
+    display: block;
+    position: absolute;
+    padding: 5px 30px;
+    border: 1px dashed #ccc;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    left: 5px;
+    width: auto;
+    -moz-min-width: 250px;
+    -ms-min-width: 250px;
+    -o-min-width: 250px;
+    -webkit-min-width: 250px;
+    min-width: 250px;
+}
+
+*:focus + div[data-note] {
+    display: inline-block;
+}
+
+/*
+    Tools for avatar management    
+*/
+.imageLoaderWrapper {
+    display: inline-block;
+}
+
+.imageLoaderWrapper {
+    position: relative;
+    
+}
+
+.imageTools {
+    position: absolute;
+    overflow: hidden;
+    background: #CCC;
+    border: 1px solid #999;
+    -ms-border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 0;
+    width: 40px;
+    height: 160px;
+    display: none;
+    left: -41px;
+    top: 0;
+}
+
+.imageLoaderWrapper:hover  .imageTools, .imageTools:hover, .aboveImage:hover ~ .imageTools{
+    display: inline-block;
+}
+
+
+.imageTools a, .imageTools input {
+    width: 0px;    
+    height: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.imageTools a:after, .imageTools input:after {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    content: "";
+    background: url(img/imageTools.png);
+}
+
+.imageTools a:before, .imageTools input:before {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    content: "";
+    background: #CCC;
+}
+
+.imageTools .imageLoaderLink {
+    top: 0;
+}
+
+.imageTools .imageLoaderLink:after {
+    top: 0;
+    background-position: 120px 0px;
+}
+
+
+.imageTools .cancelLoad {
+    top: 40px;
+}
+
+.imageTools .cancelLoad:after {
+    background-position: 80px 0px;
+}
+
+
+.imageTools .rotateLink {
+    top: 80px;
+}
+
+.imageTools .rotateLink:after {
+    background-position: 40px 0px;
+}
+
+
+.imageTools .imageUpdate {
+    top: 120px;
+}
+
+.imageTools .imageUpdate:after {
+    background-position: 0px 0px;
+}
+
+.aboveImage {
+    position: absolute;
+    bottom: 0;
+    left: -40px;
+    top: 0;
+    width: 40px;
+}

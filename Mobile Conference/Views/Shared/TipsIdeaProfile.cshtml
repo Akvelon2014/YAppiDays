@@ -1,0 +1,14 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+
+@Html.RenderTips(StudentTips.IdeaProfile,
+    new Tip("После загрузки нового аватара проекта, для лучшего отображения - обрежьте фотографию"
+        , "div_picture_loader") { Type = TipType.Left, Width = 300, OffsetX = 15, OffsetY = -10, TriangleOffset = 20 },
+    new Tip("Измените основные данные вашего проекта"
+        , "generalSetting") { Type = TipType.Top, Width = 300, TriangleOffset = 40 },
+    new Tip("После внесения изменений не забудьте нажать Сохранить"
+        , "saveButton") { Type = TipType.Left, Width = 200, OffsetX = 10, OffsetY = -10, TriangleOffset = 20 },
+    new Tip("Добавьте или удалите технологии, используемые при создании проекта<BR>(при этом технологии сохраняются автоматически)"
+        , "technologySectionCaption") { Type = TipType.Top, Width = 300, OffsetY = 10, TriangleOffset = 40 }    
+)

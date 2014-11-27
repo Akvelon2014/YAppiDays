@@ -1,0 +1,50 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.GlobalData
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+<div>
+        @if (Model.Email == GlobalValuesAndStrings.EmailForInternalUser)
+        {
+            <a href="@Url.Action("UserDescription","Home",new {login = Model.Login})" class="withoutDecoration">
+                @Html.AvatarForUser(Model.Id,true, htmlAttributes: new {@class="userInternal"})
+            </a>
+        }
+        else
+        {
+            <a href="@Url.Action("UserDescription","Home",new {login = Model.Login})" class="withoutDecoration">
+                @Html.AvatarForUser(Model.Id,true)
+            </a>
+        }
+</div>
+
+<a href="@Url.Action("UserDescription","Home",new {login = Model.Login})">
+    @if (Model.LastName.IsNullOrEmpty() && Model.FirstName.IsNullOrEmpty())
+    {
+        <h2>
+            @Model.Login
+        </h2>
+        <h3></h3>
+    }
+    else
+    {
+        <h2>
+            @Model.LastName
+        </h2>
+        <h3>
+            @Model.FirstName
+            @if (!string.IsNullOrEmpty(Model.SecondName))
+            {
+                <span>@Model.SecondName</span>
+            }
+        </h3>
+    }
+</a>
+ @if (Model.IsDeleted)
+ {
+     <span>удален</span>
+ }
+ else
+ {
+     <span>@Model.RoleInRussian</span>
+ }
+ @Html.ActionLink("Подробнее","UserDescribe","Admin",new{login = Model.Login},new{@class="dialogLink grey customButton smallSizeButton right"})

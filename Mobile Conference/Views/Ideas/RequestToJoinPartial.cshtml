@@ -1,0 +1,33 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model PagedList.IPagedList<ProfileModel>
+
+@if (Model != null && Model.Count > 0)
+{
+    Html.ClearGridClass();
+    <div id="usersblock" class="container_12 brickBlocks invitedUsers">
+        
+        @foreach (var user in Model)
+        {
+            <div class="borderBlock @Html.GridClass(3)">
+                
+                @Html.Action("DescribeInvitedUser", "Widget", new
+                {
+                    idea = (IdeasModel) ViewBag.idea, user, ViewBag.page, fromRequest = true
+                })
+            </div>
+        }
+    </div>
+    <div class="container_12">
+        <div class="grid_7">
+            @Html.Pager(Model, page => Url.Action("RequestToJoin", new {page}))
+        </div>
+    </div>
+}
+else
+{
+    <div class="container_12">
+        <p>Нет заявок на присоединение к нашему проекту</p>
+    </div>
+
+}

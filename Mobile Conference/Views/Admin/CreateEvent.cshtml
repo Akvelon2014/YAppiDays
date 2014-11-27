@@ -1,0 +1,78 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model EventModel
+
+@{
+    ViewBag.Title = "Новое событие";
+}
+
+@Html.FloatTitle("Новое событие")
+
+<div class="container_12">
+    <div class="grid_6">
+        @using (Html.BeginForm("CreateEvent", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.Hidden("ParentId",(int?)ViewBag.parentId)
+            <table>
+                <tr>
+                    <td>Уровень:</td>
+                    <td>
+                        @if (ViewBag.parent != null)
+                        {
+                            @Html.GetTitleNameOfEventLevel(((EventModel)ViewBag.parent).Level+1)
+                        }
+                        else
+                        {
+                            @Html.GetTitleNameOfEventLevel(0)                            
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Title)</td>
+                    <td>@Html.TextBoxFor(m => m.Title)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.EventType)</td>
+                    <td>@Html.TypeEventList(Model==null?null:Model.EventType,htmlAttribute: new {@class="grey"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.DateFrom)</td>
+                    <td>@Html.TextBoxFor(m => m.DateFrom,new {@class="calendar", autocomplete="off"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.DateTo)</td>
+                    <td>@Html.TextBoxFor(m => m.DateTo,new {@class="calendar", autocomplete="off"})</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Description)</td>
+                    <td>@Html.TextAreaFor(m => m.Description, new {rows="6", cols="40"})</td>
+                </tr>
+            </table>
+            <input type="submit" value="Сохранить" class="mediumSizeButton orange customButton"/>
+        }
+    </div>
+    
+     @if ((int?) ViewBag.parentId != null)
+     {
+         <div class="grid_4 push_2 omega">
+             <h2>Родительское событие</h2>
+             <div class="projectWraper">
+                 @Html.AvatarForEvent((int)ViewBag.parentId)
+                 <p>@(((EventModel)ViewBag.parent).DateFrom) - @(((EventModel)ViewBag.parent).DateTo)</p>
+                 <p>
+                     Уровень: @(Html.GetTitleNameOfEventLevel(((EventModel)ViewBag.parent).Level))
+             
+                 </p>
+             </div>
+             <div class="topContainer brickBlocks">
+                 @Html.ActionLink("Перейти", "EventPage", "Admin", new {eventId = (int)ViewBag.parentId},
+                     new {@class = "mediumSizeButton customButton grey"})    
+             </div>
+         </div>
+     }
+   
+</div>
+
+<div class="empty_100"></div>

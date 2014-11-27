@@ -1,0 +1,48 @@
+﻿@using MobileConference.Helper
+@model PagedList.IPagedList<MobileConference.Models.PlatformModel>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Технологий пока нет</p>
+}
+else
+{
+    Html.ClearGridClass();
+    <div class="brickBlocks topContainer" id="materialsWrapper">
+        @foreach (var platform in Model)
+        {
+            <div class="@Html.GridClass(3) borderBlock">
+                <div class="blockWithLabel">
+                    <a href="@Url.Action("ChangePlatform", "Admin", new {platformId = platform.Id})" class="withoutDecoration">
+                        @Html.AvatarForPlatform(platform.Id)
+                    </a>
+                     @if (platform.IsDeleted)
+                     {
+                         <span class="blockLabel">Удалена</span>
+                         using (Html.BeginForm("RestorePlatform", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+                         {
+                             @Html.Hidden("platformId", platform.Id)
+                             @Html.Hidden("page", (int) ViewBag.page)
+                             <input type="submit" value="Восстановить" class="wideSizeButton customButton grey blockLink"/>
+                         }
+                     }
+                     else
+                     {
+                         using (Html.BeginForm("RemovePlatform", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+                         {
+                             @Html.Hidden("platformId", platform.Id)
+                             @Html.Hidden("page", (int) ViewBag.page)
+                             <input type="submit" value="Удалить" class="wideSizeButton customButton grey blockLink"/>
+                         }
+                     }
+                </div>
+                <span>
+                    @Html.TruncatedTitle("a", platform.Title, 30, new {href = Url.Action("ChangePlatform", "Admin", new {platformId = platform.Id})})                        
+                </span>
+            </div>
+        }
+    </div>
+    <div class="topContainer">
+        @Html.Pager(Model, page => Url.Action("ManagePlatformPartial", "Admin", new {page}))
+    </div>
+}

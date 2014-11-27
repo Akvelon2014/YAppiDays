@@ -1,0 +1,10 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Проекты без ментора";
+}
+
+@Html.FloatTitle("Проекты без ментора")
+<div class="paginationWrapper">
+    @Html.Action("IdeasWithoutMentor","Widget", new {page = ViewBag.page})
+</div>
+<div class="empty_100"></div>

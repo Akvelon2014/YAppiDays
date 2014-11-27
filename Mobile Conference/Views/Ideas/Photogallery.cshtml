@@ -1,0 +1,33 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@{
+    ViewBag.Title = "Фотографии";
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_6 alpha titleName">
+            <span>Фотоальбом</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @if (((IdeaWithPermission) ViewBag.idea).Permission.HasFlag(PermissionType.AddPhotos))
+            {
+                using (Html.BeginForm("PhotogalleryPartial", "Ideas", FormMethod.Post, 
+                    new {encType = "multipart/form-data", data_to="addPhotos"}))
+                {
+                    <input type="hidden" value="@ViewBag.ideaId" name="ideaId"/>
+                    @Html.SimpleImageLoader("picture","добавить")
+                }
+            }
+        </div>
+        <div class="grid_2">
+            @Html.ActionLink("вернуться", "MainPage", "Ideas", new { ideaId = (int)ViewBag.ideaId }, null)  
+        </div>
+    </div>
+</div>
+
+<div class="ajaxHere addPhotos">
+    @Html.Action("ShowIdeaPhotos","Widget", new{ideaId = (int)ViewBag.ideaId})
+</div>
+
+ <p></p>

@@ -1,0 +1,60 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+
+<div class="descriptionUser">
+    @if (!string.IsNullOrEmpty(Model.BirthDate))
+    {
+        <div>
+            <p>Дата рождения</p>
+            <span>@Model.BirthDate</span>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.City))
+    {
+        <div>
+            <p>Город</p>
+            <span>@Model.City</span>
+        </div>
+    }
+    
+    @if (Model.CompanyModel != null)
+    {
+        <div>
+            <p>Место работы</p>
+            <span>@Model.CompanyModel.Name</span>
+        </div>
+    }
+    else if(Model.PlaceJob!=null)
+    {
+        <div>
+            <p>Место работы</p>
+            <span>@Model.PlaceJob</span>
+        </div>
+    }
+
+  
+    @if (!string.IsNullOrEmpty(Model.University))
+    {
+        <div>
+            <p>Учебное заведение</p>
+            <span>@Model.University</span>
+        </div>
+
+        if (!string.IsNullOrEmpty(Model.Faculty))
+        {
+            <div class="shift_right">
+                <p>Факультет</p>
+                <span>@Model.Faculty</span>
+            </div>
+        }
+        if (Model.YearBeginning != null || Model.YearGraduating != null)
+        {
+            <div class="shift_right">
+                <p>Период</p>
+                <span>@Html.Duration(Model.YearBeginning, Model.YearGraduating)</span>
+            </div>
+        }
+    }
+    
+</div>

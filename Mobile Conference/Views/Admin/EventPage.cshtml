@@ -1,0 +1,144 @@
+﻿@using MobileConference.Enums
+@using MobileConference.GlobalData
+@using MobileConference.Helper
+@using MobileConference.Models
+@model EventModel
+
+@{
+    ViewBag.Title = "Событие: "+Model.Title;
+}
+@if (Model.ParentId == null)
+{
+    @Html.Partial("TipsForGlobalEvent")    
+}
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_8 alpha titleName">
+            @if (Model.Title.Length > 30)
+            {
+                <span title="@Model.Title">
+                    @Html.Truncate(Model.Title, 27)
+                </span>
+            }
+            else
+            {
+                <span>@Model.Title</span>
+            }
+        </div>
+        @if (Model.IsDeleted && Model.ParentId!=null)
+        {
+            <div class="grid_2">
+                <span>удалено</span>                
+            </div>
+            <div class="grid_2 omega">
+                @Html.ActionLink("Восстановить","EventPage","Admin",new {eventId = Model.Id
+                    , command = EventProfileCommand.Restore},null)                
+            </div>
+        }
+        else
+        {
+            <div class="grid_2">
+                @if (Model.ParentId != null)
+                {
+                    @Html.ActionLink("Удалить", "EventPage", "Admin", new
+                    {
+                        eventId = Model.Id
+                        , command = EventProfileCommand.Remove
+                    }, null)
+                }
+                else
+                {
+                    <p></p>
+                }
+            </div>
+            <div class="grid_2 omega">
+                @Html.ActionLink("Редактировать","ChangeEvent","Admin",new {eventId = Model.Id},new{id="editEventLink"})
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container_12 topContainer">
+    <div class="grid_4 alpha ">
+        <div class="projectWraper">
+            @Html.AvatarForEvent(Model.Id)
+            <p>@Model.DateFrom - @Model.DateTo</p>
+            <p>Уровень: @Html.GetTitleNameOfEventLevel(Model.Level)</p>
+        </div>
+        <div class="topContainer brickBlocks">
+            @if (@Model.ParentId != null)
+            {
+                <div class="grid_3">
+                    @Html.ActionLink("Родительское событие", "EventPage", "Admin", new {eventId = @Model.ParentId},
+                        new {@class = "mediumSizeButton customButton grey"})    
+                </div>
+            }
+            else
+            {
+                <div class="grid_3">
+                    @Html.ActionLink("Награды", "ManageAward", "Admin", new {eventId = @Model.Id},
+                        new {@class = "mediumSizeButton customButton grey", id="awardsEdit"})    
+                </div>
+            }  
+            @if (Model.Level == GlobalValuesAndStrings.NewsLevelInEvent)
+            {
+                <div class="grid_3">
+                    @Html.ActionLink("Фотографии", "EventPhotogallery", "Admin", new {eventId = @Model.Id},
+                        new {@class = "mediumSizeButton customButton grey"})
+                </div>
+            }
+        </div>
+    </div>
+    <div class="grid_8 omega" id="eventBasicBlock">
+        <div class="grid_9 omega">
+            <div class="grid_1">
+                <h3>Тип: </h3>
+            </div>
+            <div class="grid_7">        
+                <p>@Model.TypeEventTitle</p>
+            </div>
+            <div class="grid_1">        
+                <h3>Описание:</h3>
+            </div>
+            <div class="grid_7  ">        
+                <pre class="eventDesc">@Model.Description</pre>
+            </div>
+        </div>
+        
+         @if (Model.Level < GlobalValuesAndStrings.NewsLevelInEvent)
+         {
+             <div class="grid_9 omega">
+                 <div class="fullBlock titleFloat">
+                     <div class="titleName prefix_1 grid_4">
+                         <span class="subTitle" id="subeventList"> Дочерние события</span>
+                     </div>
+                     <div class="grid_2 push_1">
+                         @Html.ActionLink("Создать", "CreateEvent", "Admin", new {parentId = @Model.Id}, null)
+                     </div>
+                 </div>
+             </div>
+
+             <div class="grid_9 omega">
+                 @if (!Model.ChildIdsAll.Any())
+                 {
+                     <div class="topContainer grid_8">        
+                         <p>Дочерних событий пока нет</p>
+                     </div>
+                 }
+                 else
+                 {
+                     <div class="grid_8">
+                         @foreach (var child in Model.ChildIdsAll)
+                         {
+                             <p>
+                                 @Html.ActionLink(EventModel.GetById(child).TitleWithRemoveLabel, "EventPage", "Admin"
+                                     , new {eventId = child}, null)
+                             </p>
+                         }
+                     </div>
+                 }
+             </div>
+         }
+    </div>
+</div>
+<div class="empty_100"></div>

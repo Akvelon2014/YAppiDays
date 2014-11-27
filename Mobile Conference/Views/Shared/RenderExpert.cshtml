@@ -1,0 +1,52 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+
+<a href="@Url.Action("UserDescription","Home", new{login = Model.Login})"  class="withoutDecoration">
+    <div class="circle circleBorder">
+        @Html.AvatarForUser(Model.Id,true,null, true)
+    </div>
+</a>
+<div class="expertsName">
+    <a href="@Url.Action("UserDescription","Home", new{login = Model.Login})">
+        @if (!Model.LastName.IsNullOrEmpty())
+        {
+            if (Model.FirstNameSecondName.Length > 27 || Model.LastName.Length > 27)
+            {
+                <h3 title =" @Model.FirstNameSecondName @Model.LastName">
+                    @Html.Truncate(Model.FirstNameSecondName,25)
+                    @if (!Model.FirstNameSecondName.IsNullOrEmpty())
+                    {
+                        <br/>                    
+                    }
+                    @Html.Truncate(Model.LastName,25)
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @Model.FirstNameSecondName
+                    @if (!Model.FirstNameSecondName.IsNullOrEmpty())
+                    {
+                        <br/>                    
+                    }
+                    @Model.LastName
+                </h3>
+            }
+        }
+        else
+        {
+            <h3>
+                @Html.Truncate(Model.Login,25)
+            </h3>
+        }   
+    </a> 
+</div>
+@if (!Model.Description.IsNullOrEmpty())
+{
+    @Html.TruncatedTitle("p", Model.Description, 120)
+}
+else
+{
+  <p></p>
+}

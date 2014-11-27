@@ -1,0 +1,88 @@
+﻿@using MobileConference.Enums
+@model MobileConference.Models.IdeaWithPermission
+@if (User.IsInRole(RoleName.Administrator.GetName()))
+{
+   <p>@Html.ActionLink("Удалить", "RemoveIdea", "Admin", new {ideaId = Model.Idea.Id}, null)</p> 
+}
+
+@if (User.IsInRole(RoleName.Student.GetName())
+    && Model.Permission.HasFlag(PermissionType.ChangeProfile)
+    && Model.Permission.HasFlag(PermissionType.AsMember)
+    && Model.Permission.HasFlag(PermissionType.ShowChat)
+    && Model.Permission.HasFlag(PermissionType.ShowPhotos)
+    && Model.Permission.HasFlag(PermissionType.ShowOfficialReports)
+    )
+{
+    @Html.Partial("TipsAfterJoinToIdea")
+}
+
+@if (Model.Permission.HasFlag(PermissionType.ChangeProfile))
+{
+    <p>@Html.ActionLink("Редактировать","IdeaProfile","Ideas",new {ideaId = Model.Idea.Id}, new{id="editProfile"})</p>
+}
+@if (User.IsInRole(RoleName.Mentor.GetName()))
+{
+    if (!Model.Permission.HasFlag(PermissionType.AsMember))
+    {
+        if (Model.Idea.MentorLogin == null)
+        {
+            <p>@Html.ActionLink("Стать ментором", "JoinIdea", "Ideas", new {ideaId = Model.Idea.Id, withUrl = true, returnUrl = Url.Action("MainPage","Ideas", new {ideaId = Model.Idea.Id})}, null)</p>
+        }
+    }
+    else
+    {
+            <p>@Html.ActionLink("Отказаться от проекта", "UnjoinIdea", "Ideas", new {ideaId = Model.Idea.Id}, null)</p>        
+    }
+}
+
+@if (User.IsInRole(RoleName.Student.GetName()))
+{
+    if (!Model.Permission.HasFlag(PermissionType.AsMember) && !Model.Wished && !Model.Invited)
+    {
+        <p>@Html.ActionLink("Вступить", "JoinIdea", "Ideas", new {ideaId = Model.Idea.Id}, null)</p>
+    }
+    
+    if (Model.Permission.HasFlag(PermissionType.AsMember) || Model.Permission.HasFlag(PermissionType.AsMentor))
+    {
+        <p>@Html.ActionLink("Отказаться от проекта", "UnjoinIdea", "Ideas", new {ideaId = Model.Idea.Id},  new{id="exitFromProject"})</p>
+        
+        if (Model.Idea.WishedToJoinUsers.Any())
+        {
+            <p>@Html.ActionLink("Заявки (" + Model.Idea.WishedToJoinUsers.Count + ")","RequestToJoin","Ideas",
+                new {ideaId = Model.Idea.Id}, null)</p>
+        }
+        <p>@Html.ActionLink("Пригласить","InvitedUser","Ideas", new {ideaId = Model.Idea.Id},new{id="inviteLink"})</p>
+    }
+    
+    if (Model.Wished)
+    {
+        <p>@Html.ActionLink("Отозвать заявку", "UnjoinIdea", "Ideas", new {ideaId = Model.Idea.Id}, null)</p>
+    }
+    
+    if (Model.Invited)
+    {
+        <h3>Вы приглашены </h3>
+        <p>@Html.ActionLink("Принять", "JoinIdea", "Ideas", new {ideaId = Model.Idea.Id}, null)</p>
+        <p>@Html.ActionLink("Отклонить", "UnjoinIdea", "Ideas", new {ideaId = Model.Idea.Id}, null)</p>
+        <h2></h2>
+    }
+}
+
+
+@if (Model.Permission.HasFlag(PermissionType.AsLeader))
+{
+    <p>@Html.ActionLink("Лидерство","Leadership","Ideas",new {ideaId = Model.Idea.Id}, null)</p>
+}
+
+@if(Model.Permission.HasFlag(PermissionType.ShowPhotos))
+{
+    <p>@Html.ActionLink("Фотографии","Photogallery","Ideas",new {ideaId = Model.Idea.Id}, new{id="showPhotoLink"})</p>
+}
+@if (Model.Permission.HasFlag(PermissionType.ShowChat))
+{
+    <p>@Html.ActionLink("Чат","Chat","Ideas",new {ideaId = Model.Idea.Id}, new{id="showChatLink"})</p>
+}
+@if (Model.Permission.HasFlag(PermissionType.ShowOfficialReports))
+{
+    <p>@Html.ActionLink("Отчеты","OfficialReports","Ideas",new {ideaId = Model.Idea.Id}, new{id="showReportLink"})</p>
+}

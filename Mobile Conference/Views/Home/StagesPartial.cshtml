@@ -1,0 +1,44 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.Helper
+@model PagedList.IPagedList<MobileConference.Models.EventModelWithOrder>
+
+    @if (Model != null)
+    {
+        foreach (var eventProfile in Model)
+        {
+            <div class="bottomBorder phase grid_12 an">
+                <div class="grid_4 eventImage alpha">
+                    @Html.AvatarForEvent(eventProfile.EventModel.Id)                    
+                </div>
+                <div class="grid_8 omega">
+                    <h3>@eventProfile.Order Этап</h3>
+                    <span>@eventProfile.EventModel.Title</span>
+                    <h5>@eventProfile.EventModel.DurationString</h5>
+                    @if (!eventProfile.EventModel.Description.IsNullOrEmpty())
+                    {
+                        <p class="left">Описание:</p>
+                        <div class="grid_6">
+                            <pre class="eventDesc top"><i>@eventProfile.EventModel.Description</i></pre>
+                        </div>
+                    }
+                    <div class="commentWrapper ajaxHere grid_8 omega">
+                        @Html.Action("ShowEventForStagePartial", "Widget", new
+                        {
+                            stageId = eventProfile.EventModel.Id,
+                            childrenCount = eventProfile.EventModel.ChildIds.Count()
+                        })
+                    </div>
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="grid_12">
+            <p>Этапы пока не добавлены.</p>
+        </div>
+    }
+<div class="grid_12">
+    @Html.Pager(Model, page => Url.Action("StagesPartial", new { page }))        
+</div>

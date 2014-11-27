@@ -1,0 +1,33 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.InternalUser
+@{
+    ViewBag.Title = "Создание внутреннего пользователя";
+}
+@Html.FloatTitle("Регистрация внутреннего пользователя")
+<div class="container_12 topContainer">
+    <div class="grid_8">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <table>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Login)</td>
+                    <td>@Html.TextBoxFor(m => m.Login)</td>
+                </tr>
+                <tr>
+                    <td class="requiredField">@Html.LabelFor(m => m.Password)</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Role)</td>
+                    <td>@Html.RoleList( htmlAttribute: new {@class="grey"})</td>
+                </tr>
+            </table>
+            <br/>
+            <input type="submit" value="Создать" class="customButton orange mediumSizeButton"/>                    
+        }
+    </div>
+</div>

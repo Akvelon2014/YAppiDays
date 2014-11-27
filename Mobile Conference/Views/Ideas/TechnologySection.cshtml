@@ -1,0 +1,61 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.IdeaWithPermission
+@{
+    var items = Model.Idea.RealizedPlatformWithStatus.Keys.ToList();        
+}
+@if (Model.Permission.HasFlag(PermissionType.ChangeProfile))
+{
+    <div class="fullBlock titleFloat updatingDropDown">
+        <div class="container_12">
+            <div class="grid_3 titleName">
+                <span class="subTitle" id="technologySectionCaption">Технологии</span>
+            </div>
+            <div class="grid_9 omega ">
+                @if (Model.Idea.NonRemovedRealizedPlatformCount<EventModel.Current.NonRemovedPlatforms)
+                {
+                    using (Html.BeginForm("AddPlatformToIdea", "Ideas", FormMethod.Get, new {data_update = "techonologySection"}))
+                    {
+                        <span>Добавить:</span>
+                        @Html.PlatformList(exceptItem: items, forEvent: OptionModel.Current.CurrentEventId, name: "platformId")
+                        @Html.Hidden("ideaId", Model.Idea.Id)
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="container_12 updatingDropDown topContainer">
+        @if (Model.Idea.NonRemovedRealizedPlatformCount>0)
+        {
+            <table>
+                @foreach (var platform in Model.Idea.RealizedPlatformWithStatus.OrderBy(d=>d.Key))
+                {
+                    if (!PlatformModel.ForPlatform(platform.Key).IsDeleted)
+                    {
+                        <tr>
+                            <td>@Html.TitlePlatform(platform.Key)</td> 
+                            <td>
+                                @using (Html.BeginForm("SavePlatformStatus", "Ideas", FormMethod.Post, new {@data_update = "techonologySection"}))
+                                {
+                                    @Html.PlatformStatusList(platform.Value, "status", htmlAttribute: new {@class = "grey"})
+                                    @Html.Hidden("platformId", platform.Key)
+                                    @Html.Hidden("ideaId", Model.Idea.Id)
+                                }
+                            </td> 
+                            <td>
+                                @using (Html.BeginForm("RemovePlatformFromIdea", "Ideas", FormMethod.Post, new {@class = "withAjax"}))
+                                {
+                                    @Html.Hidden("platformId", platform.Key)
+                                    @Html.Hidden("ideaId", Model.Idea.Id)
+                                    <input type="submit" value="Удалить" class="customButton smallSizeButton grey"/>
+                                }
+                            </td> 
+                        </tr>
+                    }
+                }
+            </table>
+        }
+    </div>
+}

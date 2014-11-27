@@ -1,0 +1,124 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Partial("TipsForStartPage")
+
+<!-- Welcome -->
+<div id="welcome" class="fullBlock">
+    <div  class="container_12">
+        <h1 id="welcomeTitle">
+            @Html.Truncate((string)ViewBag.caption, 400)
+        </h1>
+        <div class="grid_6 alpha">
+            <img width="460" height="260" alt="Dev-Stuff" src="~/Content/img/dev-stuff.png">
+        </div>
+        <div class="grid_6 omega commonDescription">
+            @Html.Truncate((string)ViewBag.description, 400)
+        </div>
+        <div class="grid_3 alpha">
+            <a id="LearnMore" href ='@Url.Action("About","Home")'>
+                <span class="orangeSqure"></span>
+                <span class="customButton orange mediumSizeButton">Узнать больше</span>
+            </a>              
+        </div>
+    </div>
+</div>
+<!-- Awards -->
+<div id="awards" class="container_12">
+    <a class="withoutDecoration" href="@Url.Action("Awards","Home")">
+        @Html.Action("Adwards","Widget")
+    </a>
+</div>
+<!-- Stages -->
+    @Html.Action("RecentStage","Widget",null)
+
+<!-- Experts -->
+@if (ViewBag.hasExperts)
+{
+    <div class="container_12" >
+        <div id="experts" class="grid_12" data-time="6000" data-url="@Url.Action("ExpertList", "Widget", null)">
+            <h2>Наши эксперты</h2>            
+            <div class="expertsPlaceholder" id="experts1">    
+                @Html.Action("ExpertList", "Widget", null)
+            </div>
+            <div class="expertsPlaceholder" id="experts2"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="topContainer"></div>    
+}
+<!-- Projects -->
+@if (ViewBag.hasProjects)
+{
+    <div class="fullBlock updatingDropDown">
+        <div class="container_12 titleFloat">
+            <div class="grid_2 alpha titleName">
+                <span>Проекты</span>
+            </div>
+            <div class="grid_8">
+                @using (@Html.BeginForm("RecentProject", "Widget", FormMethod.Post, new {data_update = "updateProjects"}))
+                {
+                    <span>Технология </span>
+                    @Html.PlatformList(forEvent: EventModel.Current.Id, defValue: "Все", name: "platformId")
+                    <span>Тип проекта </span>
+                    @Html.GroupIdeaList(forEvent: EventModel.Current.Id, defValue: "Все", name: "groupIdeaId")
+                }             
+            </div>
+            <div class="grid_2 omega linkToAll">
+                @Html.ActionLink("Все проекты", "Ideas", "Home")
+            </div>
+        </div>
+    </div>
+
+    <div id="updateProjects">
+        @Html.Action("RecentProject", "Widget", null)
+    </div>
+}
+
+<!-- Materials -->
+@if (ViewBag.hasMaterials)
+{
+    <div class="fullBlock updatingDropDown">
+        <div class="container_12 titleFloat">
+            <div class="grid_2 alpha titleName">
+                <span>Материалы</span>
+            </div>
+            <div class="grid_8">
+                @using (@Html.BeginForm("RecentMaterial", "Widget", FormMethod.Post, new {data_update = "updateMaterials"}))
+                {
+                    <span>Технология</span>
+                    @Html.PlatformList(defValue: "Все", name: "materialPlatformId")
+                }
+            </div>
+            <div class="grid_2  omega linkToAll">
+                @Html.ActionLink("Все материалы", "Materials", "Home")            
+            </div>
+        </div>
+    </div>
+
+    <div id="updateMaterials">
+        @Html.Action("RecentMaterial", "Widget", null)
+    </div>
+}
+
+<div class="container_12">
+    <div id="sponsors" class="grid_8 alpha omega">
+        <div class="grid_8 alpha omega">
+            @Html.Action("SponsorList","Widget",null)
+        </div>
+        
+        <div class="grid_8 alpha omega">
+            @Html.Action("InfoPartnerList","Widget",null)
+        </div>
+    </div>
+    <div id="news-feed" class="grid_4">
+        <h2>#YAppiDays</h2>
+        <a class="twitter-timeline" href="https://twitter.com/hashtag/YAppiDays?f=realtime" data-related="twitterapi,twitter" data-widget-id="519081377736560640" lang="RU" width="350" height ="500">Твиты о #YAppiDays</a>
+    </div>
+    <div class="empty_100"></div>
+</div>

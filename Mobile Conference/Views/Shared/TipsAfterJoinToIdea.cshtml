@@ -1,0 +1,18 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+
+@Html.RenderTips(StudentTips.AfterJoinToIdea,
+    new Tip("Вы можете изменить профиль проекта и добавить используемые технологии"
+        , "editProfile") { Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10 },
+    new Tip("Если вы единственный участник проекта и покините его, то проект удалится"
+        , "exitFromProject") { Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10 },
+    new Tip("Вы можете пригласить других пользователей присоединиться к вашему проекту"
+        , "inviteLink") { Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10 },
+    new Tip("Просматривайте и добавляйте фотографии - обменивайтесь идеями с участниками проекта"
+        , "showPhotoLink") { Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10 },
+    new Tip("Поддерживайте связь внутри команды"
+        , "showChatLink") { Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10 },
+    new Tip("Отчеты будут просматриваться, не пишите сюда ничего лишнего (для этого есть чат). Поделитесь результатами своей работы"
+        ,"showReportLink"){Type = TipType.Right, Width = 200, OffsetX = -15, OffsetY = -10, TriangleOffset = 10}
+)

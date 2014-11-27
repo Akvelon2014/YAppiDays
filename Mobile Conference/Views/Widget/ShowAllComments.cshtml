@@ -1,0 +1,30 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Comment>
+
+@Html.Hidden("chatTo", Url.Action("ShowAllComments","Widget",new {ideaId = (int)ViewBag.ideaId, 
+                    page = (int)ViewBag.page}))
+
+@if (Model != null && Model.Any())
+{
+    foreach (var comment in Model.ToModel())
+    {
+        @Html.Action("DescribeComment", "Widget", new { comment, page = (int)ViewBag.page })
+    }
+    <div class="grid_6">
+            @Html.Pager(Model, page => Url.Action("ShowAllComments", "Widget", new { page, ideaId = (int)ViewBag.ideaId, 
+                commentType =  (CommentModelType)ViewBag.commentType }))        
+    </div>
+}
+else
+{
+    if ((int) ViewBag.page == 1)
+    {
+        <div class="grid_6">
+            <i>Сообщений нет</i>
+        </div>
+    }
+}

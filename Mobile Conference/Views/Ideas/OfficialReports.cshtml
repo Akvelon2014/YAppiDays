@@ -1,0 +1,49 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model CommentModel
+@{
+    ViewBag.Title = "Отчеты";
+}
+
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_7 prefix_1 titleName">
+            <span>Отчеты</span>
+        </div>
+        <div class="grid_2 prefix_2">
+            @Html.ActionLink("вернуться","MainPage","Ideas",new {ideaId=(int)ViewBag.ideaId},null)
+        </div>
+    </div>
+</div>
+
+@if (((PermissionType)ViewBag.permission).HasFlag(PermissionType.AsMember))
+{
+    <div class="container_12 topContainer">
+        <div class="grid_9 bottomBorder">
+            <div class="grid_1">
+                @Html.AvatarForUser(ProfileModel.Current.Id)
+            </div>
+            <div class ="grid_6">
+                @using (Html.BeginForm("OfficialReports", "Ideas", FormMethod.Post))
+                {
+                    @Html.TextAreaFor(m=>m.Message, new {rows="6", cols="60"})
+                    @Html.Hidden("ideaId",(int)ViewBag.ideaId)
+                    @Html.Hidden("page",(int)ViewBag.page)
+                    <div class="grid_2">
+                        <input type="submit" value="Отправить" class="customButton grey mediumSizeButton" style="margin-left: -10px;"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+<div class="container_12 topContainer">
+    <div class="grid_8 ajaxHere paginationWrapper">
+        @Html.Action("ShowAllComments","Widget", new {ideaId = (int)ViewBag.ideaId, page = (int)ViewBag.page,
+            commentType = CommentModelType.Official})
+    </div>
+</div>
+<div class="empty_100"></div>
+
+ 

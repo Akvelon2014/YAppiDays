@@ -1,0 +1,89 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.AwardModel
+@{
+    ViewBag.Title = "Создание награды";
+}
+
+<div class="titleFloat fullBlock">
+    <div class="container_12">
+        <div class="grid_10 titleName alpha">
+            <span>Создание награды</span>
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("отмена","ManageAward","Admin", new {eventId = ViewBag.eventId}, null)
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("CreateAward", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="eventId" value ="@ViewBag.eventId"/>
+    <div class="container_12">
+        <div class="grid_9 alpha">
+            <div class="topContainer center">
+                <h3>
+                    @Html.ImageLabel("Пожалуйста выделите область для сохранения", "picture")  
+                </h3>              
+                @if (((string) ViewBag.picture).IsNullOrEmpty())
+                {
+                    @Html.ImageLoader("awardLoader", "picture", Html.StandardImageFileName(), StandardRatioType.AwardRatio)
+                }
+                else
+                {
+                    @Html.SimpleImageSize("picture",true,(ImageSizeParams)ViewBag.size)
+                    @Html.ImageLoader("awardLoader", "picture", (string) ViewBag.picture, StandardRatioType.AwardRatio, justResizer:true)
+                }
+                @Html.ImageLoaderLink("Поменять", "picture", new {@class = "customButton mediumSizeButton grey"}, false)
+            </div>
+        </div>
+        <div class="grid_3 omega">
+            <h3>
+                @Html.ImageLabel("Вы можете посмотреть, как будет выглядеть ваша фотография на сайте", "picture")                
+            </h3>
+            @Html.ImagePreview("preview", "picture", StandardRatioType.AwardRatio)
+            <div>
+                <span class="imageLabel" data-pic="picture">Размер: </span>
+                @Html.ImageSizeSpan("picture")
+            </div>
+            <div>
+                <span class="imageLabel" data-pic="picture">Координаты: </span>
+                @Html.ImageCoordinateSpan("picture")
+            </div>
+            <div>
+                @Html.BorderSetter("borderSetter","preview","Показать рамку","picture", new{@class="imageLabel"})
+            </div>
+        </div>
+    </div>
+    @Html.FloatTitle("Сведения о награде", true)
+    <div class="container_12">
+        @Html.ValidationSummary()
+        <table>
+            <tr class="requiredField">
+                <td><label>Заголовок</label></td>
+                <td>@Html.TextBoxFor(m=>m.Title)</td>
+            </tr>
+            <tr>
+                <td>Подзаголовок</td>
+                <td>@Html.TextBoxFor(m=>m.Subtitle)</td>
+            </tr>
+            <tr>
+                <td>Подпись ниже</td>
+                <td>@Html.TextBoxFor(m=>m.PostTitle)</td>
+            </tr>
+            <tr class="requiredField">
+                <td ><label>Порядок</label></td>
+                <td>@Html.TextBoxFor(m=>m.OrderInList)</td>
+            </tr>
+            <tr>
+                <td>Описание</td>
+                <td>@Html.TextAreaFor(m=>m.Description, new{rows = "8", cols="60"})</td>
+            </tr>
+        </table>
+        <input type="submit" value="Создать" class="orange mediumSizeButton customButton"/>
+    </div>
+}
+<div class="empty_100"></div>

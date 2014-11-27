@@ -1,0 +1,28 @@
+﻿@model List<MobileConference.Models.ProfileModel>
+@if (Model.Count == 1)
+{
+    <div class="grid_4 prefix_4">                
+        @Html.Partial("RenderExpert", Model[0])                
+    </div>
+}
+else if (Model.Count == 2)
+{
+    <div class="grid_4 prefix_1 alpha">
+        @Html.Partial("RenderExpert", Model[0])
+    </div>
+    <div class="grid_4 prefix_2 omega">
+        @Html.Partial("RenderExpert", Model[1])
+    </div>
+}
+else
+{
+    <div class="grid_4 alpha">
+        @Html.Partial("RenderExpert", Model[0])
+    </div>
+    <div class="grid_4">
+        @Html.Partial("RenderExpert", Model[1])
+    </div>
+    <div class="grid_4 omega">
+        @Html.Partial("RenderExpert", Model[2])
+    </div>
+}

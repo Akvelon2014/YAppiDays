@@ -1,0 +1,61 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model IdeasModel
+@{
+    ViewBag.Title = "Выбор проекта";
+}
+@Html.FloatTitle("Выбор проекта")
+@if (ViewBag.status == "wished")
+{
+    <div class="container_12">
+        <div class="grid_12 alpha">
+            <p>Вы уже подали заявку на вступление в группу. Для вступления в другую или создания новой, необходимо отказаться от 
+                предыдущей заявки
+            </p>
+        </div>
+    </div>
+    
+}
+else
+{
+    <div class="container_12">
+        <div class="grid_12 alpha">
+            <p>Вы уже состоите в группе. Для вступления в другую или создания новой, необходимо отказаться от 
+                членства в текущей группе.
+            </p>
+        </div>
+    </div>
+}
+
+<div class="container_12">
+    <div class="grid_3 prefix_2 alpha">
+        @if (ViewBag.status == "wished")
+        {
+            <p>Ваша заявка:</p>
+        }
+        else
+        {
+            <p>Ваш проект:</p>            
+        }
+        @if (ViewBag.joinedIdea != null)
+        {
+            @Html.Partial("RenderIdea", ((IdeasModel) ViewBag.joinedIdea).GetIdeaWithPlatform())
+            @Html.ActionLink("Выбор", "Index", "Ideas", null, new{@class="customButton smallSizeButton right grey"})
+        }
+        else
+        {
+            <p>Не найден или удален</p>
+        }
+    </div>
+    <div class="grid_3 prefix_2">
+        <p>Новый проект:</p>
+        @Html.Partial("RenderIdea", Model.GetIdeaWithPlatform())
+        @using(@Html.BeginForm("JoinIdea","Ideas",FormMethod.Post))
+        {
+            @Html.Hidden("ideaId",Model.Id)
+            @Html.Hidden("status","ok")
+            <input type="submit" value="Выбор" class="customButton smallSizeButton right grey"/>
+        }
+    </div>
+</div>
+<div class="empty_100"></div>

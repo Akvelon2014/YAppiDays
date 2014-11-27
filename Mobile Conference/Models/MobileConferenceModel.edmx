@@ -1,0 +1,2589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MobileConferenceDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MobileConferenceDBModelStoreContainer">
+          <EntitySet Name="Award" EntityType="MobileConferenceDBModel.Store.Award" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CitiesInRegion" EntityType="MobileConferenceDBModel.Store.CitiesInRegion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="MobileConferenceDBModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments" EntityType="MobileConferenceDBModel.Store.Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommentTypes" EntityType="MobileConferenceDBModel.Store.CommentTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="MobileConferenceDBModel.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventProfile" EntityType="MobileConferenceDBModel.Store.EventProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventType" EntityType="MobileConferenceDBModel.Store.EventType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExpertForEvent" EntityType="MobileConferenceDBModel.Store.ExpertForEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupIdea" EntityType="MobileConferenceDBModel.Store.GroupIdea" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupIdeaForEvent" EntityType="MobileConferenceDBModel.Store.GroupIdeaForEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Idea" EntityType="MobileConferenceDBModel.Store.Idea" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Material" EntityType="MobileConferenceDBModel.Store.Material" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaterialForEvent" EntityType="MobileConferenceDBModel.Store.MaterialForEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mentor" EntityType="MobileConferenceDBModel.Store.Mentor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="MobileConferenceDBModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Options" EntityType="MobileConferenceDBModel.Store.Options" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PictureAssign" EntityType="MobileConferenceDBModel.Store.PictureAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PictureAssignType" EntityType="MobileConferenceDBModel.Store.PictureAssignType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PictureStore" EntityType="MobileConferenceDBModel.Store.PictureStore" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Platform" EntityType="MobileConferenceDBModel.Store.Platform" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlatformForEvent" EntityType="MobileConferenceDBModel.Store.PlatformForEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RealizedPlatform" EntityType="MobileConferenceDBModel.Store.RealizedPlatform" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Region" EntityType="MobileConferenceDBModel.Store.Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RegionInEvent" EntityType="MobileConferenceDBModel.Store.RegionInEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Skill" EntityType="MobileConferenceDBModel.Store.Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkillToUser" EntityType="MobileConferenceDBModel.Store.SkillToUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sponsor" EntityType="MobileConferenceDBModel.Store.Sponsor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StatusRealizedPlatform" EntityType="MobileConferenceDBModel.Store.StatusRealizedPlatform" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StatusStudent" EntityType="MobileConferenceDBModel.Store.StatusStudent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Student" EntityType="MobileConferenceDBModel.Store.Student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentGroup" EntityType="MobileConferenceDBModel.Store.StudentGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="MobileConferenceDBModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRestoreInfo" EntityType="MobileConferenceDBModel.Store.UserRestoreInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="MobileConferenceDBModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="MobileConferenceDBModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="MobileConferenceDBModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="MobileConferenceDBModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Award_To_Event" Association="MobileConferenceDBModel.Store.FK_Award_To_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="Award" EntitySet="Award" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityInRegion_City" Association="MobileConferenceDBModel.Store.FK_CityInRegion_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="CitiesInRegion" EntitySet="CitiesInRegion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityInRegion_Region" Association="MobileConferenceDBModel.Store.FK_CityInRegion_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="CitiesInRegion" EntitySet="CitiesInRegion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Sender" Association="MobileConferenceDBModel.Store.FK_Comments_Sender">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_TypeComments" Association="MobileConferenceDBModel.Store.FK_Comments_TypeComments">
+            <End Role="CommentTypes" EntitySet="CommentTypes" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Pictures" Association="MobileConferenceDBModel.Store.FK_Company_Pictures">
+            <End Role="PictureStore" EntitySet="PictureStore" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Platform" Association="MobileConferenceDBModel.Store.FK_Event_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="PlatformForEvent" EntitySet="PlatformForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_Parent" Association="MobileConferenceDBModel.Store.FK_EventProfile_Parent">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="EventProfile1" EntitySet="EventProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_ToTable" Association="MobileConferenceDBModel.Store.FK_EventProfile_ToTable">
+            <End Role="PictureStore" EntitySet="PictureStore" />
+            <End Role="EventProfile" EntitySet="EventProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_Type" Association="MobileConferenceDBModel.Store.FK_EventProfile_Type">
+            <End Role="EventType" EntitySet="EventType" />
+            <End Role="EventProfile" EntitySet="EventProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_Event" Association="MobileConferenceDBModel.Store.FK_ExpertForEvent_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_Expert" Association="MobileConferenceDBModel.Store.FK_ExpertForEvent_Expert">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_ToTable" Association="MobileConferenceDBModel.Store.FK_ExpertForEvent_ToTable">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupIdeaForEvent_Event" Association="MobileConferenceDBModel.Store.FK_GroupIdeaForEvent_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="GroupIdeaForEvent" EntitySet="GroupIdeaForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupIdeaForEvent_GroupIdea" Association="MobileConferenceDBModel.Store.FK_GroupIdeaForEvent_GroupIdea">
+            <End Role="GroupIdea" EntitySet="GroupIdea" />
+            <End Role="GroupIdeaForEvent" EntitySet="GroupIdeaForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Avatar" Association="MobileConferenceDBModel.Store.FK_Idea_Avatar">
+            <End Role="PictureStore" EntitySet="PictureStore" />
+            <End Role="Idea" EntitySet="Idea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Event" Association="MobileConferenceDBModel.Store.FK_Idea_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="Idea" EntitySet="Idea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Group" Association="MobileConferenceDBModel.Store.FK_Idea_Group">
+            <End Role="GroupIdea" EntitySet="GroupIdea" />
+            <End Role="Idea" EntitySet="Idea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Mentor" Association="MobileConferenceDBModel.Store.FK_Idea_Mentor">
+            <End Role="Mentor" EntitySet="Mentor" />
+            <End Role="Idea" EntitySet="Idea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Plaform" Association="MobileConferenceDBModel.Store.FK_Material_Plaform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialForEvent_Event" Association="MobileConferenceDBModel.Store.FK_MaterialForEvent_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="MaterialForEvent" EntitySet="MaterialForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialForEvent_Material" Association="MobileConferenceDBModel.Store.FK_MaterialForEvent_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialForEvent" EntitySet="MaterialForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mentor_Profile" Association="MobileConferenceDBModel.Store.FK_Mentor_Profile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Mentor" EntitySet="Mentor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_Event" Association="MobileConferenceDBModel.Store.FK_News_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_PictureStore" Association="MobileConferenceDBModel.Store.FK_PictureAssign_PictureStore">
+            <End Role="PictureStore" EntitySet="PictureStore" />
+            <End Role="PictureAssign" EntitySet="PictureAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_ToTable" Association="MobileConferenceDBModel.Store.FK_PictureAssign_ToTable">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="PictureAssign" EntitySet="PictureAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_Type" Association="MobileConferenceDBModel.Store.FK_PictureAssign_Type">
+            <End Role="PictureAssignType" EntitySet="PictureAssignType" />
+            <End Role="PictureAssign" EntitySet="PictureAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Platform_Event" Association="MobileConferenceDBModel.Store.FK_Platform_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="PlatformForEvent" EntitySet="PlatformForEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Idea" Association="MobileConferenceDBModel.Store.FK_RealizedPlatform_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatform" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Platform" Association="MobileConferenceDBModel.Store.FK_RealizedPlatform_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatform" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Status" Association="MobileConferenceDBModel.Store.FK_RealizedPlatform_Status">
+            <End Role="StatusRealizedPlatform" EntitySet="StatusRealizedPlatform" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatform" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegionInEvent_Event" Association="MobileConferenceDBModel.Store.FK_RegionInEvent_Event">
+            <End Role="EventProfile" EntitySet="EventProfile" />
+            <End Role="RegionInEvent" EntitySet="RegionInEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegionInEvent_Region" Association="MobileConferenceDBModel.Store.FK_RegionInEvent_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="RegionInEvent" EntitySet="RegionInEvent" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="MobileConferenceDBModel.Store.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillToUser_ToSkill" Association="MobileConferenceDBModel.Store.FK_SkillToUser_ToSkill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="SkillToUser" EntitySet="SkillToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillToUser_ToUser" Association="MobileConferenceDBModel.Store.FK_SkillToUser_ToUser">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="SkillToUser" EntitySet="SkillToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sponsor_Company" Association="MobileConferenceDBModel.Store.FK_Sponsor_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Sponsor" EntitySet="Sponsor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sponsor_User" Association="MobileConferenceDBModel.Store.FK_Sponsor_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Sponsor" EntitySet="Sponsor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Profile" Association="MobileConferenceDBModel.Store.FK_Student_Profile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Idea" Association="MobileConferenceDBModel.Store.FK_StudentGroup_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Student" Association="MobileConferenceDBModel.Store.FK_StudentGroup_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_StudentStatus" Association="MobileConferenceDBModel.Store.FK_StudentGroup_StudentStatus">
+            <End Role="StatusStudent" EntitySet="StatusStudent" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="MobileConferenceDBModel.Store.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Avatar" Association="MobileConferenceDBModel.Store.FK_UserProfile_Avatar">
+            <End Role="PictureStore" EntitySet="PictureStore" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_WishedRole" Association="MobileConferenceDBModel.Store.FK_UserProfile_WishedRole">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRestoreInfo_UserProfile" Association="MobileConferenceDBModel.Store.FK_UserRestoreInfo_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserRestoreInfo" EntitySet="UserRestoreInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Subtitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Picture" Type="int" />
+          <Property Name="OrderInList" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CitiesInRegion">
+          <Key>
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LinkId" Type="int" Nullable="false" />
+          <Property Name="User" Type="int" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Avatar" Type="int" />
+          <Property Name="Site" Type="nvarchar" MaxLength="500" />
+          <Property Name="Creator" Type="int" />
+          <Property Name="IsShowed" Type="bit" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+        </EntityType>
+        <EntityType Name="EventProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Desctiption" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="DateFrom" Type="date" />
+          <Property Name="DateTo" Type="date" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Avatar" Type="int" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ExpertForEvent">
+          <Key>
+            <PropertyRef Name="Expert" />
+            <PropertyRef Name="Event" />
+            <PropertyRef Name="Platform" />
+          </Key>
+          <Property Name="Expert" Type="int" Nullable="false" />
+          <Property Name="Event" Type="int" Nullable="false" />
+          <Property Name="Platform" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupIdea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupIdeaForEvent">
+          <Key>
+            <PropertyRef Name="GroupIdeaId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="GroupIdeaId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="MentorId" Type="int" />
+          <Property Name="GroupIdeaId" Type="int" />
+          <Property Name="EventId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="Avatar" Type="int" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="PlatformId" Type="int" />
+          <Property Name="PictureId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="AddedDate" Type="date" />
+          <Property Name="Link" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MaterialForEvent">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+            <PropertyRef Name="EventProfileId" />
+          </Key>
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="EventProfileId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mentor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateTo" Type="datetime" />
+          <Property Name="ForRoles" Type="int" />
+        </EntityType>
+        <EntityType Name="Options">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PictureAssign">
+          <Key>
+            <PropertyRef Name="PictureId" />
+            <PropertyRef Name="AssignId" />
+            <PropertyRef Name="AssignTypeId" />
+          </Key>
+          <Property Name="PictureId" Type="int" Nullable="false" />
+          <Property Name="AssignId" Type="int" Nullable="false" />
+          <Property Name="AssignTypeId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Creator" Type="int" />
+        </EntityType>
+        <EntityType Name="PictureAssignType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PictureStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Picture" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="int" />
+        </EntityType>
+        <EntityType Name="PlatformForEvent">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="PlatformId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RealizedPlatform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdeaId" Type="int" Nullable="false" />
+          <Property Name="PlatformId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RegionInEvent">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillToUser">
+          <Key>
+            <PropertyRef Name="UserProfileId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="UserProfileId" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="StatusRealizedPlatform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="StatusStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="University" Type="nvarchar" MaxLength="100" />
+          <Property Name="YearBegining" Type="smallint" />
+          <Property Name="YearGraduating" Type="smallint" />
+          <Property Name="Faculty" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="StudentGroup">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="IdeaId" />
+            <PropertyRef Name="StatusStudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="IdeaId" Type="int" Nullable="false" />
+          <Property Name="StatusStudentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="56" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="70" />
+          <Property Name="SecondName" Type="nvarchar" MaxLength="70" />
+          <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Avatar" Type="int" />
+          <Property Name="WishedRole" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateActivity" Type="date" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PlaceJob" Type="nvarchar" MaxLength="150" />
+          <Property Name="EmailConfirmation" Type="bit" Nullable="false" />
+          <Property Name="Tips" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRestoreInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Award_To_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1" />
+          <End Role="Award" Type="MobileConferenceDBModel.Store.Award" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityInRegion_City">
+          <End Role="City" Type="MobileConferenceDBModel.Store.City" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CitiesInRegion" Type="MobileConferenceDBModel.Store.CitiesInRegion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CitiesInRegion">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityInRegion_Region">
+          <End Role="Region" Type="MobileConferenceDBModel.Store.Region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CitiesInRegion" Type="MobileConferenceDBModel.Store.CitiesInRegion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CitiesInRegion">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Sender">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="Comments" Type="MobileConferenceDBModel.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_TypeComments">
+          <End Role="CommentTypes" Type="MobileConferenceDBModel.Store.CommentTypes" Multiplicity="1" />
+          <End Role="Comments" Type="MobileConferenceDBModel.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommentTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Pictures">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.Store.PictureStore" Multiplicity="0..1" />
+          <End Role="Company" Type="MobileConferenceDBModel.Store.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Platform">
+          <End Role="Platform" Type="MobileConferenceDBModel.Store.Platform" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlatformForEvent" Type="MobileConferenceDBModel.Store.PlatformForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlatformForEvent">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_Parent">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="0..1" />
+          <End Role="EventProfile1" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_ToTable">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.Store.PictureStore" Multiplicity="0..1" />
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_Type">
+          <End Role="EventType" Type="MobileConferenceDBModel.Store.EventType" Multiplicity="1" />
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.Store.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_Expert">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.Store.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_ToTable">
+          <End Role="Platform" Type="MobileConferenceDBModel.Store.Platform" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.Store.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Platform" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupIdeaForEvent_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1" />
+          <End Role="GroupIdeaForEvent" Type="MobileConferenceDBModel.Store.GroupIdeaForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupIdeaForEvent">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupIdeaForEvent_GroupIdea">
+          <End Role="GroupIdea" Type="MobileConferenceDBModel.Store.GroupIdea" Multiplicity="1" />
+          <End Role="GroupIdeaForEvent" Type="MobileConferenceDBModel.Store.GroupIdeaForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupIdea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupIdeaForEvent">
+              <PropertyRef Name="GroupIdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Avatar">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.Store.PictureStore" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Group">
+          <End Role="GroupIdea" Type="MobileConferenceDBModel.Store.GroupIdea" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupIdea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="GroupIdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Mentor">
+          <End Role="Mentor" Type="MobileConferenceDBModel.Store.Mentor" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mentor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="MentorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Plaform">
+          <End Role="Platform" Type="MobileConferenceDBModel.Store.Platform" Multiplicity="0..1" />
+          <End Role="Material" Type="MobileConferenceDBModel.Store.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialForEvent_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1" />
+          <End Role="MaterialForEvent" Type="MobileConferenceDBModel.Store.MaterialForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialForEvent">
+              <PropertyRef Name="EventProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialForEvent_Material">
+          <End Role="Material" Type="MobileConferenceDBModel.Store.Material" Multiplicity="1" />
+          <End Role="MaterialForEvent" Type="MobileConferenceDBModel.Store.MaterialForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialForEvent">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mentor_Profile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mentor" Type="MobileConferenceDBModel.Store.Mentor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mentor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="MobileConferenceDBModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_PictureStore">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.Store.PictureStore" Multiplicity="1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.Store.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_ToTable">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.Store.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="Creator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_Type">
+          <End Role="PictureAssignType" Type="MobileConferenceDBModel.Store.PictureAssignType" Multiplicity="1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.Store.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureAssignType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="AssignTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Platform_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlatformForEvent" Type="MobileConferenceDBModel.Store.PlatformForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlatformForEvent">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Idea">
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.Store.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Platform">
+          <End Role="Platform" Type="MobileConferenceDBModel.Store.Platform" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.Store.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Status">
+          <End Role="StatusRealizedPlatform" Type="MobileConferenceDBModel.Store.StatusRealizedPlatform" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.Store.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRealizedPlatform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegionInEvent_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.Store.EventProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RegionInEvent" Type="MobileConferenceDBModel.Store.RegionInEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegionInEvent">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegionInEvent_Region">
+          <End Role="Region" Type="MobileConferenceDBModel.Store.Region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RegionInEvent" Type="MobileConferenceDBModel.Store.RegionInEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegionInEvent">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="MobileConferenceDBModel.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="MobileConferenceDBModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillToUser_ToSkill">
+          <End Role="Skill" Type="MobileConferenceDBModel.Store.Skill" Multiplicity="1" />
+          <End Role="SkillToUser" Type="MobileConferenceDBModel.Store.SkillToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillToUser">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillToUser_ToUser">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="SkillToUser" Type="MobileConferenceDBModel.Store.SkillToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillToUser">
+              <PropertyRef Name="UserProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sponsor_Company">
+          <End Role="Company" Type="MobileConferenceDBModel.Store.Company" Multiplicity="0..1" />
+          <End Role="Sponsor" Type="MobileConferenceDBModel.Store.Sponsor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sponsor">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sponsor_User">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sponsor" Type="MobileConferenceDBModel.Store.Sponsor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sponsor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Profile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="MobileConferenceDBModel.Store.Student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Idea">
+          <End Role="Idea" Type="MobileConferenceDBModel.Store.Idea" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.Store.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Student">
+          <End Role="Student" Type="MobileConferenceDBModel.Store.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.Store.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_StudentStatus">
+          <End Role="StatusStudent" Type="MobileConferenceDBModel.Store.StatusStudent" Multiplicity="1" />
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.Store.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusStudent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="StatusStudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="MobileConferenceDBModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Avatar">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.Store.PictureStore" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_WishedRole">
+          <End Role="webpages_Roles" Type="MobileConferenceDBModel.Store.webpages_Roles" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="WishedRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRestoreInfo_UserProfile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="UserRestoreInfo" Type="MobileConferenceDBModel.Store.UserRestoreInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRestoreInfo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MobileConferenceDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Awards" EntityType="MobileConferenceDBModel.Award" />
+          <EntitySet Name="Cities" EntityType="MobileConferenceDBModel.City" />
+          <EntitySet Name="Comments" EntityType="MobileConferenceDBModel.Comment" />
+          <EntitySet Name="CommentTypes" EntityType="MobileConferenceDBModel.CommentType" />
+          <EntitySet Name="Companies" EntityType="MobileConferenceDBModel.Company" />
+          <EntitySet Name="EventProfiles" EntityType="MobileConferenceDBModel.EventProfile" />
+          <EntitySet Name="EventTypes" EntityType="MobileConferenceDBModel.EventType" />
+          <EntitySet Name="ExpertForEvents" EntityType="MobileConferenceDBModel.ExpertForEvent" />
+          <EntitySet Name="GroupIdeas" EntityType="MobileConferenceDBModel.GroupIdea" />
+          <EntitySet Name="Ideas" EntityType="MobileConferenceDBModel.Idea" />
+          <EntitySet Name="Materials" EntityType="MobileConferenceDBModel.Material" />
+          <EntitySet Name="Mentors" EntityType="MobileConferenceDBModel.Mentor" />
+          <EntitySet Name="News" EntityType="MobileConferenceDBModel.News" />
+          <EntitySet Name="Options" EntityType="MobileConferenceDBModel.Option" />
+          <EntitySet Name="PictureAssigns" EntityType="MobileConferenceDBModel.PictureAssign" />
+          <EntitySet Name="PictureAssignTypes" EntityType="MobileConferenceDBModel.PictureAssignType" />
+          <EntitySet Name="PictureStores" EntityType="MobileConferenceDBModel.PictureStore" />
+          <EntitySet Name="Platforms" EntityType="MobileConferenceDBModel.Platform" />
+          <EntitySet Name="RealizedPlatforms" EntityType="MobileConferenceDBModel.RealizedPlatform" />
+          <EntitySet Name="Regions" EntityType="MobileConferenceDBModel.Region" />
+          <EntitySet Name="Skills" EntityType="MobileConferenceDBModel.Skill" />
+          <EntitySet Name="Sponsors" EntityType="MobileConferenceDBModel.Sponsor" />
+          <EntitySet Name="StatusRealizedPlatforms" EntityType="MobileConferenceDBModel.StatusRealizedPlatform" />
+          <EntitySet Name="StatusStudents" EntityType="MobileConferenceDBModel.StatusStudent" />
+          <EntitySet Name="Students" EntityType="MobileConferenceDBModel.Student" />
+          <EntitySet Name="StudentGroups" EntityType="MobileConferenceDBModel.StudentGroup" />
+          <EntitySet Name="UserProfiles" EntityType="MobileConferenceDBModel.UserProfile" />
+          <EntitySet Name="UserRestoreInfoes" EntityType="MobileConferenceDBModel.UserRestoreInfo" />
+          <EntitySet Name="webpages_Membership" EntityType="MobileConferenceDBModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="MobileConferenceDBModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="MobileConferenceDBModel.webpages_Roles" />
+          <AssociationSet Name="FK_Award_To_Event" Association="MobileConferenceDBModel.FK_Award_To_Event">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="Award" EntitySet="Awards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Sender" Association="MobileConferenceDBModel.FK_Comments_Sender">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_TypeComments" Association="MobileConferenceDBModel.FK_Comments_TypeComments">
+            <End Role="CommentTypes" EntitySet="CommentTypes" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Pictures" Association="MobileConferenceDBModel.FK_Company_Pictures">
+            <End Role="PictureStore" EntitySet="PictureStores" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sponsor_Company" Association="MobileConferenceDBModel.FK_Sponsor_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Sponsor" EntitySet="Sponsors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_Parent" Association="MobileConferenceDBModel.FK_EventProfile_Parent">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="EventProfile1" EntitySet="EventProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_ToTable" Association="MobileConferenceDBModel.FK_EventProfile_ToTable">
+            <End Role="PictureStore" EntitySet="PictureStores" />
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventProfile_Type" Association="MobileConferenceDBModel.FK_EventProfile_Type">
+            <End Role="EventType" EntitySet="EventTypes" />
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_Event" Association="MobileConferenceDBModel.FK_ExpertForEvent_Event">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Event" Association="MobileConferenceDBModel.FK_Idea_Event">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_Event" Association="MobileConferenceDBModel.FK_News_Event">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_Expert" Association="MobileConferenceDBModel.FK_ExpertForEvent_Expert">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertForEvent_ToTable" Association="MobileConferenceDBModel.FK_ExpertForEvent_ToTable">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="ExpertForEvent" EntitySet="ExpertForEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Group" Association="MobileConferenceDBModel.FK_Idea_Group">
+            <End Role="GroupIdea" EntitySet="GroupIdeas" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Avatar" Association="MobileConferenceDBModel.FK_Idea_Avatar">
+            <End Role="PictureStore" EntitySet="PictureStores" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Idea_Mentor" Association="MobileConferenceDBModel.FK_Idea_Mentor">
+            <End Role="Mentor" EntitySet="Mentors" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Idea" Association="MobileConferenceDBModel.FK_RealizedPlatform_Idea">
+            <End Role="Idea" EntitySet="Ideas" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Idea" Association="MobileConferenceDBModel.FK_StudentGroup_Idea">
+            <End Role="Idea" EntitySet="Ideas" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Plaform" Association="MobileConferenceDBModel.FK_Material_Plaform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Material" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mentor_Profile" Association="MobileConferenceDBModel.FK_Mentor_Profile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Mentor" EntitySet="Mentors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_PictureStore" Association="MobileConferenceDBModel.FK_PictureAssign_PictureStore">
+            <End Role="PictureStore" EntitySet="PictureStores" />
+            <End Role="PictureAssign" EntitySet="PictureAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_ToTable" Association="MobileConferenceDBModel.FK_PictureAssign_ToTable">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="PictureAssign" EntitySet="PictureAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureAssign_Type" Association="MobileConferenceDBModel.FK_PictureAssign_Type">
+            <End Role="PictureAssignType" EntitySet="PictureAssignTypes" />
+            <End Role="PictureAssign" EntitySet="PictureAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Avatar" Association="MobileConferenceDBModel.FK_UserProfile_Avatar">
+            <End Role="PictureStore" EntitySet="PictureStores" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Platform" Association="MobileConferenceDBModel.FK_RealizedPlatform_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RealizedPlatform_Status" Association="MobileConferenceDBModel.FK_RealizedPlatform_Status">
+            <End Role="StatusRealizedPlatform" EntitySet="StatusRealizedPlatforms" />
+            <End Role="RealizedPlatform" EntitySet="RealizedPlatforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sponsor_User" Association="MobileConferenceDBModel.FK_Sponsor_User">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Sponsor" EntitySet="Sponsors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_StudentStatus" Association="MobileConferenceDBModel.FK_StudentGroup_StudentStatus">
+            <End Role="StatusStudent" EntitySet="StatusStudents" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Profile" Association="MobileConferenceDBModel.FK_Student_Profile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Student" Association="MobileConferenceDBModel.FK_StudentGroup_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_WishedRole" Association="MobileConferenceDBModel.FK_UserProfile_WishedRole">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRestoreInfo_UserProfile" Association="MobileConferenceDBModel.FK_UserRestoreInfo_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="UserRestoreInfo" EntitySet="UserRestoreInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="CitiesInRegion" Association="MobileConferenceDBModel.CitiesInRegion">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Region" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="GroupIdeaForEvent" Association="MobileConferenceDBModel.GroupIdeaForEvent">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="GroupIdea" EntitySet="GroupIdeas" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialForEvent" Association="MobileConferenceDBModel.MaterialForEvent">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="Material" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="PlatformForEvent" Association="MobileConferenceDBModel.PlatformForEvent">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="RegionInEvent" Association="MobileConferenceDBModel.RegionInEvent">
+            <End Role="EventProfile" EntitySet="EventProfiles" />
+            <End Role="Region" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="SkillToUser" Association="MobileConferenceDBModel.SkillToUser">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="MobileConferenceDBModel.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Subtitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PostTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Picture" Type="Int32" />
+          <Property Name="OrderInList" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EventProfile" Relationship="MobileConferenceDBModel.FK_Award_To_Event" FromRole="Award" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Regions" Relationship="MobileConferenceDBModel.CitiesInRegion" FromRole="City" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LinkId" Type="Int32" Nullable="false" />
+          <Property Name="User" Type="Int32" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_Comments_Sender" FromRole="Comments" ToRole="UserProfile" />
+          <NavigationProperty Name="CommentType" Relationship="MobileConferenceDBModel.FK_Comments_TypeComments" FromRole="Comments" ToRole="CommentTypes" />
+        </EntityType>
+        <EntityType Name="CommentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Comments" Relationship="MobileConferenceDBModel.FK_Comments_TypeComments" FromRole="CommentTypes" ToRole="Comments" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Avatar" Type="Int32" />
+          <Property Name="Site" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Creator" Type="Int32" />
+          <Property Name="IsShowed" Type="Boolean" Nullable="false" />
+          <Property Name="Rank" Type="Int32" />
+          <NavigationProperty Name="PictureStore" Relationship="MobileConferenceDBModel.FK_Company_Pictures" FromRole="Company" ToRole="PictureStore" />
+          <NavigationProperty Name="Sponsors" Relationship="MobileConferenceDBModel.FK_Sponsor_Company" FromRole="Company" ToRole="Sponsor" />
+        </EntityType>
+        <EntityType Name="EventProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Desctiption" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="DateFrom" Type="DateTime" Precision="0" />
+          <Property Name="DateTo" Type="DateTime" Precision="0" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Avatar" Type="Int32" />
+          <NavigationProperty Name="Awards" Relationship="MobileConferenceDBModel.FK_Award_To_Event" FromRole="EventProfile" ToRole="Award" />
+          <NavigationProperty Name="EventProfile1" Relationship="MobileConferenceDBModel.FK_EventProfile_Parent" FromRole="EventProfile" ToRole="EventProfile1" />
+          <NavigationProperty Name="EventProfile2" Relationship="MobileConferenceDBModel.FK_EventProfile_Parent" FromRole="EventProfile1" ToRole="EventProfile" />
+          <NavigationProperty Name="PictureStore" Relationship="MobileConferenceDBModel.FK_EventProfile_ToTable" FromRole="EventProfile" ToRole="PictureStore" />
+          <NavigationProperty Name="EventType" Relationship="MobileConferenceDBModel.FK_EventProfile_Type" FromRole="EventProfile" ToRole="EventType" />
+          <NavigationProperty Name="ExpertForEvents" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_Event" FromRole="EventProfile" ToRole="ExpertForEvent" />
+          <NavigationProperty Name="Ideas" Relationship="MobileConferenceDBModel.FK_Idea_Event" FromRole="EventProfile" ToRole="Idea" />
+          <NavigationProperty Name="News" Relationship="MobileConferenceDBModel.FK_News_Event" FromRole="EventProfile" ToRole="News" />
+          <NavigationProperty Name="GroupIdeas" Relationship="MobileConferenceDBModel.GroupIdeaForEvent" FromRole="EventProfile" ToRole="GroupIdea" />
+          <NavigationProperty Name="Materials" Relationship="MobileConferenceDBModel.MaterialForEvent" FromRole="EventProfile" ToRole="Material" />
+          <NavigationProperty Name="Platforms" Relationship="MobileConferenceDBModel.PlatformForEvent" FromRole="EventProfile" ToRole="Platform" />
+          <NavigationProperty Name="Regions" Relationship="MobileConferenceDBModel.RegionInEvent" FromRole="EventProfile" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.FK_EventProfile_Type" FromRole="EventType" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="ExpertForEvent">
+          <Key>
+            <PropertyRef Name="Expert" />
+            <PropertyRef Name="Event" />
+            <PropertyRef Name="Platform" />
+          </Key>
+          <Property Name="Expert" Type="Int32" Nullable="false" />
+          <Property Name="Event" Type="Int32" Nullable="false" />
+          <Property Name="Platform" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EventProfile" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_Event" FromRole="ExpertForEvent" ToRole="EventProfile" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_Expert" FromRole="ExpertForEvent" ToRole="UserProfile" />
+          <NavigationProperty Name="Platform1" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_ToTable" FromRole="ExpertForEvent" ToRole="Platform" />
+        </EntityType>
+        <EntityType Name="GroupIdea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ideas" Relationship="MobileConferenceDBModel.FK_Idea_Group" FromRole="GroupIdea" ToRole="Idea" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.GroupIdeaForEvent" FromRole="GroupIdea" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="MentorId" Type="Int32" />
+          <Property Name="GroupIdeaId" Type="Int32" />
+          <Property Name="EventId" Type="Int32" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Avatar" Type="Int32" />
+          <NavigationProperty Name="EventProfile" Relationship="MobileConferenceDBModel.FK_Idea_Event" FromRole="Idea" ToRole="EventProfile" />
+          <NavigationProperty Name="GroupIdea" Relationship="MobileConferenceDBModel.FK_Idea_Group" FromRole="Idea" ToRole="GroupIdea" />
+          <NavigationProperty Name="PictureStore" Relationship="MobileConferenceDBModel.FK_Idea_Avatar" FromRole="Idea" ToRole="PictureStore" />
+          <NavigationProperty Name="Mentor" Relationship="MobileConferenceDBModel.FK_Idea_Mentor" FromRole="Idea" ToRole="Mentor" />
+          <NavigationProperty Name="RealizedPlatforms" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Idea" FromRole="Idea" ToRole="RealizedPlatform" />
+          <NavigationProperty Name="StudentGroups" Relationship="MobileConferenceDBModel.FK_StudentGroup_Idea" FromRole="Idea" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PlatformId" Type="Int32" />
+          <Property Name="PictureId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="0" />
+          <Property Name="Link" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Platform" Relationship="MobileConferenceDBModel.FK_Material_Plaform" FromRole="Material" ToRole="Platform" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.MaterialForEvent" FromRole="Material" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="Mentor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ideas" Relationship="MobileConferenceDBModel.FK_Idea_Mentor" FromRole="Mentor" ToRole="Idea" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_Mentor_Profile" FromRole="Mentor" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateTo" Type="DateTime" Precision="3" />
+          <Property Name="ForRoles" Type="Int32" />
+          <NavigationProperty Name="EventProfile" Relationship="MobileConferenceDBModel.FK_News_Event" FromRole="News" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PictureAssign">
+          <Key>
+            <PropertyRef Name="PictureId" />
+            <PropertyRef Name="AssignId" />
+            <PropertyRef Name="AssignTypeId" />
+          </Key>
+          <Property Name="PictureId" Type="Int32" Nullable="false" />
+          <Property Name="AssignId" Type="Int32" Nullable="false" />
+          <Property Name="AssignTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Creator" Type="Int32" />
+          <NavigationProperty Name="PictureStore" Relationship="MobileConferenceDBModel.FK_PictureAssign_PictureStore" FromRole="PictureAssign" ToRole="PictureStore" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_PictureAssign_ToTable" FromRole="PictureAssign" ToRole="UserProfile" />
+          <NavigationProperty Name="PictureAssignType" Relationship="MobileConferenceDBModel.FK_PictureAssign_Type" FromRole="PictureAssign" ToRole="PictureAssignType" />
+        </EntityType>
+        <EntityType Name="PictureAssignType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PictureAssigns" Relationship="MobileConferenceDBModel.FK_PictureAssign_Type" FromRole="PictureAssignType" ToRole="PictureAssign" />
+        </EntityType>
+        <EntityType Name="PictureStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Picture" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Companies" Relationship="MobileConferenceDBModel.FK_Company_Pictures" FromRole="PictureStore" ToRole="Company" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.FK_EventProfile_ToTable" FromRole="PictureStore" ToRole="EventProfile" />
+          <NavigationProperty Name="Ideas" Relationship="MobileConferenceDBModel.FK_Idea_Avatar" FromRole="PictureStore" ToRole="Idea" />
+          <NavigationProperty Name="PictureAssigns" Relationship="MobileConferenceDBModel.FK_PictureAssign_PictureStore" FromRole="PictureStore" ToRole="PictureAssign" />
+          <NavigationProperty Name="UserProfiles" Relationship="MobileConferenceDBModel.FK_UserProfile_Avatar" FromRole="PictureStore" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Picture" Type="Int32" />
+          <NavigationProperty Name="ExpertForEvents" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_ToTable" FromRole="Platform" ToRole="ExpertForEvent" />
+          <NavigationProperty Name="Materials" Relationship="MobileConferenceDBModel.FK_Material_Plaform" FromRole="Platform" ToRole="Material" />
+          <NavigationProperty Name="RealizedPlatforms" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Platform" FromRole="Platform" ToRole="RealizedPlatform" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.PlatformForEvent" FromRole="Platform" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="RealizedPlatform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdeaId" Type="Int32" Nullable="false" />
+          <Property Name="PlatformId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Idea" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Idea" FromRole="RealizedPlatform" ToRole="Idea" />
+          <NavigationProperty Name="Platform" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Platform" FromRole="RealizedPlatform" ToRole="Platform" />
+          <NavigationProperty Name="StatusRealizedPlatform" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Status" FromRole="RealizedPlatform" ToRole="StatusRealizedPlatform" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Cities" Relationship="MobileConferenceDBModel.CitiesInRegion" FromRole="Region" ToRole="City" />
+          <NavigationProperty Name="EventProfiles" Relationship="MobileConferenceDBModel.RegionInEvent" FromRole="Region" ToRole="EventProfile" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="MobileConferenceDBModel.SkillToUser" FromRole="Skill" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="MobileConferenceDBModel.FK_Sponsor_Company" FromRole="Sponsor" ToRole="Company" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_Sponsor_User" FromRole="Sponsor" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="StatusRealizedPlatform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="RealizedPlatforms" Relationship="MobileConferenceDBModel.FK_RealizedPlatform_Status" FromRole="StatusRealizedPlatform" ToRole="RealizedPlatform" />
+        </EntityType>
+        <EntityType Name="StatusStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="StudentGroups" Relationship="MobileConferenceDBModel.FK_StudentGroup_StudentStatus" FromRole="StatusStudent" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="University" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="YearBegining" Type="Int16" />
+          <Property Name="YearGraduating" Type="Int16" />
+          <Property Name="Faculty" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_Student_Profile" FromRole="Student" ToRole="UserProfile" />
+          <NavigationProperty Name="StudentGroups" Relationship="MobileConferenceDBModel.FK_StudentGroup_Student" FromRole="Student" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="StudentGroup">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="IdeaId" />
+            <PropertyRef Name="StatusStudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="IdeaId" Type="Int32" Nullable="false" />
+          <Property Name="StatusStudentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Idea" Relationship="MobileConferenceDBModel.FK_StudentGroup_Idea" FromRole="StudentGroup" ToRole="Idea" />
+          <NavigationProperty Name="StatusStudent" Relationship="MobileConferenceDBModel.FK_StudentGroup_StudentStatus" FromRole="StudentGroup" ToRole="StatusStudent" />
+          <NavigationProperty Name="Student" Relationship="MobileConferenceDBModel.FK_StudentGroup_Student" FromRole="StudentGroup" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="56" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="SecondName" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Avatar" Type="Int32" />
+          <Property Name="WishedRole" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateActivity" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PlaceJob" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="EmailConfirmation" Type="Boolean" Nullable="false" />
+          <Property Name="Tips" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="MobileConferenceDBModel.FK_Comments_Sender" FromRole="UserProfile" ToRole="Comments" />
+          <NavigationProperty Name="ExpertForEvents" Relationship="MobileConferenceDBModel.FK_ExpertForEvent_Expert" FromRole="UserProfile" ToRole="ExpertForEvent" />
+          <NavigationProperty Name="Mentor" Relationship="MobileConferenceDBModel.FK_Mentor_Profile" FromRole="UserProfile" ToRole="Mentor" />
+          <NavigationProperty Name="PictureAssigns" Relationship="MobileConferenceDBModel.FK_PictureAssign_ToTable" FromRole="UserProfile" ToRole="PictureAssign" />
+          <NavigationProperty Name="PictureStore" Relationship="MobileConferenceDBModel.FK_UserProfile_Avatar" FromRole="UserProfile" ToRole="PictureStore" />
+          <NavigationProperty Name="Sponsor" Relationship="MobileConferenceDBModel.FK_Sponsor_User" FromRole="UserProfile" ToRole="Sponsor" />
+          <NavigationProperty Name="Student" Relationship="MobileConferenceDBModel.FK_Student_Profile" FromRole="UserProfile" ToRole="Student" />
+          <NavigationProperty Name="webpages_Roles" Relationship="MobileConferenceDBModel.FK_UserProfile_WishedRole" FromRole="UserProfile" ToRole="webpages_Roles" />
+          <NavigationProperty Name="UserRestoreInfo" Relationship="MobileConferenceDBModel.FK_UserRestoreInfo_UserProfile" FromRole="UserProfile" ToRole="UserRestoreInfo" />
+          <NavigationProperty Name="Skills" Relationship="MobileConferenceDBModel.SkillToUser" FromRole="UserProfile" ToRole="Skill" />
+          <NavigationProperty Name="webpages_Roles1" Relationship="MobileConferenceDBModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="UserRestoreInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="UserProfile" Relationship="MobileConferenceDBModel.FK_UserRestoreInfo_UserProfile" FromRole="UserRestoreInfo" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="MobileConferenceDBModel.FK_UserProfile_WishedRole" FromRole="webpages_Roles" ToRole="UserProfile" />
+          <NavigationProperty Name="UserProfiles1" Relationship="MobileConferenceDBModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK_Award_To_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="1" />
+          <End Role="Award" Type="MobileConferenceDBModel.Award" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Sender">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="0..1" />
+          <End Role="Comments" Type="MobileConferenceDBModel.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_TypeComments">
+          <End Role="CommentTypes" Type="MobileConferenceDBModel.CommentType" Multiplicity="1" />
+          <End Role="Comments" Type="MobileConferenceDBModel.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommentTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Pictures">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.PictureStore" Multiplicity="0..1" />
+          <End Role="Company" Type="MobileConferenceDBModel.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sponsor_Company">
+          <End Role="Company" Type="MobileConferenceDBModel.Company" Multiplicity="0..1" />
+          <End Role="Sponsor" Type="MobileConferenceDBModel.Sponsor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sponsor">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_Parent">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="0..1" />
+          <End Role="EventProfile1" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_ToTable">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.PictureStore" Multiplicity="0..1" />
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventProfile_Type">
+          <End Role="EventType" Type="MobileConferenceDBModel.EventType" Multiplicity="1" />
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventProfile">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_Event">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="MobileConferenceDBModel.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_Expert">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertForEvent_ToTable">
+          <End Role="Platform" Type="MobileConferenceDBModel.Platform" Multiplicity="1" />
+          <End Role="ExpertForEvent" Type="MobileConferenceDBModel.ExpertForEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertForEvent">
+              <PropertyRef Name="Platform" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Group">
+          <End Role="GroupIdea" Type="MobileConferenceDBModel.GroupIdea" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupIdea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="GroupIdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Avatar">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.PictureStore" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Idea_Mentor">
+          <End Role="Mentor" Type="MobileConferenceDBModel.Mentor" Multiplicity="0..1" />
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mentor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="MentorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Idea">
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Idea">
+          <End Role="Idea" Type="MobileConferenceDBModel.Idea" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Plaform">
+          <End Role="Platform" Type="MobileConferenceDBModel.Platform" Multiplicity="0..1" />
+          <End Role="Material" Type="MobileConferenceDBModel.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mentor_Profile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mentor" Type="MobileConferenceDBModel.Mentor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mentor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_PictureStore">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.PictureStore" Multiplicity="1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_ToTable">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="0..1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="Creator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureAssign_Type">
+          <End Role="PictureAssignType" Type="MobileConferenceDBModel.PictureAssignType" Multiplicity="1" />
+          <End Role="PictureAssign" Type="MobileConferenceDBModel.PictureAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureAssignType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureAssign">
+              <PropertyRef Name="AssignTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Avatar">
+          <End Role="PictureStore" Type="MobileConferenceDBModel.PictureStore" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PictureStore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Platform">
+          <End Role="Platform" Type="MobileConferenceDBModel.Platform" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RealizedPlatform_Status">
+          <End Role="StatusRealizedPlatform" Type="MobileConferenceDBModel.StatusRealizedPlatform" Multiplicity="1" />
+          <End Role="RealizedPlatform" Type="MobileConferenceDBModel.RealizedPlatform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusRealizedPlatform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RealizedPlatform">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sponsor_User">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sponsor" Type="MobileConferenceDBModel.Sponsor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sponsor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_StudentStatus">
+          <End Role="StatusStudent" Type="MobileConferenceDBModel.StatusStudent" Multiplicity="1" />
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusStudent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="StatusStudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Profile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="MobileConferenceDBModel.Student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Student">
+          <End Role="Student" Type="MobileConferenceDBModel.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentGroup" Type="MobileConferenceDBModel.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_WishedRole">
+          <End Role="webpages_Roles" Type="MobileConferenceDBModel.webpages_Roles" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="WishedRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRestoreInfo_UserProfile">
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="1" />
+          <End Role="UserRestoreInfo" Type="MobileConferenceDBModel.UserRestoreInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRestoreInfo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CitiesInRegion">
+          <End Role="City" Type="MobileConferenceDBModel.City" Multiplicity="*" />
+          <End Role="Region" Type="MobileConferenceDBModel.Region" Multiplicity="*" />
+        </Association>
+        <Association Name="GroupIdeaForEvent">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <End Role="GroupIdea" Type="MobileConferenceDBModel.GroupIdea" Multiplicity="*" />
+        </Association>
+        <Association Name="MaterialForEvent">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <End Role="Material" Type="MobileConferenceDBModel.Material" Multiplicity="*" />
+        </Association>
+        <Association Name="PlatformForEvent">
+          <End Role="Platform" Type="MobileConferenceDBModel.Platform" Multiplicity="*" />
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+        </Association>
+        <Association Name="RegionInEvent">
+          <End Role="EventProfile" Type="MobileConferenceDBModel.EventProfile" Multiplicity="*" />
+          <End Role="Region" Type="MobileConferenceDBModel.Region" Multiplicity="*" />
+        </Association>
+        <Association Name="SkillToUser">
+          <End Role="Skill" Type="MobileConferenceDBModel.Skill" Multiplicity="*" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="*" />
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="MobileConferenceDBModel.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="MobileConferenceDBModel.UserProfile" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MobileConferenceDBModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Awards">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Award">
+              <MappingFragment StoreEntitySet="Award">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="OrderInList" ColumnName="OrderInList" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LinkId" ColumnName="LinkId" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentTypes">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.CommentType">
+              <MappingFragment StoreEntitySet="CommentTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsShowed" ColumnName="IsShowed" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventProfiles">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.EventProfile">
+              <MappingFragment StoreEntitySet="EventProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Desctiption" ColumnName="Desctiption" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTypes">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.EventType">
+              <MappingFragment StoreEntitySet="EventType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertForEvents">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.ExpertForEvent">
+              <MappingFragment StoreEntitySet="ExpertForEvent">
+                <ScalarProperty Name="Expert" ColumnName="Expert" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Platform" ColumnName="Platform" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupIdeas">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.GroupIdea">
+              <MappingFragment StoreEntitySet="GroupIdea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Idea">
+              <MappingFragment StoreEntitySet="Idea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+                <ScalarProperty Name="GroupIdeaId" ColumnName="GroupIdeaId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mentors">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Mentor">
+              <MappingFragment StoreEntitySet="Mentor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="ForRoles" ColumnName="ForRoles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Option">
+              <MappingFragment StoreEntitySet="Options">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PictureAssigns">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.PictureAssign">
+              <MappingFragment StoreEntitySet="PictureAssign">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="AssignId" ColumnName="AssignId" />
+                <ScalarProperty Name="AssignTypeId" ColumnName="AssignTypeId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PictureAssignTypes">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.PictureAssignType">
+              <MappingFragment StoreEntitySet="PictureAssignType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PictureStores">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.PictureStore">
+              <MappingFragment StoreEntitySet="PictureStore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platforms">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Platform">
+              <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RealizedPlatforms">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.RealizedPlatform">
+              <MappingFragment StoreEntitySet="RealizedPlatform">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdeaId" ColumnName="IdeaId" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sponsors">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Sponsor">
+              <MappingFragment StoreEntitySet="Sponsor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusRealizedPlatforms">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.StatusRealizedPlatform">
+              <MappingFragment StoreEntitySet="StatusRealizedPlatform">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusStudents">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.StatusStudent">
+              <MappingFragment StoreEntitySet="StatusStudent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="YearBegining" ColumnName="YearBegining" />
+                <ScalarProperty Name="YearGraduating" ColumnName="YearGraduating" />
+                <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentGroups">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.StudentGroup">
+              <MappingFragment StoreEntitySet="StudentGroup">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="IdeaId" ColumnName="IdeaId" />
+                <ScalarProperty Name="StatusStudentId" ColumnName="StatusStudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="WishedRole" ColumnName="WishedRole" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateActivity" ColumnName="DateActivity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PlaceJob" ColumnName="PlaceJob" />
+                <ScalarProperty Name="EmailConfirmation" ColumnName="EmailConfirmation" />
+                <ScalarProperty Name="Tips" ColumnName="Tips" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRestoreInfoes">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.UserRestoreInfo">
+              <MappingFragment StoreEntitySet="UserRestoreInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="MobileConferenceDBModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CitiesInRegion" TypeName="MobileConferenceDBModel.CitiesInRegion" StoreEntitySet="CitiesInRegion">
+            <EndProperty Name="City">
+              <ScalarProperty Name="Id" ColumnName="CityId" />
+            </EndProperty>
+            <EndProperty Name="Region">
+              <ScalarProperty Name="Id" ColumnName="RegionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GroupIdeaForEvent" TypeName="MobileConferenceDBModel.GroupIdeaForEvent" StoreEntitySet="GroupIdeaForEvent">
+            <EndProperty Name="EventProfile">
+              <ScalarProperty Name="Id" ColumnName="EventId" />
+            </EndProperty>
+            <EndProperty Name="GroupIdea">
+              <ScalarProperty Name="Id" ColumnName="GroupIdeaId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MaterialForEvent" TypeName="MobileConferenceDBModel.MaterialForEvent" StoreEntitySet="MaterialForEvent">
+            <EndProperty Name="EventProfile">
+              <ScalarProperty Name="Id" ColumnName="EventProfileId" />
+            </EndProperty>
+            <EndProperty Name="Material">
+              <ScalarProperty Name="Id" ColumnName="MaterialId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PlatformForEvent" TypeName="MobileConferenceDBModel.PlatformForEvent" StoreEntitySet="PlatformForEvent">
+            <EndProperty Name="Platform">
+              <ScalarProperty Name="Id" ColumnName="PlatformId" />
+            </EndProperty>
+            <EndProperty Name="EventProfile">
+              <ScalarProperty Name="Id" ColumnName="EventId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RegionInEvent" TypeName="MobileConferenceDBModel.RegionInEvent" StoreEntitySet="RegionInEvent">
+            <EndProperty Name="EventProfile">
+              <ScalarProperty Name="Id" ColumnName="EventId" />
+            </EndProperty>
+            <EndProperty Name="Region">
+              <ScalarProperty Name="Id" ColumnName="RegionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SkillToUser" TypeName="MobileConferenceDBModel.SkillToUser" StoreEntitySet="SkillToUser">
+            <EndProperty Name="Skill">
+              <ScalarProperty Name="Id" ColumnName="SkillId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="Id" ColumnName="UserProfileId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="MobileConferenceDBModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

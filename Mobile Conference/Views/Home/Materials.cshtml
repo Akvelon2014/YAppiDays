@@ -1,0 +1,28 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@{
+    ViewBag.Title = "Полезные материалы";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/CommentsShow")
+}
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_2 alpha titleName">
+            <span>Материалы</span>
+        </div>
+        <div class="grid_10 omega">
+            @using (@Html.BeginForm("MaterialsWithPlatformDescription", "Widget", FormMethod.Post,
+                new { @class = "externalUpdate", id = "materialBlock", data_update = "materials" }))
+            {
+                <span>Технология</span>
+                @Html.PlatformList(defValue: "Все", name: "materialPlatformId")
+                @Html.TextBox("search",(string)ViewBag.search,new {@class="submitWithDelay"})
+            }
+        </div>
+    </div>
+</div>
+<div id="materials" class="materialBlock">
+    @Html.Action("MaterialsWithPlatformDescription","Widget",new {search = ViewBag.search})
+</div>

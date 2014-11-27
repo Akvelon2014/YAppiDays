@@ -1,0 +1,22 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+<script>
+    ClearImageArea();
+</script>
+<div class="container_12 imageLabel"  data-pic="picture">
+    <div class="grid_9 alpha">
+        <div class="topContainer center">
+            <h3>
+                @Html.ImageLabel("Пожалуйста выделите область для сохранения", "picture")  
+            </h3>              
+            @Html.ImageLoader("userLoader", "picture", Html.StandardImageFileName(true), StandardRatioType.IdeaRatio)
+        </div>
+    </div>
+
+    <div class="grid_3 omega">
+        <h3>
+            @Html.ImageLabel("Вы можете посмотреть, как будет выглядеть ваша фотография на сайте", "picture")                
+        </h3>
+        @Html.ImagePreview("preview", "picture", StandardRatioType.IdeaRatio)
+    </div>
+</div>

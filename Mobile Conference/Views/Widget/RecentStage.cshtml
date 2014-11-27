@@ -1,0 +1,41 @@
+﻿@model List<MobileConference.Models.EventModelWithOrder>
+
+@if (Model.Any())
+{
+    <div class="fullBlock">
+        <div class="container_12">
+            <a class="withoutDecoration" href="@Url.Action("Stages","Home")">
+            
+                <div id="stages">
+                    @if (Model.Count == 1)
+                    {
+                        <div class="grid_4 prefix_4 alpha phase">
+                            @Html.Partial("RenderStage", Model[0])
+                        </div>
+                    }
+                    @if (Model.Count == 2)
+                    {
+                        <div class="grid_4 prefix_2 alpha phase">
+                            @Html.Partial("RenderStage", Model[0])
+                        </div>
+                        <div class="grid_4 suffix_2 omega phase">
+                            @Html.Partial("RenderStage", Model[1])
+                        </div>
+                    }
+                    @if (Model.Count > 2)
+                    {
+                        <div class="grid_4 alpha phase">
+                            @Html.Partial("RenderStage", Model[0])
+                        </div>
+                        <div class="grid_4 phase">
+                            @Html.Partial("RenderStage", Model[1])
+                        </div>
+                        <div class="grid_4 omega phase">
+                            @Html.Partial("RenderStage", Model[2])
+                        </div>
+                    }
+                </div>
+            </a>
+        </div>
+    </div>
+}

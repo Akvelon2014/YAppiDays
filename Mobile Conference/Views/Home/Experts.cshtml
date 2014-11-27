@@ -1,0 +1,11 @@
+﻿@using MobileConference.Helper
+@model int
+@{
+    ViewBag.Title = "Эксперты";
+}
+
+@Html.FloatTitle("Эксперты")
+<div class="paginationWrapper">
+    @Html.Action("Experts","Widget", new {page = Model})
+</div>
+<div class="empty_100"></div>

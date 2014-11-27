@@ -1,0 +1,41 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.IdeaWithPermission
+<script>
+    $(function () {
+        UpdatePictureBlocks();
+    });
+</script>
+@if (Model.Permission.HasFlag(PermissionType.AddPhotos))
+{
+    using (Html.BeginForm("Photogallery", "Ideas"))
+    {
+        @Html.Hidden("ideaId",Model.Idea.Id)
+        <div class="container_12">
+            <div class="grid_9 alpha bottomBorder">
+                <div class="topContainer center">
+                    <h3>
+                        @Html.ImageLabel("Пожалуйста выделите область для сохранения", "pict")  
+                    </h3>
+                    @Html.ImageLoader("picture", "pict", Html.StandardImageFileName(), StandardRatioType.IdeaRatio)
+                    @Html.ImageLoaderLink("Загрузить", "pict", new {@class = "customButton mediumSizeButton grey"}, false)
+                    <input type="button" value="Отменить" id="clearAddBlock" class="customButton grey mediumSizeButton clearBlock"/>    
+                    <input type="submit" value="Сохранить" class="customButton orange mediumSizeButton imageLabel" data-pic="pict"/>    
+                </div>
+            </div>
+
+            <div class="grid_3 omega">
+                <h3>
+                    @Html.ImageLabel("Вы можете посмотреть, как будет выглядеть ваша фотография на сайте", "pict")                
+                </h3>
+                @Html.ImagePreview("preview", "pict", StandardRatioType.IdeaRatio)
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="container_12">  
+        <p>Вы не можете добавлять фотографии</p>
+    </div>
+}

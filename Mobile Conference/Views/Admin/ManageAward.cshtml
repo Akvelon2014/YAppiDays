@@ -1,0 +1,50 @@
+﻿@using MobileConference.Controllers
+@using MobileConference.Helper
+@model List<MobileConference.Models.AwardModel>
+@{
+    ViewBag.Title = "Награды";
+}
+
+<div class="fullBlock">
+    <div class="container_12 titleFloat">
+        <div class="grid_8  titleName">
+            <span>Награды</span>
+        </div>
+        <div class="grid_1">
+            @Html.ActionLink("добавить","CreateAward","Admin", new {eventId = ViewBag.eventId},new{@class="right"})
+        </div>
+        <div class="grid_2">
+            @Html.ActionLink("вернуться","EventPage","Admin", new {eventId = ViewBag.eventId},new{@class="right"})
+        </div>
+    </div>
+</div>
+
+<div class="container_12" id="awards">
+    @if (Model.Any())
+    {
+        foreach (var award in Model)
+        {
+            <div class="borderBottomBlock grid_12 topContainer">
+                <div class="grid_2">
+                    <a href="@Url.Action("ChangeAward",new {awardId = award.Id})">
+                        @Html.AvatarForAdward(award.PictureModel)
+                    </a>
+                    <p></p>
+                </div>
+                <div class="grid_3 suffix_6">
+                    <h3>@award.Title</h3>
+                    <span>@award.Subtitle</span>
+                    <br/>
+                    <span class="subtitle">@award.PostTitle</span>
+                </div>
+                <div class="grid_9">
+                    <p>@award.Description</p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Наград еще нет</p>
+    }
+</div>

@@ -1,0 +1,26 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.EmailSending
+@{
+    ViewBag.Title = "Отправка рассылки";
+}
+
+@Html.FloatTitle("Рассылка")
+<div class="container_12 topContainer">
+    <div id="loadHere">
+        <div class="miniLoader"></div>
+    </div>
+    @using (Html.BeginForm("ManageEmailPartial", "Admin", FormMethod.Post
+        , new {@class = "autoexec", data_to = "loadHere"}))
+    {
+        @Html.HiddenFor(m => m.Title)
+        @Html.HiddenFor(m => m.Message)
+        @Html.HiddenFor(m => m.IncludeAdmin)
+        @Html.HiddenFor(m => m.IncludeExpert)
+        @Html.HiddenFor(m => m.IncludeInfoPartner)
+        @Html.HiddenFor(m => m.IncludeMentor)
+        @Html.HiddenFor(m => m.IncludeSponsor)
+        @Html.HiddenFor(m => m.IncludeStudent)
+    }
+</div>
+

@@ -1,0 +1,8 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@Html.RenderTips(AdminTips.ManageUser,
+    new Tip("Вы можете просматривать сведения о каждом пользователе, нажав на 'Подробнее'. В окне вы также сможете изменить данные пользователя","filterForUsers")
+        {Type = TipType.Bottom, Width = 300, OffsetX = 250, OffsetY = 50, TriangleOffset = 144},
+    new Tip("Если вы не можете найти нужного пользователя, воспользуйтесь фильтрами"
+        ,"filterForUsers"){Type = TipType.Top, Width = 300, OffsetX = 100, TriangleOffset = 144})

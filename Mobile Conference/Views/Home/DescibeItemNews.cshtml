@@ -1,0 +1,16 @@
+﻿@model MobileConference.Models.NewsModel
+
+@{
+    ViewBag.Title = "Новости";
+}
+@if (Model == null)
+{
+    <p>Новость не найдена</p>
+    <p>@Html.ActionLink("Перейти ко всем новостям", "News", "Home", null, null)</p>
+}
+else
+{
+    <h2>@Model.Title</h2>
+    <p>@Model.Description</p>
+    <p class="right">@Model.CreatedDate</p>
+}

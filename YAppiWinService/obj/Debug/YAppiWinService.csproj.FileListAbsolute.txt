@@ -1,0 +1,7 @@
+D:\Mobile Conference\Mobile Conference\YAppiWinService\bin\Debug\YAppiWinService.exe.config
+D:\Mobile Conference\Mobile Conference\YAppiWinService\bin\Debug\YAppiWinService.exe
+D:\Mobile Conference\Mobile Conference\YAppiWinService\bin\Debug\YAppiWinService.pdb
+D:\Mobile Conference\Mobile Conference\YAppiWinService\obj\Debug\YAppiWinService.exe
+D:\Mobile Conference\Mobile Conference\YAppiWinService\obj\Debug\YAppiWinService.pdb
+D:\Mobile Conference\Mobile Conference\YAppiWinService\obj\Debug\YAppiWinService.ProjectInstaller.resources
+D:\Mobile Conference\Mobile Conference\YAppiWinService\obj\Debug\YAppiWinService.csproj.GenerateResource.Cache

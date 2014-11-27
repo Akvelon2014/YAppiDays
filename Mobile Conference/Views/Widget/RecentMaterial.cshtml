@@ -1,0 +1,34 @@
+﻿@model List<MaterialModel>
+@using MobileConference.Models
+@if (Model.Any())
+{
+    <div class="container_12" id="materials">
+        <div class="grid_3 alpha">
+            @Html.Partial("RenderMaterial", Model[0])
+        </div>
+        <div class="grid_3">
+            @if (Model.Count() > 1)
+            {
+                @Html.Partial("RenderMaterial", Model[1])
+            }
+        </div>
+        <div class="grid_3">
+            @if (Model.Count() > 2)
+            {
+                @Html.Partial("RenderMaterial", Model[2])
+            }
+        </div>
+        <div class="grid_3 omega">
+            @if (Model.Count() > 3)
+            {
+                @Html.Partial("RenderMaterial", Model[3])
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="container_12">    
+        <p>По вашему запросу материалов не найдено</p>
+    </div>
+}

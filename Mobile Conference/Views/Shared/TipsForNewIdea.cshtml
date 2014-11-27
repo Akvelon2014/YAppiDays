@@ -1,0 +1,12 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+
+@Html.RenderTips(StudentTips.NewIdea,
+    new Tip("Вы можете выбрать один из существующих проектов или создать новый"
+        ,"selectIdea"){Type = TipType.Top, Width = 200, OffsetY = 10, TriangleOffset = 30},
+    new Tip("Если вы не можете найти проект, воспользуйтесь поиском","searchIdea")
+        {Type = TipType.Top, Width = 150, OffsetX = -60, OffsetY = 10, TriangleOffset = 74},
+    new Tip("Зарегистрируйте свой проект, щелкнув здесь","blankForNewProject")
+        {Type = TipType.Left, Width = 150, OffsetX = -30, OffsetY = 80,TriangleOffset = 20}   
+)

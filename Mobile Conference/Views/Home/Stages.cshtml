@@ -1,0 +1,13 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Этапы";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/CommentsShow")
+}
+@Html.FloatTitle("Этапы")
+<div class="paginationWrapper container_12 topContainer">
+    @Html.Action("StagesPartial","Home", new {page = (int)ViewBag.page})
+</div>
+<div class="empty_100"></div>

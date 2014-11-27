@@ -1,0 +1,25 @@
+﻿@using MobileConference.Helper
+@model List<MobileConference.Models.CompanyModel>
+
+@for(int number = 0;number<Model.Count();number++)
+{
+    if (number%4 == 0)
+    {
+        <div class="grid_2  alpha">
+        @Html.CompanyLogo(Model[number])
+    </div>
+    }
+    else if ((number+1)%4 == 0)
+    {
+        <div class="grid_2 omega">
+        @Html.CompanyLogo(Model[number])
+    </div>
+    }
+    else
+    {
+        <div class="grid_2  ">
+            @Html.CompanyLogo(Model[number])
+        </div>
+    }
+        
+}

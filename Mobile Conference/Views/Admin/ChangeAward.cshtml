@@ -1,0 +1,58 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.AwardModel
+@{
+    ViewBag.Title = "Редактирование награды";
+}
+
+<div class="fullBlock titleFloat">
+    <div class="container_12">
+        <div class="grid_7 alpha titleName">
+            <span>Профиль награды</span>
+        </div>
+        <div class="grid_2">
+            @Html.ActionLink("удалить","RemoveAward","Admin",new {awardId=Model.Id},null)
+        </div>
+        <div class="grid_2">
+            @Html.ActionLink("вернуться","ManageAward","Admin",new {eventId=Model.EventId},null)
+        </div>
+    </div>
+</div>
+      
+<div class="ajaxHere">
+    @Html.Action("ChangeAwardAvatar");
+</div>
+
+@Html.FloatTitle("Сведения о награде", true, true)
+<div class="container_12">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        @Html.Hidden("Id", Model.Id)
+        @Html.Hidden("EventId", Model.EventId)
+        <table>
+            <tr class="requiredField">
+                <td><label>Заголовок</label></td>
+                <td>@Html.TextBoxFor(m => m.Title, new {placeholder="название"})</td>
+            </tr>
+            <tr>
+                <td>Подзаголовок</td>
+                <td>@Html.TextBoxFor(m => m.Subtitle, new {placeholder="вознаграждение"})</td>
+            </tr>
+            <tr>
+                <td>Подпись ниже</td>
+                <td>@Html.TextBoxFor(m => m.PostTitle, new {placeholder="доп. подпись"})</td>
+            </tr>
+            <tr class="requiredField">
+                <td ><label>Порядок</label></td>
+                <td>@Html.TextBoxFor(m => m.OrderInList)</td>
+            </tr>
+            <tr>
+                <td>Описание</td>
+                <td>@Html.TextAreaFor(m => m.Description, new {rows = "8", cols = "60"})</td>
+            </tr>
+        </table>
+        <input type="submit" value="Сохранить" class="orange mediumSizeButton customButton"/>
+    }
+</div>
+<div class="empty_100"></div>

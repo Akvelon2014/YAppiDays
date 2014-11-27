@@ -1,0 +1,28 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+
+    @Html.FloatTitle("Образование",true, true)
+    <div class="container_12">
+        <div class="grid_6 alpha">
+            <table class="profileForm">
+                <tr>
+                    <td>@Html.LabelFor(m => m.University)</td>
+                    <td>@Html.TextBoxFor(m => m.University)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Faculty)</td>
+                    <td>@Html.TextBoxFor(m => m.Faculty)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.YearBeginning)</td>
+                    <td>@Html.TextBoxFor(m => m.YearBeginning)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.YearGraduating)</td>
+                    <td>@Html.TextBoxFor(m => m.YearGraduating)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+

@@ -1,0 +1,69 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Company>
+@{Html.ClearGridClass();}
+
+@foreach (var company in Model.ToModel())
+{
+    <div class="@Html.GridClass(2) company">
+        <div>
+            <a href="@company.Site" target="_blank">
+                @Html.AvatarForCompany((int)company.Id)
+            </a>
+        </div>
+        @Html.TruncatedTitle("a", @company.Name, 20, new {href = company.Site, target="_blank"})
+        @if (ProfileModel.Current.Role == RoleName.Administrator)
+        {
+            <br/>
+            if (ViewBag.login!=null)
+            {
+                using (Html.BeginForm("AddToCompany", "Admin"))
+                {
+                    @Html.Hidden("page", (int) ViewBag.page)
+                    @Html.Hidden("search", (string) ViewBag.search)
+                    @Html.Hidden("login", (string) ViewBag.login)
+                    @Html.Hidden("companyId", company.Id)
+                    <input type="submit" class="customButton grey right" value="Выбрать"/>
+                }
+            }
+            else
+            {
+                @Html.ActionLink("Профиль компании", "ChangeCompany", "Admin", new {companyId = company.Id}, null)
+                if (!company.IsShowed || company.Rank != null)
+                {
+                    <div class="companyRank">
+                        @if (!company.IsShowed)
+                        {
+                            <span title='Компания не показывается нигде'>X</span>
+                        }
+                        else
+                        {
+                            <span title='Внутренний рейтинг компании на сайте'>@company.Rank</span>
+                        }
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            using (@Html.BeginForm("AddToCompany", "Account"))
+            {
+                @Html.Hidden("page", (int)ViewBag.page)
+                @Html.Hidden("search", (string)ViewBag.search)
+                @Html.Hidden("companyId", company.Id)
+                <input type="submit" class="customButton grey right" value="Выбрать"/>
+            }
+        }
+    </div>
+}
+<div class ="grid_12 topContainer">
+    @Html.Pager(Model, page => Url.Action("SelectCompanyPartial", "Widget", new
+{
+    page,
+    search = (string)ViewBag.search,
+    login = (string)ViewBag.login
+}))
+</div>

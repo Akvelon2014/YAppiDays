@@ -1,0 +1,77 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<News>
+
+ 
+@if (Model == null || !Model.Any())
+{
+        <p>Новостей пока не добавлено</p>
+}
+else
+{
+    foreach (var news in Model.ToModel())
+    {
+        <div class="grid_12 newsMainBlock">
+            <div class="grid_9 alpha">
+                <div class="grid_7 alpha newsTitle">
+                    <a href="@Url.Action("ChangeNews","Admin", new {newsId = news.Id})">
+                        @Html.TruncatedTitle("h3",news.Title,60,(news.IsDeleted)?new {@class="deletedNews"}:null)
+                    </a>
+                    <p class="newsDate">
+                        <i>
+                            @news.DateFrom.ConvertToDateTimeString() - @news.DateTo.ConvertToDateTimeString()
+                        </i>
+                    </p>
+                </div>
+                <div class="grid_1 newsLinkRemoveRestore">
+                    @using (Html.BeginForm("NewsRemoveOrRestore", "Admin",FormMethod.Post, new {@class="withAjax"}))
+                    {
+                        @Html.Hidden("newsId", news.Id)
+                        @Html.Hidden("page", (int) ViewBag.page)
+                        @Html.Hidden("withDeleted", (bool) ViewBag.withDeleted)
+                        if (ViewBag.dateFrom != null)
+                        {
+                            @Html.Hidden("dateFrom", (string) ViewBag.dateFrom)
+                        }
+                        if (ViewBag.dateTo != null)
+                        {
+                            @Html.Hidden("dateTo", (string) ViewBag.dateTo)
+                        }
+                        if (news.IsDeleted)
+                        {
+                            @Html.Hidden("remove", "false")
+                            <input type="submit" value="Восстановить" class="grey customButton wideSizeButton"/>
+                        }
+                        else
+                        {
+                            <input type="submit" value="Удалить" class="grey customButton wideSizeButton"/>
+                        }
+                    }
+                </div>
+                <div class="grid_8 push_1 alpha newsDescription">
+                    @news.Description
+                </div>
+            </div>
+            <div class="grid_3 omega newsRoles">
+                @foreach (RoleName role in (RoleName[]) Enum.GetValues(typeof(RoleName)))
+                {
+                    if (role!=RoleName.Guest && news.RoleFor.IsRoleInSet(role))
+                    {
+                        <p>@role.GetInRussian()</p>
+                    }
+                }
+            </div>
+        </div>
+    }
+     <div class="grid_12">                    
+         @Html.Pager(Model, page => Url.Action("ManageNews", "Admin", new
+        {
+            page,
+            withDeleted = (bool)ViewBag.withDeleted,
+            dateFrom = (DateTime)ViewBag.dateFrom,
+            dateTo = (DateTime)ViewBag.datTo
+        }))
+     </div>
+}

@@ -1,0 +1,44 @@
+﻿@using MobileConference.Models
+@using MobileConference.Helper
+@model PagedList.IPagedList<Material>
+
+@if (!Model.Any())
+{
+    <div class="container_12">
+        <div class="grid_8">
+            <div>Извините, по вашему запросу еще нет материалов</div>
+        </div>
+    </div>
+}
+else
+{
+    foreach (var material in Model.ToModel())
+    {
+        <div class="container_12 bottomBorder anchorParent">
+            <div class="grid_3 ideaImage alpha">
+                <a href="@material.LinkToResource"  target="_blank" class="withoutDecoration">
+                    @Html.AvatarForMaterial(material.Id)            
+                </a>
+            </div>
+            <div class="grid_9 omega">
+                <div>
+                    <h2>
+                        <a href="@material.LinkToResource" target="_blank">@material.Title</a>
+                    </h2>
+                </div>
+                <div>Технология: @material.Platform.Title</div>
+                <div class="commentWrapper ajaxHere">
+                    @Html.Action("MaterialComments", "Widget", new { materialId = material.Id })
+                </div>
+            </div>
+        </div>
+    }
+}
+<div class="container_12">
+    <div class="grid_6">
+        @Html.Pager(Model, page => Url.Action("AllMaterials", new
+        {
+            page, materialPlatformId = (int?)ViewBag.materialPlatformId, search = ViewBag.search
+        }))
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@using MobileConference.Helper
+@model string[]
+@{
+    ViewBag.Title = "Управление регионами";
+}
+@Html.FloatTitle("Регионы")
+<div class="container_12 topContainer">
+    <div class="grid_9 alpha">    
+        @if (Model == null || !Model.Any())
+        {
+            <p>Регионов пока нет.</p>
+        }
+        else
+        {
+            <table>
+                @foreach (var region in Model)
+                { 
+                    <tr>
+                        <td>@Html.ActionLink(region,"Cities","Admin",new {regionName = region},null)</td>         
+                        <td>
+                            @using (@Html.BeginForm("RemoveRegion", "Admin", FormMethod.Post))
+                            {
+                                @Html.Hidden("regionName",region)
+                                <input type="submit" value="Удалить" class="grey customButton smallSizeButton"/>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    <div class="grid_3 omega">
+        @Html.ValidationSummary()
+        <h3>Добавить:</h3>
+        @using (@Html.BeginForm("AddRegion", "Admin", FormMethod.Post))
+        {
+            @Html.TextBox("regionName")
+            <input type="submit" value="Добавить" class="grey customButton mediumSizeButton"/>        
+        }
+    </div>
+</div>
+<div class="empty_100"></div>
+

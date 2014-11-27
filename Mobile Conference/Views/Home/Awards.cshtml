@@ -1,0 +1,38 @@
+﻿@using Castle.Core.Internal
+@using MobileConference.Helper
+@model IEnumerable<MobileConference.Models.AwardModel>
+@{
+    ViewBag.Title = "Награды";
+}
+@Html.FloatTitle("Награды")
+<div class="container_12 topContainer">
+    @foreach (var award in Model)
+    {
+        <div class="bottomBorder phase grid_12 alpha omega">
+            <div class="grid_3 awardImage alpha">
+                @Html.AvatarForAdward(award.PictureModel)
+            </div>
+            <div class="grid_9 omega">
+                <h3>@award.Title</h3>
+                @if (!award.Subtitle.IsNullOrEmpty())
+                {
+                    <span>@award.Subtitle</span>
+                }
+                 @if (!award.PostTitle.IsNullOrEmpty())
+                {
+                     <br/>
+                    <span>@award.PostTitle</span>
+                }
+                @if (!award.Description.IsNullOrEmpty())
+                {
+                    <p class="left">Описание:</p>
+                    <div class="grid_6">
+                        <p><i>@award.Description</i></p>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+</div>
+<div class="empty_100"></div>

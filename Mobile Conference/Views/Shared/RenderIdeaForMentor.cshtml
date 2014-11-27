@@ -1,0 +1,28 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.IdeaWithPlatform
+
+<div class ="projectWraper">
+    <div class="ideaImage">
+        <a href="@Url.Action("MainPage","Ideas",new{ideaId = Model.Idea.Id})" class="withoutDecoration">
+            @Html.AvatarForIdea(Model.Idea.Id)
+        </a>
+        <span class="mentorLabel">
+            @Html.ActionLink("Присоединиться","JoinIdea","Ideas",new{ideaId = Model.Idea.Id}, new {@class="grey customButton"})
+        </span>
+    </div>
+
+    <h3>
+        @Html.ActionLink(Model.Idea.Title,"MainPage","Ideas",new{ideaId = Model.Idea.Id},null)
+    </h3>
+    <p>
+        <span class="right">@Model.Idea.GroupIdeaTitle</span>
+    
+        @if (Model.Platform != null)
+        {
+            <span>@Model.Platform.Title</span>
+        }
+    </p>
+    <div>
+       
+    </div>
+</div>

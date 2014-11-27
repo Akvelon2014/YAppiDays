@@ -1,0 +1,40 @@
+﻿@using MobileConference.Enums
+
+<div class="titleDialog">
+    <span class="closeAccountDialog">X</span>    
+    <span>Администрирование</span>
+</div>
+
+<div class="adminMenu">
+    <h2>Желающие стать</h2>
+        @Html.ActionLink(string.Format("Админы({0})",(int)ViewBag.wishedAdmin),"WishedInRole","Admin",
+            new {role = RoleName.Administrator},new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink(string.Format("Менторы({0})",(int)ViewBag.wishedMentor),"WishedInRole","Admin",
+            new {role = RoleName.Mentor},new{@class="customButton grey mediumSizeButton"})
+        <br/>
+        @Html.ActionLink(string.Format("Спонсоры({0})",(int)ViewBag.wishedSponsor),"WishedInRole","Admin",
+            new {role = RoleName.Sponsor},new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink(string.Format("Эксперты({0})",(int)ViewBag.wishedExpert),"WishedInRole","Admin",
+            new {role = RoleName.Expert},new{@class="customButton grey mediumSizeButton"})
+        <br/>
+        @Html.ActionLink(string.Format("Инфо партнеры({0})",(int)ViewBag.wishedInfoPartner),"WishedInRole","Admin",
+            new {role = RoleName.InfoPartner},new{@class="customButton grey mediumSizeButton"})
+        <br/>
+        <h2>Настройки</h2>
+        @Html.ActionLink("Пользователи","ManageUsers","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink("События","ManageEvents","Admin",null,new{@class="customButton grey mediumSizeButton"})        
+        <br/>
+        @Html.ActionLink("Технологии","ManagePlatform","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink("Типы проектов","ManageIdeaGroup","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        <br/>
+        @Html.ActionLink("Материалы","ManageMaterial","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink("Компании","ManageCompany","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        <br/>
+        @Html.ActionLink("Регионы/города","ManageRegionAndCities","Admin",null,new{@class="customButton grey mediumSizeButton"})
+        @Html.ActionLink("Шифрование", "CryptText", "Admin", null, new { @class = "customButton grey mediumSizeButton" })
+    <br/>        
+        @Html.ActionLink("Новости", "ManageNews", "Admin", null, new { @class = "customButton grey mediumSizeButton" })
+        @Html.ActionLink("Рассылка", "ManageEmailSending", "Admin", null, new { @class = "customButton grey mediumSizeButton" })
+        <br/>
+        @Html.ActionLink("Настройки", "ManageOption", "Admin", null, new { @class = "customButton grey mediumSizeButton" })
+</div>

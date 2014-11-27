@@ -1,0 +1,35 @@
+﻿@model MobileConference.Models.LoginModel
+
+<div class="titleDialog">
+    <span class="closeAccountDialog">X</span>    
+    <span>Войти</span>
+</div>
+
+@using (Html.BeginForm("Login", "Account", new {ViewBag.ReturnUrl}))
+{
+    @Html.ValidationSummary(true)
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m => m.Login)</td>
+            <td>@Html.TextBoxFor(m => m.Login)</td>
+            <td>@Html.ValidationMessageFor(m => m.Login)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Password)</td>
+            <td>@Html.ValidationMessageFor(m => m.Password)</td>
+        </tr>         
+    </table>
+    @Html.ActionLink("Забыли пароль?", "Restore", "Account", null, new {@class = "right"})
+    @Html.CheckBoxFor(m => m.RememberMe)
+    @Html.LabelFor(m => m.RememberMe, new {@class = "checkbox"})
+    <br/>
+    <div class="buttonSet accountButtonSet">
+        <input type="submit" value="Войти" class="customButton orange mediumSizeButton right"/>        
+    </div>
+}
+<div class="grid_4">
+    @Html.Action("ExternalLoginsList","Account", new { ReturnUrl = ViewBag.ReturnUrl })        
+</div>
+

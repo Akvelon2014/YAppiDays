@@ -1,0 +1,38 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Models
+@using MobileConference.Helper
+@model PagedList.IPagedList<EventProfile>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="grid_4 suffix_1">Событий по запросу еще нет</div>
+}
+else
+{
+    <a class="anchorHere"></a>        
+    foreach (var ev in Model.ToModel())
+    {
+        <div class="grid_8 omega eventForStage bottomBorder">        
+            <div class="grid_1 alpha">
+                @if (ev.DayFrom != null)
+                {
+                    <span class="largeFigures">
+                        @ev.DayFrom.PrettyDay()
+                    </span>
+                    <span>
+                        @ev.DateFrom.ConvertToDate().Value.CustomMonthTitle()
+                    </span>
+                }
+            </div>
+            <div class="grid_7  omega">
+                <h2>
+                    @Html.ActionLink(ev.Title, "EventDescribe", "Home", new {eventId = ev.Id}, null)
+                </h2>
+                <p>
+                    @Html.TruncateOneLine(ev.Description, 70)
+                </p>
+            </div>
+        </div>
+    }
+    @Html.Pager(Model, page => Url.Action("EventForStagePartial", new {page, stageId = (int) ViewBag.stageId}))
+}

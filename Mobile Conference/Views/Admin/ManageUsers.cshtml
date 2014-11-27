@@ -1,0 +1,45 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Models
+@using MobileConference.Helper
+@section scripts
+{
+    @Scripts.Render("~/bundles/AdminScript")
+    @Styles.Render("~/Content/Admin")
+}
+@{
+    ViewBag.Title = "Управление пользователями";
+}
+@Html.Partial("ManageUserTips")
+
+
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_3 alpha titleName">
+            <span>Пользователи</span>
+        </div>
+        <div class="grid_8" id="filterForUsers">
+            @using (@Html.BeginForm("ManageUsersPartial", "Admin", FormMethod.Post,
+                new { @class = "externalUpdate", id = "usersblockUpdate", data_update = "usersblock" }))
+            {
+                @Html.RoleList((RoleName?)ViewBag.role, "Все")                
+                @Html.CheckBox("withDeleted",false, new {@class="submitByChange"})
+                @Html.Label("withDeleted", "с удаленными ")
+                @Html.TextBox("search","",new {@class="submitWithDelay"})
+            }
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("создать","CreateUserProfile","Admin")            
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer paginationWrapper brickBlocks ajaxHere usersblockUpdate" id="usersblock">
+    @Html.Action("ManageUsersPartial", new {
+       page = (int)ViewBag.page,
+       search = (string)ViewBag.search,
+       WishedRoleAsInt = (RoleName?)ViewBag.role,
+       withDeleted = (bool)ViewBag.withDeleted
+   })
+</div>
+<div class="empty_100"></div>
+

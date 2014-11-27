@@ -1,0 +1,55 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model MobileConference.Models.EventModel
+
+<div class="fullBlock titleFloat">
+    <div class="grid_4 titleName">
+        <span class="subTitle">Технологии</span>
+    </div>
+</div>
+<div class="topContainer updatingDropDown">
+    <div class="bottomBorder">
+        @if (Model.Platforms.Count() < (int) ViewBag.platformCount)
+        {
+
+            using (Html.BeginForm("ManagePlatformForEvent", "Admin", FormMethod.Get, new {data_update = "platformsBlock"}))
+            {
+                @Html.PlatformList(forEvent: Model.Id, exceptEvent: true, name: "platformId"
+                    , htmlAttribute: new {@class = "grey"})
+                @Html.Hidden("eventId", Model.Id)
+            }
+        }
+        else
+        {
+            <p style="margin: 0;padding:3px 3px 2px 3px;">Все технологии добавлены</p>
+        }
+    </div>
+    @if (Model != null && Model.Platforms.Any())
+    {
+        <table>
+            @foreach (int platform in Model.Platforms)
+            {
+                <tr>
+                    <td>@EventModel.GetPlatform(platform).Title</td> 
+                    <td>                       
+                        @using (Html.BeginForm("ManagePlatformForEvent", "Admin", FormMethod.Post, new {@class = "withAjax"}))
+                        {
+                            @Html.Hidden("eventId", Model.Id)
+                            @Html.Hidden("platformId", platform)
+                            @Html.Hidden("delete", true)
+                            <input type="submit" value="Удалить" class="grey customButton smallSizeButton"/>
+                        }  
+                    </td>
+                </tr>
+            }
+        </table>
+       
+    }
+    else
+    {
+        <div>
+            <span>Технологий не добавлено.</span>
+        </div>
+    }
+     
+</div>

@@ -1,0 +1,19 @@
+﻿@using MobileConference.Helper
+@{
+    ViewBag.Title = "Отправка письма подтверждения регистрации";
+}
+@Html.FloatTitle("Вам отправлено письмо")
+<div class="container_12">
+    <p>
+        Регистрация почти завершена.
+        <br/>
+        Вам было отправлено письмо с указанием дальнейших действий по завершению регистрации.
+        Пожалуйста проверьте вашу электронную почту @ViewBag.email
+        <br/>
+        Вы также можете 
+        @Html.ActionLink("повторно отправить письмо","SendConfirmationMessage","Account", new{email = ViewBag.email}, null)
+        <br/>
+        Если вы ошиблись при вводе почты, вы можете 
+        @Html.ActionLink("изменить ее","ChangeEmailAfterRegistration","Account")
+    </p>
+</div>

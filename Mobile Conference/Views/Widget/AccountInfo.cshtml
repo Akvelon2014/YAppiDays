@@ -1,0 +1,30 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+    <!-- Profile Image -->
+    <div id="profile-img" class="grid_1 alpha">
+        @if (ViewBag.WithAvatar)
+        {
+            @Html.AvatarForUser((int)ViewBag.Id,hideIfEmptyImage: true)
+        }
+    </div>
+    <!-- Welcome message or Username -->
+    <div id="welcome-box" class="grid_2 omega">
+        @if (ViewBag.IsAuth)
+        {
+            <p class="username">@Html.Truncate((string) ViewBag.FirstName, 14) </p>
+            <p>@Html.Truncate((string) ViewBag.LastName, 14)</p>
+        }
+        else
+        {
+            <p class="username">Войти или </p>
+            <p>Зарегистрироваться</p>
+        }
+    
+    </div>
+    @using (@Html.BeginForm("ResolveProfileCommand", "Account"))
+    {
+        @Html.ProfileCommandList("profileCommand", new {@class = "external", tag = "signup-box"}, (Model == null) ? (RoleName?) null : Model.Role)
+
+    }
+

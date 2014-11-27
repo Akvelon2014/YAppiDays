@@ -1,0 +1,37 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@model CommentModel
+
+@if (((PermissionType)ViewBag.permission).HasFlag(PermissionType.UseChat))
+{
+    @Html.Hidden("chatUpdate", Url.Action("GetLastUpdateForComment","Ideas",new {ideaId = (int)ViewBag.ideaId}))
+    
+    <div class="container_12 topContainer" id="chatSenderBlock">
+        <div class="grid_12 bottomBorder">
+            <div class="grid_1">
+                @Html.AvatarForUser(ProfileModel.Current.Id)
+            </div>
+            <div class ="grid_6">
+                @using (Html.BeginForm("ChatMessageSender", "Widget", FormMethod.Post, new {@class = "withAjax", id = "chatForm"}))
+                {
+                    @Html.Hidden("page", (int) ViewBag.page)
+                    @Html.Hidden("ideaId", (int) ViewBag.ideaId)
+                    @Html.TextAreaFor(m => m.Message, new {rows = "8", cols = "60"})
+                    <input type="submit" value="Отправить" class="customButton grey mediumSizeButton"/>
+                }
+            </div>
+            <div class="grid_4 addPhotos ajaxHere">
+                @Html.Action("ChatPhotoSection","Ideas", new {ideaId = (int)ViewBag.ideaId})
+            </div>
+        </div>
+    </div>
+}
+@if (((PermissionType) ViewBag.permission).HasFlag(PermissionType.ShowChat))
+{
+    <div class="container_12 topContainer">
+        <div class="grid_8 ajaxHere paginationWrapper" id="chatBlock">
+            @Html.Action("ShowAllComments", "Widget", new {ideaId = (int) ViewBag.ideaId, page = (int) ViewBag.page})
+        </div>
+    </div>
+}

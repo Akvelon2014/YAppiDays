@@ -1,0 +1,49 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+@model PagedList.IPagedList<Material>
+ 
+@if (Model == null || !Model.Any())
+{
+    <div class="grid_8 prefix_2 alpha">Материалов по запросу пока нет</div>
+}
+else
+{
+    Html.ClearGridClass();
+    foreach (var material in Model.ToModel())
+    {
+        <div class="@Html.GridClass(3) borderBlock">
+            <div class="blockWithLabel">
+                <a href="@Url.Action("ChangeMaterial", "Admin", new {materialId = material.Id})" class="withoutDecoration">
+                    @Html.AvatarForMaterial(material.Id, true)
+                </a>
+                @if (material.IsDeleted)
+                {
+                    <span class="blockLabel">Удален</span>
+                    using (Html.BeginForm("RestoreMaterial", "Admin", FormMethod.Post, new{@class="withAjax"}))
+                    {
+                        @Html.Hidden("materialId", material.Id)                        
+                        @Html.Hidden("page", (int)ViewBag.page)
+                        @Html.Hidden("materialPlatformId", (int?)ViewBag.platform)
+                        @Html.Hidden("search", (string)ViewBag.search)
+                        <input type="submit" value="Восстановить" class="wideSizeButton customButton grey blockLink"/>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("RemoveMaterial", "Admin", FormMethod.Post, new { @class = "withAjax" }))
+                    {
+                        @Html.Hidden("materialId", material.Id)
+                        @Html.Hidden("page", (int)ViewBag.page)
+                        @Html.Hidden("materialPlatformId", (int?)ViewBag.platform)
+                        @Html.Hidden("search", (string)ViewBag.search)
+                        <input type="submit" value="Удалить" class="wideSizeButton customButton grey blockLink"/>
+                    }
+                }
+            </div>
+            @Html.TruncatedTitle("a", material.Title, 30, new {href = Url.Action("ChangeMaterial", "Admin", new {materialId = material.Id})})
+        </div>
+    }
+    <div class="grid_8 prefix_2 alpha topContainer">
+        @Html.Pager(Model, page => Url.Action("ManageMaterialParial", "Admin", new {page, search = (string) ViewBag.search, materialPlatformId = ViewBag.platform}))
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿@using MobileConference.Helper
+@using PagedList.Mvc
+@using MobileConference.Models
+
+@{
+    ViewBag.Title = "Управление материалами";
+}
+@section scripts
+{
+    @Styles.Render("~/Content/Admin")
+}
+
+<div class="fullBlock updatingDropDown">
+    <div class="container_12 titleFloat">
+        <div class="grid_4 alpha titleName">
+            <span>Управление материалами</span>
+        </div>
+        <div class="grid_7">
+            @using (@Html.BeginForm("ManageMaterialParial", "Admin", FormMethod.Post,
+                new { @class = "externalUpdate", id="materialBlock", data_update = "materials" }))
+            {
+                <span>Технология</span>
+                @Html.PlatformList(forEvent: EventModel.Current.Id, defValue: "Все", name: "materialPlatformId")
+                @Html.TextBox("search","",new {@class="submitWithDelay"})
+            }
+        </div>
+        <div class="grid_1 omega">
+            @Html.ActionLink("Добавить","CreateMaterial","Admin",null,null) 
+        </div>
+    </div>
+</div>
+
+<div class="container_12 topContainer paginationWrapper  ajaxHere" id="materials">
+   @Html.Action("ManageMaterialParial", new {page = ViewBag.page, search = ViewBag.search, platform = ViewBag.platform})
+</div>

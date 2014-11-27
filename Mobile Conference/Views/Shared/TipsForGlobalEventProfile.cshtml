@@ -1,0 +1,14 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@Html.RenderTips( AdminTips.GlobalEventProfile,
+    new Tip("Здесь вы можете настроить основные свойства глобального события"
+        , "generalEventData") { Type = TipType.Bottom, Width = 300, TriangleOffset = 60 },
+    new Tip("После внесения изменений нажмите Сохранить"
+        , "saveButton") { Type = TipType.Left, Width = 200, TriangleOffset = 10, OffsetX = 10 },
+    new Tip("Если у вас созданы Регионы, Технологии и Типы проектов, то они будут использоваться на сайте только если вы " +
+            "добавите их к текущему событию"
+        , "platformBlockTop") { Type = TipType.Bottom, Width = 300, TriangleOffset = 150, OffsetX = -10, OffsetY = -5},
+    new Tip("Для того, чтобы сделать событие текущим, выберите в меню Администрирование пункт Настройки" +
+            " и на открывшейся странице из выпадающего списка выберите Текущее событие","welcome-box")
+        {Type = TipType.Right, Width = 180, OffsetX = -80, TriangleOffset = 10})    

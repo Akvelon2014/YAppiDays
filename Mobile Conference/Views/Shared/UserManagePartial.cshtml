@@ -1,0 +1,33 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<UserProfile>
+ 
+@if (Model == null || !Model.Any())
+{
+     <div class="grid_4 prefix_1 suffix_6">
+         <p>Пользователи не найдены</p>
+     </div>
+}
+else
+{
+    Html.ClearGridClass();
+    foreach (var user in Model.ToModel())
+    {
+        <div class="@Html.GridClass(3) borderBlock">
+            @Html.Partial("UserBlockForAdmin", user)
+        </div>
+    }
+    <div class="grid_12">
+        @Html.Pager(Model, page => Url.Action("ManageUsers", "Admin", new
+   {
+       page,
+       search = (string)ViewBag.search,
+       WishedRole = (RoleName?)ViewBag.role,
+       withDeleted = (bool)ViewBag.withDeleted,
+       invokeFromPagination = true
+   }))
+    </div>
+    
+ }

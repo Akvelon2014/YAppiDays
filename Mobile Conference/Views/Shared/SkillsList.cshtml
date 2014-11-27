@@ -1,0 +1,20 @@
+﻿@using MobileConference.Helper
+@model MobileConference.Models.ProfileModel
+
+<div class="skillBlock">
+    @if (Model.SkillNames.Any())
+    {
+        foreach (var skill in Model.SkillNames)
+        {
+            if (skill.Length > 32)
+            {
+                <span title="@skill">@Html.Truncate(skill, 30)</span>
+            }
+            else
+            {
+                <span>@skill</span>
+            }
+
+        }
+    }
+</div>

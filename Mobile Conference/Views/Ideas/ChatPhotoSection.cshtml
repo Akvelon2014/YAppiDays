@@ -1,0 +1,36 @@
+﻿@using MobileConference.Helper
+@using MobileConference.Models
+
+<div>
+    @if (ViewBag.pictureName == null)
+    {
+        <div class="pictureJustLoadingProgress @Html.GridClass(2)">
+            @using (Html.BeginForm("AddChatPhoto", "Ideas", FormMethod.Post,
+                new {encType = "multipart/form-data", data_to = "addPhotos"}))
+            {
+                <input type="hidden" value="@ViewBag.ideaId" name="ideaId"/>
+                @Html.SimpleImageLoader("picture", "добавить фото", false,new {@class="addPhotoToChat"})
+            }
+        </div>
+        <a href="@Url.Action("ChatPhotoSection","Ideas",new{ideaId = (int)ViewBag.ideaId})" class="withAjax cancelLoad" style="display:none">!</a>        
+    }
+    else
+    {
+        <div class="photoGroup single grid_2">
+            <div class="grid_2 photoContainer">
+                <a href="@ViewBag.pictureName" class="withoutDecoration" id="photoLink">
+                    @Html.DrawPicture((PictureNameModel) ViewBag.pictureModel, false, "photo", null, true)                
+                </a>
+
+                <div class="photoRemove">
+                    @using (Html.BeginForm("ChatPhotoSection", "Ideas", FormMethod.Get, new {@class = "withAjax"}))
+                    {
+                        <input type="hidden" name="ideaId" value="@ViewBag.ideaId"/>
+                        <input type="submit" value ="отменить" class="grey customButton cancelLoad"/>
+                    }
+                </div>
+            </div>
+        </div>
+    
+    }
+</div>

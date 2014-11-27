@@ -1,0 +1,11 @@
+﻿@using MobileConference.Enums
+@using MobileConference.Helper
+@using MobileConference.Models
+@Html.RenderTips( AdminTips.GlobalEvent,
+    new Tip("Для глобального события вы можете настроить текущие или добавить новые Награды"
+        , "awardsEdit") { Type = TipType.Left, Width = 300, TriangleOffset = 10, OffsetX = 10 },
+    new Tip("Дочерние для глобального события отображаются на стартовой странице как этапы (если глобальное событие " +
+            "является текущим). Дочерние события для этапа отображаются как новости."
+        , "subeventList") { Type = TipType.Top, Width = 400, TriangleOffset = 70, OffsetY = 10 },
+    new Tip("Щелкните здесь для перехода к изменению профиля события"
+        ,"editEventLink"){Type = TipType.Top, Width = 200, TriangleOffset = 94, OffsetX = -60, OffsetY = 10})    
